@@ -165,10 +165,10 @@
 - [x] Create "Glossary" page with all key terms
 
 ### Populate Developer Path Pages (Replace "Coming Soon")
-- [ ] Enrich Yield Donating Strategies page with code examples
-- [ ] Enrich Yield Skimming Strategies page with dragon buffer explanation
-- [ ] Enrich Tokenized Allocation Mechanisms page with lifecycle and QF
-- [ ] Enrich Multi-Strategy Vaults page with configuration steps
+- [x] Enrich Yield Donating Strategies page with code examples
+- [x] Enrich Yield Skimming Strategies page with dragon buffer explanation
+- [x] Enrich Allocation Mechanisms page with lifecycle and QF details
+- [x] Enrich Multi-Strategy Vaults page with configuration steps
 
 ### Add Beginner Quickstart Guide
 - [ ] Create comprehensive quickstart with MetaMask setup
