@@ -25,6 +25,7 @@ import SDKs from "./pages/docs/resources/SDKs";
 import Community from "./pages/docs/resources/Community";
 import FAQ from "./pages/docs/resources/FAQ";
 import OctantCaseStudy from "./pages/docs/case-studies/Octant";
+import Tutorials from "./pages/docs/Tutorials";
 
 function Router() {
   return (
@@ -34,6 +35,7 @@ function Router() {
       <Route path="/docs/introduction" component={Introduction} />
       <Route path="/docs/quickstart" component={Quickstart} />
       <Route path="/docs/orientation" component={Orientation} />
+      <Route path="/docs/tutorials" component={Tutorials} />
       <Route path="/docs/tutorials/strategy-development" component={StrategyDevelopment} />
       <Route path="/docs/yield-donating" component={YieldDonating} />
       <Route path="/docs/yield-skimming" component={YieldSkimming} />

@@ -128,3 +128,8 @@
 - [x] Create Resources pages (Testnet, SDKs, Community, FAQ)
 - [x] Create Case Study page (/docs/case-studies/octant)
 - [x] Update App.tsx with all routes
+
+
+## Fix Navigation Issues
+- [x] Fix Tutorials link in top navigation (Landing page)
+- [x] Create Tutorials index page at /docs/tutorials
