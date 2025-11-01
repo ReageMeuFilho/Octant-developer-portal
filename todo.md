@@ -104,3 +104,27 @@
 - [x] Social links (Discord, X, GitHub, YouTube)
 - [x] Newsletter subscription
 - [x] Enhanced Final CTA with "Create Account" and note about free testnet transactions
+
+
+## Fix All Links - Create Missing Pages
+- [x] Browse Octant v2 docs site and extract content
+- [x] Create Quickstart page (/docs/quickstart)
+- [x] Create Developer Orientation page (/docs/orientation)
+- [ ] Create What is Octant page (/docs/concepts/what-is-octant)
+- [ ] Create How It Works page (/docs/concepts/how-it-works)
+- [ ] Create Architecture page (/docs/concepts/architecture)
+- [ ] Create Glossary page (/docs/concepts/glossary)
+- [ ] Create Yield Donating page (/docs/yield-donating)
+- [ ] Create Yield Skimming page (/docs/yield-skimming)
+- [ ] Create Allocation Mechanisms page (/docs/allocation-mechanisms)
+- [ ] Create Multi-Strategy page (/docs/multi-strategy)
+- [x] Create First Vault tutorial (/docs/tutorials/first-vault)
+- [x] Create Strategy Development tutorial (/docs/tutorials/strategy-development)
+- [x] Create Aave Integration tutorial (/docs/tutorials/aave-integration)
+- [x] Create Lido Integration tutorial (/docs/tutorials/lido-integration)
+- [x] Create Quadratic Funding tutorial (/docs/tutorials/quadratic-funding)
+- [x] Create Multi-Strategy tutorial (/docs/tutorials/multi-strategy)
+- [ ] Create API Reference pages (Funding Vault, Tokenized Strategy, Allocation, Payment Splitter)
+- [x] Create Resources pages (Testnet, SDKs, Community, FAQ)
+- [x] Create Case Study page (/docs/case-studies/octant)
+- [x] Update App.tsx with all routes
