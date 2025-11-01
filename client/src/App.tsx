@@ -26,6 +26,11 @@ import Community from "./pages/docs/resources/Community";
 import FAQ from "./pages/docs/resources/FAQ";
 import OctantCaseStudy from "./pages/docs/case-studies/Octant";
 import Tutorials from "./pages/docs/Tutorials";
+import WhatIsOctant from "./pages/docs/WhatIsOctant";
+import HowItWorks from "./pages/docs/HowItWorks";
+import Architecture from "./pages/docs/Architecture";
+import Glossary from "./pages/docs/Glossary";
+import FAQPage from "./pages/docs/FAQ";
 
 function Router() {
   return (
@@ -33,6 +38,11 @@ function Router() {
       <Route path={"/"} component={Landing} />
       <Route path="/docs" component={Docs} />
       <Route path="/docs/introduction" component={Introduction} />
+      <Route path="/docs/what-is-octant" component={WhatIsOctant} />
+      <Route path="/docs/how-it-works" component={HowItWorks} />
+      <Route path="/docs/architecture" component={Architecture} />
+      <Route path="/docs/glossary" component={Glossary} />
+      <Route path="/docs/faq" component={FAQPage} />
       <Route path="/docs/quickstart" component={Quickstart} />
       <Route path="/docs/orientation" component={Orientation} />
       <Route path="/docs/tutorials" component={Tutorials} />

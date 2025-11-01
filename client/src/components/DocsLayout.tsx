@@ -46,10 +46,10 @@ const navigation: NavItem[] = [
     href: "/docs/concepts",
     icon: BookOpen,
     items: [
-      { title: "What is Octant v2", href: "/docs/concepts/what-is-octant" },
-      { title: "How It Works", href: "/docs/concepts/how-it-works" },
-      { title: "Architecture", href: "/docs/concepts/architecture" },
-      { title: "Glossary", href: "/docs/concepts/glossary" },
+      { title: "What is Octant v2", href: "/docs/what-is-octant" },
+      { title: "How It Works", href: "/docs/how-it-works" },
+      { title: "Architecture", href: "/docs/architecture" },
+      { title: "Glossary", href: "/docs/glossary" },
     ]
   },
   {

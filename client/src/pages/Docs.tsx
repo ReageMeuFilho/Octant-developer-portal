@@ -64,7 +64,7 @@ export default function Docs() {
                 <p className="text-muted-foreground mb-4">
                   Understand the architecture, design principles, and key components of Octant v2.
                 </p>
-                <Link href="/docs/concepts/what-is-octant">
+                <Link href="/docs/what-is-octant">
                   <Button variant="link" className="text-accent p-0 h-auto group/btn">
                     Learn the basics
                     <ArrowRight className="ml-1 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
