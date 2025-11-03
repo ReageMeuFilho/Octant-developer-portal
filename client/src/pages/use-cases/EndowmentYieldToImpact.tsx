@@ -2,405 +2,536 @@ import UseCasesLayout from "@/components/UseCasesLayout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ArrowRight, Shield, Lock, TrendingUp, FileCheck, Zap, Settings } from "lucide-react";
 import { Link } from "wouter";
+import { ArrowRight, CheckCircle2, Building2, Shield, TrendingUp, Clock, Users, Zap } from "lucide-react";
 
 export default function EndowmentYieldToImpact() {
   return (
     <UseCasesLayout>
-      <div className="space-y-16">
-        {/* Hero */}
-        <div>
-          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20">
-            Use Case
-          </Badge>
-          <div className="text-5xl mb-6">🏛</div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Endowment Yield-to-Impact
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Preserve principal. Stream only yield — continuously or seasonally — with policy-first safeguards and total transparency.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href="mailto:contact@octant.build">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Partner with Octant
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </a>
-            <Link href="/docs/getting-started">
-              <Button size="lg" variant="outline">
-                View Docs
-              </Button>
-            </Link>
+      {/* Hero Section */}
+      <div className="mb-16">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border border-primary/30">
+            <Building2 className="h-8 w-8 text-primary" />
+          </div>
+          <div>
+            <Badge variant="outline" className="mb-2">USE CASE</Badge>
+            <h1 className="text-4xl font-bold">Endowment Yield-to-Impact</h1>
           </div>
         </div>
+        <p className="text-2xl font-semibold text-foreground mb-4">
+          The Intention: Fund a mission forever — without ever touching principal
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/docs/quickstart">
+            <Button size="lg" className="gap-2">
+              Partner with Octant <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+          <Link href="/docs">
+            <Button size="lg" variant="outline">
+              View Docs
+            </Button>
+          </Link>
+        </div>
+      </div>
 
-        {/* Proof Points */}
+      {/* Persona Story */}
+      <Alert className="mb-16 bg-primary/5 border-primary/20">
+        <AlertDescription className="text-base">
+          <strong className="text-primary">Meet Sofia, Chief Investment Officer of a university endowment.</strong>
+          <br /><br />
+          Every quarter, she faces the same question:
+          <br /><br />
+          <em>"How can I keep the endowment's principal safe while funding the programs that define our mission?"</em>
+          <br /><br />
+          Sofia's mandate is simple but unforgiving: preserve capital, generate steady yield, and turn that yield into impact. 
+          She can't risk principal drawdowns, but she's also under pressure to fund new initiatives faster and with more transparency.
+          <br /><br />
+          This is where Octant v2 comes in — programmable, transparent, and policy-first funding rails designed for perpetual capital.
+        </AlertDescription>
+      </Alert>
+
+      {/* Proof Points */}
+      <div className="mb-16">
+        <h2 className="text-2xl font-bold mb-6 text-center">Proof points at a glance</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Card className="p-6 text-center bg-primary/5 border-primary/20">
+          <Card className="p-6 text-center bg-card/50 border-primary/20">
             <div className="text-3xl font-bold text-primary mb-2">0%</div>
             <div className="text-sm text-muted-foreground">Principal erosion (yield-only disbursements)</div>
           </Card>
-          <Card className="p-6 text-center bg-accent/5 border-accent/20">
+          <Card className="p-6 text-center bg-card/50 border-accent/20">
             <div className="text-3xl font-bold text-accent mb-2">24/7/365</div>
-            <div className="text-sm text-muted-foreground">Programmable windows</div>
+            <div className="text-sm text-muted-foreground">Programmable funding windows</div>
           </Card>
-          <Card className="p-6 text-center bg-primary/5 border-primary/20">
-            <div className="text-3xl font-bold text-primary mb-2">&lt;1s</div>
-            <div className="text-sm text-muted-foreground">Allocation updates</div>
+          <Card className="p-6 text-center bg-card/50 border-primary/20">
+            <div className="text-3xl font-bold text-primary mb-2">{'<'}1s</div>
+            <div className="text-sm text-muted-foreground">Allocation updates on major EVM chains</div>
           </Card>
-          <Card className="p-6 text-center bg-accent/5 border-accent/20">
+          <Card className="p-6 text-center bg-card/50 border-accent/20">
             <div className="text-3xl font-bold text-accent mb-2">100%</div>
-            <div className="text-sm text-muted-foreground">On-chain audit trail</div>
+            <div className="text-sm text-muted-foreground">On-chain transparency & immutable audit trails</div>
           </Card>
         </div>
+      </div>
 
-        {/* Persona Story */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">The Intention: Fund a mission forever — without ever touching principal</h2>
-          <Card className="p-8 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-            <p className="text-lg text-foreground/90 leading-relaxed">
-              Meet <strong>Sofia</strong>, CIO of a university endowment. Her mandate: protect the corpus and fund programs. With Octant v2, Sofia streams only the harvested yield to scholarships, research, and operations — with donor-restricted sub-vaults, compliance rules, and real-time reporting to the board.
-            </p>
-          </Card>
+      {/* Introducing Section */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-6">Introducing Octant v2 Vault Network for Endowments</h2>
+        <p className="text-lg text-muted-foreground mb-8">
+          Sofia's team aggregates assets into a compliant, policy-guarded Vault. 
+          Each vault invests through approved yield adapters (staking, MM vaults, RWA notes). 
+          Octant harvests yield automatically, splits it into streams, and routes it to programs according to governance rules.
+          <br /><br />
+          When markets move or committees re-prioritize, Sofia can re-weight allocations instantly — without touching principal.
+        </p>
+        
+        <div className="flex flex-wrap gap-4 mb-8">
+          <Link href="/docs/tutorials">
+            <Button size="lg" className="gap-2">
+              Discover Vaults <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+          <Link href="/docs">
+            <Button size="lg" variant="outline">
+              Read Whitepaper
+            </Button>
+          </Link>
         </div>
 
-        {/* Introducing */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">Octant v2 Vault Network for Endowments</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Aggregate assets into an endowment Vault with approved yield adapters (staking, MM, RWA notes). Octant harvests yield, splits it by policy, and streams it to program buckets (scholarships, research, operations). Principal is never disbursed when yield-only mode is enabled.
-          </p>
-          
-          <Card className="p-8 bg-muted/30">
-            <h3 className="text-xl font-bold mb-4">Endowment Vault Flow</h3>
-            <div className="font-mono text-sm">
-              <pre className="overflow-x-auto">
-{`┌───────────────────────────────────────────────────────────────┐
-│                                                               │
-│  Endowment Principal                                          │
-│         │                                                     │
-│         ▼                                                     │
-│  Invest via Policy → Yield Adapters                          │
-│         │                                                     │
-│         ▼                                                     │
-│  Harvested Yield                                             │
-│         │                                                     │
-│         ▼                                                     │
-│  Policy Splitter                                             │
-│         ├─────────────┬──────────────┬──────────────┐       │
-│         ▼             ▼              ▼              ▼        │
-│  Scholarships    Research      Operations      Reserves      │
-│                                                               │
-└───────────────────────────────────────────────────────────────┘`}
-              </pre>
+        {/* Visual Flow Diagram */}
+        <Card className="p-8 bg-gradient-to-br from-background to-accent/5 border-primary/20">
+          <h3 className="text-xl font-bold mb-6 text-center">Endowment Vault Flow</h3>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col items-center text-center flex-1">
+              <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-3 border-2 border-primary">
+                <span className="text-3xl">🏛️</span>
+              </div>
+              <div className="font-semibold mb-1">Endowment Vault</div>
+              <div className="text-xs text-muted-foreground">Principal protected, yield harvested</div>
             </div>
-          </Card>
-        </div>
-
-        {/* Designed For */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8">Designed for Real Endowment Workflows</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-3">Recurring Program Funding</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Set quarter/annual seasons with auto-rollover. Programs receive predictable funding without manual intervention.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-3">Donor-Restricted Streams</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Tag gifts and enforce spend constraints. Ensure donor intent is honored with on-chain policy enforcement.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-3">Co-Funding Rounds</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Automatic matching with partner vaults. Coordinate funding initiatives across multiple endowments.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-3">Time-Bound Initiatives</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Spin up TimeBoxed Vaults that sunset automatically. Perfect for special projects with defined end dates.
-              </p>
-            </Card>
-
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-3">Board-Ready Reports</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                On-chain receipts with human-readable exports. Generate compliance reports automatically for board meetings.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        {/* Why Choose */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8">Why Endowment Leaders Choose Octant v2</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-6 border-l-4 border-l-primary">
-              <Lock className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-3">Corpus Preservation by Design</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Yield-only mode ensures principal is never touched. Smart contract enforcement provides mathematical certainty.
-              </p>
-            </Card>
-
-            <Card className="p-6 border-l-4 border-l-accent">
-              <Shield className="h-8 w-8 text-accent mb-4" />
-              <h3 className="text-xl font-bold mb-3">Policy-First Controls</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Set caps, weights, whitelist, and time windows. Every disbursement follows your governance rules.
-              </p>
-            </Card>
-
-            <Card className="p-6 border-l-4 border-l-primary">
-              <FileCheck className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-3">Transparent Receipts</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Immutable, verifiable records for every transaction. Audit trails that satisfy the most rigorous compliance requirements.
-              </p>
-            </Card>
-
-            <Card className="p-6 border-l-4 border-l-accent">
-              <TrendingUp className="h-8 w-8 text-accent mb-4" />
-              <h3 className="text-xl font-bold mb-3">Composable Yield Sources</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Mix staking, money markets, and RWAs. Diversify yield sources while maintaining unified governance.
-              </p>
-            </Card>
-
-            <Card className="p-6 border-l-4 border-l-primary">
-              <Zap className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-3">Operational Simplicity</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Fewer wires, fewer manual approvals. Automate routine disbursements while maintaining full control.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        {/* Stories from the Field */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8">Stories from the Field</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 bg-gradient-to-br from-primary/5 to-accent/5">
-              <h3 className="text-xl font-bold mb-3">Aurora College Endowment</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Six programs funded from yield only; board exports auto-generated quarterly.
-              </p>
-            </Card>
-
-            <Card className="p-6 bg-gradient-to-br from-accent/5 to-primary/5">
-              <h3 className="text-xl font-bold mb-3">Horizon Health Foundation</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Donor-restricted oncology fund; compliant streaming to partner hospitals.
-              </p>
-            </Card>
-
-            <Card className="p-6 bg-gradient-to-br from-primary/5 to-accent/5">
-              <h3 className="text-xl font-bold mb-3">Atlas University Scholarships</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Time-boxed STEM '26 vault; sunsets & archives on schedule.
-              </p>
-            </Card>
-          </div>
-        </div>
-
-        {/* Building Blocks */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">Building Blocks</h2>
-          <Card className="p-8 bg-muted/30">
-            <div className="flex flex-wrap gap-3">
-              {[
-                "Vaults",
-                "Strategy/Adapter Registry",
-                "Yield Splitter",
-                "Streaming Module",
-                "Compliance/Policy Hooks",
-                "Governance Hooks (committee/Snapshot)",
-                "Analytics & Receipts"
-              ].map((block) => (
-                <Badge key={block} variant="outline" className="text-sm px-4 py-2">
-                  {block}
-                </Badge>
-              ))}
+            <ArrowRight className="h-6 w-6 text-muted-foreground rotate-90 md:rotate-0" />
+            <div className="flex flex-col items-center text-center flex-1">
+              <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mb-3 border-2 border-accent">
+                <span className="text-3xl">⚙️</span>
+              </div>
+              <div className="font-semibold mb-1">Strategy Adapters</div>
+              <div className="text-xs text-muted-foreground">Conservative yield sources</div>
             </div>
-          </Card>
-        </div>
-
-        {/* Powered by Ethereum */}
-        <Card className="p-8 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-primary/30 text-center">
-          <h3 className="text-2xl font-bold mb-3">Powered by Ethereum</h3>
-          <p className="text-lg text-muted-foreground">
-            Neutral rails • Global settlement • Programmable governance
-          </p>
+            <ArrowRight className="h-6 w-6 text-muted-foreground rotate-90 md:rotate-0" />
+            <div className="flex flex-col items-center text-center flex-1">
+              <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-3 border-2 border-primary">
+                <span className="text-3xl">🔀</span>
+              </div>
+              <div className="font-semibold mb-1">Yield Splitter</div>
+              <div className="text-xs text-muted-foreground">Route to multiple streams</div>
+            </div>
+            <ArrowRight className="h-6 w-6 text-muted-foreground rotate-90 md:rotate-0" />
+            <div className="flex flex-col items-center text-center flex-1">
+              <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mb-3 border-2 border-accent">
+                <span className="text-3xl">🎯</span>
+              </div>
+              <div className="font-semibold mb-1">Programs</div>
+              <div className="text-xs text-muted-foreground">Continuous funding</div>
+            </div>
+          </div>
         </Card>
+      </section>
 
-        {/* Dual CTA */}
+      {/* Designed for Real Endowment Workflows */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-6">Designed for real endowment workflows</h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/30">
-            <h3 className="text-2xl font-bold mb-4">Partner with Octant</h3>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Work with our team to design a custom endowment solution tailored to your governance requirements.
+          <Card className="p-6 bg-card/50">
+            <Clock className="h-10 w-10 text-primary mb-4" />
+            <h3 className="font-bold mb-2">Recurring Program Funding</h3>
+            <p className="text-sm text-muted-foreground">
+              Create quarterly or annual seasons that stream yield to operating programs. Lock principal; vary only distribution weights.
             </p>
-            <a href="mailto:contact@octant.build">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 w-full">
-                Get in Touch
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </a>
           </Card>
 
-          <Card className="p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-accent/30">
-            <h3 className="text-2xl font-bold mb-4">Start Building</h3>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Explore our technical documentation and deploy your first yield-only vault.
+          <Card className="p-6 bg-card/50">
+            <Shield className="h-10 w-10 text-accent mb-4" />
+            <h3 className="font-bold mb-2">Donor-Restricted Streams</h3>
+            <p className="text-sm text-muted-foreground">
+              Tag donor gifts in sub-vaults with purpose or geography. Octant enforces policy in code.
             </p>
-            <Link href="/docs/getting-started">
-              <Button size="lg" variant="outline" className="w-full border-accent/30 hover:bg-accent/10">
-                View Documentation
-                <ArrowRight className="ml-2 h-5 w-5" />
+          </Card>
+
+          <Card className="p-6 bg-card/50">
+            <Users className="h-10 w-10 text-primary mb-4" />
+            <h3 className="font-bold mb-2">Co-Funding Rounds (Matching)</h3>
+            <p className="text-sm text-muted-foreground">
+              Trigger automatic matches when community or partner treasuries pledge to the same causes.
+            </p>
+          </Card>
+
+          <Card className="p-6 bg-card/50">
+            <Zap className="h-10 w-10 text-accent mb-4" />
+            <h3 className="font-bold mb-2">Time-Bound Initiatives</h3>
+            <p className="text-sm text-muted-foreground">
+              Spin up a TimeBoxed Vault for a fixed term (e.g., "STEM Scholarships '26") that sunsets automatically.
+            </p>
+          </Card>
+        </div>
+      </section>
+
+      {/* Why Endowment Leaders Choose Octant v2 */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-6">Why endowment leaders like Sofia choose Octant v2</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card className="p-6 bg-gradient-to-br from-primary/10 to-transparent border-primary/20">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">Preserve corpus by design</div>
+                <div className="text-sm text-muted-foreground">Yield-only distribution logic</div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-gradient-to-br from-accent/10 to-transparent border-accent/20">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">Policy-first controls</div>
+                <div className="text-sm text-muted-foreground">Board-approved guardrails baked into smart contracts</div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-gradient-to-br from-primary/10 to-transparent border-primary/20">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">Native accountability</div>
+                <div className="text-sm text-muted-foreground">Every allocation and payout verifiable on-chain</div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-gradient-to-br from-accent/10 to-transparent border-accent/20">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">Composable yield sources</div>
+                <div className="text-sm text-muted-foreground">Plug into conservative, transparent strategies</div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-gradient-to-br from-primary/10 to-transparent border-primary/20">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">Operational simplicity</div>
+                <div className="text-sm text-muted-foreground">Replace manual grant cycles with autonomous flows</div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Field Stories */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-6">Stories from the field (demo scenarios)</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card className="p-6 bg-card/50 border-primary/20">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-2xl">🎓</span>
+              </div>
+              <div>
+                <h3 className="font-bold mb-2">Aurora College Endowment</h3>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-semibold text-primary">Intention:</span>
+                <span className="text-muted-foreground"> fund six programs from yield only</span>
+              </div>
+              <div>
+                <span className="font-semibold text-accent">Setup:</span>
+                <span className="text-muted-foreground"> one master vault + six tagged streams; quarterly reweights by board vote</span>
+              </div>
+              <div>
+                <span className="font-semibold text-primary">Outcome:</span>
+                <span className="text-muted-foreground"> 0% principal drawdown · 4.2% effective yield · full audit in {'<'} 24 h</span>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-card/50 border-accent/20">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-2xl">🏥</span>
+              </div>
+              <div>
+                <h3 className="font-bold mb-2">Horizon Health Foundation</h3>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-semibold text-primary">Intention:</span>
+                <span className="text-muted-foreground"> match community giving 1:1 without touching corpus</span>
+              </div>
+              <div>
+                <span className="font-semibold text-accent">Setup:</span>
+                <span className="text-muted-foreground"> Matching Pool sub-vault triggers automatic matching</span>
+              </div>
+              <div>
+                <span className="font-semibold text-primary">Outcome:</span>
+                <span className="text-muted-foreground"> +38% donor participation · stable yield smoothing</span>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-card/50 border-primary/20">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-2xl">🎯</span>
+              </div>
+              <div>
+                <h3 className="font-bold mb-2">Atlas University Scholarships</h3>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div>
+                <span className="font-semibold text-primary">Intention:</span>
+                <span className="text-muted-foreground"> disburse time-bound scholarships with strict use-of-funds</span>
+              </div>
+              <div>
+                <span className="font-semibold text-accent">Setup:</span>
+                <span className="text-muted-foreground"> TimeBoxed Vault (9 mo) with milestone unlocks</span>
+              </div>
+              <div>
+                <span className="font-semibold text-primary">Outcome:</span>
+                <span className="text-muted-foreground"> zero delays · policy compliance on-chain</span>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Building Blocks */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-6">Building blocks (what powers Sofia's workflow)</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card className="p-4 bg-primary/5 border-primary/20">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="h-5 w-5 text-primary" />
+              <div>
+                <div className="font-semibold">Vaults</div>
+                <div className="text-xs text-muted-foreground">Separate principal from harvested yield</div>
+              </div>
+            </div>
+          </Card>
+          <Card className="p-4 bg-accent/5 border-accent/20">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="h-5 w-5 text-accent" />
+              <div>
+                <div className="font-semibold">Strategy Adapters</div>
+                <div className="text-xs text-muted-foreground">Conservative yield sources (staking/LSTs, MM vaults, RWA partners)</div>
+              </div>
+            </div>
+          </Card>
+          <Card className="p-4 bg-primary/5 border-primary/20">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="h-5 w-5 text-primary" />
+              <div>
+                <div className="font-semibold">Yield Splitter</div>
+                <div className="text-xs text-muted-foreground">Route yield into multiple streams with policies</div>
+              </div>
+            </div>
+          </Card>
+          <Card className="p-4 bg-accent/5 border-accent/20">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="h-5 w-5 text-accent" />
+              <div>
+                <div className="font-semibold">Streaming Module</div>
+                <div className="text-xs text-muted-foreground">Continuous or scheduled payouts</div>
+              </div>
+            </div>
+          </Card>
+          <Card className="p-4 bg-primary/5 border-primary/20">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="h-5 w-5 text-primary" />
+              <div>
+                <div className="font-semibold">Governance Hooks</div>
+                <div className="text-xs text-muted-foreground">Link board votes or Snapshot polls to allocation weights</div>
+              </div>
+            </div>
+          </Card>
+          <Card className="p-4 bg-accent/5 border-accent/20">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="h-5 w-5 text-accent" />
+              <div>
+                <div className="font-semibold">Compliance & Controls</div>
+                <div className="text-xs text-muted-foreground">Hats-style roles, per-recipient caps, pause/resume</div>
+              </div>
+            </div>
+          </Card>
+          <Card className="p-4 bg-primary/5 border-primary/20">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="h-5 w-5 text-primary" />
+              <div>
+                <div className="font-semibold">Analytics & Receipts</div>
+                <div className="text-xs text-muted-foreground">Real-time dashboards + audit exports</div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Powered by Ethereum Banner */}
+      <Card className="p-8 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-primary/20 mb-16">
+        <div className="text-center">
+          <div className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-2">
+            Powered by Ethereum (and friends)
+          </div>
+          <h3 className="text-2xl font-bold mb-4">Neutral rails · Interoperable EVM stack · Programmable value flows · Governance in code</h3>
+        </div>
+      </Card>
+
+      {/* Dual CTA */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold mb-6 text-center">Ready to get started?</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card className="p-8 bg-gradient-to-br from-primary/10 to-transparent border-primary/20">
+            <h3 className="text-xl font-bold mb-3">Partner with Octant</h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              Model your policy, map risk bands, select adapters, and simulate seasons.
+            </p>
+            <Link href="/docs/quickstart">
+              <Button size="lg" className="w-full gap-2">
+                Partner with Octant <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </Card>
+
+          <Card className="p-8 bg-gradient-to-br from-accent/10 to-transparent border-accent/20">
+            <h3 className="text-xl font-bold mb-3">Build with Octant</h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              Try the runnable guide, Foundry templates, and deploy your first Vault in minutes.
+            </p>
+            <Link href="/docs/tutorials">
+              <Button size="lg" variant="outline" className="w-full gap-2">
+                Build with Octant <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
           </Card>
         </div>
-
-        {/* FAQ */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
-          <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                Can we require dual approvals for policy changes?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Yes. Configure multi-step governance hooks (committee + snapshot) before changes execute.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                How do donor restrictions work?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Use tagged sub-vaults with policy enforcers that validate spend categories and geography.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                Can we blend ETH staking and RWA yield?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Yes. Approve multiple adapters and set max weights/risk envelopes per policy.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                What happens in volatile markets?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Policies can buffer yield (reserves) before streaming; principal is never touched in yield-only mode.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                Can we export audits for the board?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Yes. Generate human-readable receipts from on-chain data, including allocation diffs and program outcomes.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                Can we time-box initiatives?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Yes. TimeBoxed Vaults with start/end date; auto-sunset and archive.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-7" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                Do we need custody changes?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                No. Integrate with existing Safes; Octant executes policy logic via on-chain hooks.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-8" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                What if a recipient loses eligibility?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Pause or reweight streams immediately; changes are auditable.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-9" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                How do we simulate policy changes?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Dry-run mode shows expected streams and receipts before execution.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-10" className="border border-border/40 rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                Is KYC/AML supported where needed?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Yes. Integrate compliance gates at vault entry and recipient whitelists at stream creation.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-
-        {/* Developer Snippet */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">Developer Snippet</h2>
-          <Card className="p-6 bg-muted/50">
-            <pre className="text-sm font-mono overflow-x-auto">
-{`// Pseudocode: endowment yield-only policy
-Vault endowment = Vault(deployVault(PRINCIPAL_TOKEN));
-endowment.approveAdapter(address(ethStakingAdapter), 0.6e18);
-endowment.approveAdapter(address(rwaNoteAdapter), 0.4e18);
-endowment.setPolicy(
-  Policy({
-    yieldOnly: true,
-    weights: [
-      {bucket: "Scholarships", bps: 4000},
-      {bucket: "Research", bps: 3500},
-      {bucket: "Operations", bps: 2000},
-      {bucket: "Reserves", bps: 500}
-    ],
-    caps: [{bucket:"Operations", maxPerEpoch: 50_000e6}],
-    approvals: ["CommitteeMultisig", "SnapshotSignal"],
-    timeWindows: [{start: Q1_START, end: Q1_END}]
-  })
-);`}
-            </pre>
-          </Card>
-        </div>
       </div>
+
+      {/* FAQs */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-6">FAQs</h2>
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>How does Octant v2 prevent principal erosion?</AccordionTrigger>
+            <AccordionContent>
+              Principal and yield are tracked separately; distribution limited to realized yield.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Can we keep existing custodians?</AccordionTrigger>
+            <AccordionContent>
+              Yes — operate via Safe multisig and role registries.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3">
+            <AccordionTrigger>What yield sources are supported?</AccordionTrigger>
+            <AccordionContent>
+              Staking/LSTs, MM vaults, and approved RWA connectors.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-4">
+            <AccordionTrigger>How do we manage volatility?</AccordionTrigger>
+            <AccordionContent>
+              Diversify adapters, buffer yield, and time-box seasons.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-5">
+            <AccordionTrigger>Can donors restrict gifts?</AccordionTrigger>
+            <AccordionContent>
+              Yes — policy-tagged sub-vaults enforce constraints in code.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-6">
+            <AccordionTrigger>Can we pause distributions?</AccordionTrigger>
+            <AccordionContent>
+              Authorized roles can pause streams instantly (on-chain record).
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-7">
+            <AccordionTrigger>How do votes influence allocations?</AccordionTrigger>
+            <AccordionContent>
+              Governance hooks sync Snapshot/Safe results to stream weights.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-8">
+            <AccordionTrigger>What reporting is available for auditors?</AccordionTrigger>
+            <AccordionContent>
+              Structured receipts (CSV/JSON) and public read-only dashboards.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
+
+      {/* Code Snippet */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-6">Optional developer snippet (for tutorial)</h2>
+        <Card className="p-6 bg-muted/50">
+          <pre className="text-sm overflow-x-auto">
+            <code>{`// Pseudo-config: Endowment Season Setup (illustrative)
+Vault endowment = Vault(deployVault(PRINCIPAL_TOKEN));
+endowment.attachAdapter(address(conservativeMMAdapter));
+endowment.setPolicy(Policy({
+  principalImmutable: true,
+  emergencyPauseRole: BOARD_ROLE,
+  perRecipientCap: 100_000e18
+}));
+
+splitter.configure([
+  Stream({recipient: PROGRAM_A, weightBps: 2500}),
+  Stream({recipient: PROGRAM_B, weightBps: 2000}),
+  Stream({recipient: PROGRAM_C, weightBps: 1500}),
+  Stream({recipient: PROGRAM_D, weightBps: 1500}),
+  Stream({recipient: PROGRAM_E, weightBps: 1500}),
+  Stream({recipient: PROGRAM_F, weightBps: 1000})
+]);
+
+season.open(90 days);
+season.closeAndExportReceipts();`}</code>
+          </pre>
+        </Card>
+      </section>
+
+      {/* Notes & Disclaimers */}
+      <section className="mb-16">
+        <Card className="p-6 bg-muted/20 border-muted-foreground/20">
+          <h3 className="text-lg font-bold mb-3">Notes & Disclaimers</h3>
+          <ul className="text-sm text-muted-foreground space-y-2 list-disc list-inside">
+            <li>Product features may vary by chain and adapter.</li>
+            <li>Yield sources carry risk; choose conservative strategies aligned to policy.</li>
+            <li>Stories are illustrative tutorial demos.</li>
+          </ul>
+        </Card>
+      </section>
     </UseCasesLayout>
   );
 }

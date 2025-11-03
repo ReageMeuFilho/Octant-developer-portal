@@ -257,3 +257,14 @@
 - [x] Update field stories with ReGen, Care Network, EduAccess examples
 - [x] Update FAQ with exact questions provided
 - [x] Update code snippet to match provided example
+
+
+## Update Endowment Yield-to-Impact with Exact Content
+- [x] Replace current Endowment page content with user-provided specifications
+- [x] Update persona story to feature Sofia (Chief Investment Officer)
+- [x] Update proof points to match exact metrics (0% erosion, 24/7/365, <1s, 100%)
+- [x] Update building blocks to match exact list (7 components)
+- [x] Update field stories with Aurora College, Horizon Health, Atlas University examples
+- [x] Update FAQ with exact 8 questions provided
+- [x] Update code snippet to match provided example with season setup
+- [x] Add Notes & Disclaimers section at the end
