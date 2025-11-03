@@ -11,7 +11,6 @@ export default function UseCasesLayout({ children }: UseCasesLayoutProps) {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/use-cases", label: "Overview", emoji: "📋" },
     { href: "/use-cases/endowment-yield-to-impact", label: "Endowment Yield-to-Impact", emoji: "🏛" },
     { href: "/use-cases/foundation-streaming-grants", label: "Foundation Streaming Grants", emoji: "💧" },
     { href: "/use-cases/dao-programmable-treasury", label: "DAO Programmable Treasury", emoji: "⚙️" },

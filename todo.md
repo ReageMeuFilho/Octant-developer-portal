@@ -237,3 +237,13 @@
 - [x] Add featured case study card with image in right column
 - [x] Update all routes to remove /use-cases overview
 - [x] Ensure each use case goes directly to its dedicated page
+
+
+## Fix Use Cases Pages Issues
+- [x] Remove "Overview" from UseCasesLayout sidebar navigation
+- [x] Create Foundation Streaming Grants page with full content
+- [ ] Create DAO Programmable Treasury page with full content
+- [x] Add routes for Foundation and DAO pages in App.tsx
+- [ ] Replace text-based diagrams with visual component diagrams
+- [ ] Update building blocks to reflect actual Octant v2 components
+- [ ] Ensure all use case page links work correctly
