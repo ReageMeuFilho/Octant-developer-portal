@@ -247,3 +247,13 @@
 - [ ] Replace text-based diagrams with visual component diagrams
 - [ ] Update building blocks to reflect actual Octant v2 components
 - [ ] Ensure all use case page links work correctly
+
+
+## Update Foundation Streaming Grants with Exact Content
+- [x] Replace current Foundation page content with user-provided specifications
+- [x] Update persona story to feature Daniel (Program Director)
+- [x] Update proof points to match exact metrics
+- [x] Update building blocks to match exact list
+- [x] Update field stories with ReGen, Care Network, EduAccess examples
+- [x] Update FAQ with exact questions provided
+- [x] Update code snippet to match provided example
