@@ -196,3 +196,24 @@
 - [ ] Verify all code examples are runnable
 - [ ] Preview in workspace before pushing
 - [ ] Final review and polish
+
+
+## Use Cases Section Implementation
+- [x] Update top navigation to include "Use Cases" dropdown with 4 links
+- [x] Create Use Cases side navigation component (sticky desktop, collapsible mobile)
+- [x] Create breadcrumb component for Use Cases pages
+- [x] Create Use Cases Overview page (/use-cases)
+- [x] Create Endowment Yield-to-Impact page (/use-cases/endowment-yield-to-impact)
+- [ ] Create Foundation Streaming Grants page (/use-cases/foundation-streaming-grants)
+- [ ] Create DAO Programmable Treasury page (/use-cases/dao-programmable-treasury)
+- [ ] Add Mermaid diagram support or fallback images
+- [ ] Add SEO metadata (title, description, OG tags) for all pages
+- [ ] Add Schema.org JSON-LD structured data for all pages
+- [ ] Implement all reusable components (Hero, MetricsStrip, CardGrid, etc.)
+- [ ] Add all FAQ accordions with provided content
+- [ ] Add all Solidity code snippets
+- [ ] Test responsive design (mobile → desktop)
+- [ ] Validate accessibility (heading hierarchy, contrast, alt text)
+- [ ] Update sitemap and robots.txt
+- [ ] Verify all CTAs route correctly
+- [ ] Complete QA checklist validation
