@@ -33,6 +33,7 @@ import Glossary from "./pages/docs/Glossary";
 import FAQPage from "./pages/docs/FAQ";
 import EndowmentYieldToImpact from "./pages/use-cases/EndowmentYieldToImpact";
 import FoundationStreamingGrants from "./pages/use-cases/FoundationStreamingGrants";
+import DAOProgrammableTreasury from "./pages/use-cases/DAOProgrammableTreasury";
 
 function Router() {
   return (
@@ -65,6 +66,7 @@ function Router() {
       <Route path="/docs/case-studies/octant" component={OctantCaseStudy} />
       <Route path="/use-cases/endowment-yield-to-impact" component={EndowmentYieldToImpact} />
       <Route path="/use-cases/foundation-streaming-grants" component={FoundationStreamingGrants} />
+      <Route path="/use-cases/dao-programmable-treasury" component={DAOProgrammableTreasury} />
       <Route path={"/home"} component={Home} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

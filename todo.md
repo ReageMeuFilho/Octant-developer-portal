@@ -268,3 +268,19 @@
 - [x] Update FAQ with exact 8 questions provided
 - [x] Update code snippet to match provided example with season setup
 - [x] Add Notes & Disclaimers section at the end
+
+
+## Create DAO Programmable Treasury Page
+- [x] Create DAO page with Ravi's persona story (Treasury Steward)
+- [x] Add proof points (1 Click, 0 custodial risk, 100% on-chain, cross-chain ready)
+- [x] Add visual treasury flow diagram
+- [x] Add 4 designed-for features (Epoch-Based, QV Integration, Multi-Vault, On-Chain Transparency)
+- [x] Add 5 why-choose benefits
+- [x] Add 3 field stories (Nova Protocol, Atlas L2, Orbit PGC)
+- [x] Add 6 building blocks
+- [x] Add Ethereum banner
+- [x] Add dual CTA
+- [x] Add 6-question FAQ
+- [x] Add developer code snippet
+- [x] Add Notes & Disclaimers
+- [x] Add route to App.tsx
