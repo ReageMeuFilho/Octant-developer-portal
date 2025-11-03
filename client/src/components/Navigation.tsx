@@ -1,10 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 export default function Navigation() {
   const [useCasesOpen, setUseCasesOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setUseCasesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setUseCasesOpen(false);
+    }, 200);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
@@ -22,11 +44,11 @@ export default function Navigation() {
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
-            {/* Use Cases Dropdown */}
+            {/* Use Cases Dropdown - Circle Style */}
             <div 
               className="relative"
-              onMouseEnter={() => setUseCasesOpen(true)}
-              onMouseLeave={() => setUseCasesOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
                 Use Cases
@@ -34,31 +56,89 @@ export default function Navigation() {
               </button>
               
               {useCasesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-background border border-border/40 rounded-lg shadow-lg py-2 z-50">
-                  <Link href="/use-cases">
-                    <div className="px-4 py-2 hover:bg-accent/10 cursor-pointer transition-colors">
-                      <div className="font-medium text-sm">Overview</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">Explore all use cases</div>
+                <div 
+                  className="absolute top-full left-0 mt-2 w-[600px] bg-background border border-border/40 rounded-lg shadow-xl p-6 z-50"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="grid grid-cols-2 gap-8">
+                    {/* Left Column - Use Cases */}
+                    <div>
+                      <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4">
+                        USE CASES
+                      </div>
+                      <div className="space-y-1">
+                        <Link href="/use-cases/endowment-yield-to-impact">
+                          <div className="px-3 py-3 hover:bg-accent/10 cursor-pointer transition-colors rounded-lg group">
+                            <div className="flex items-start gap-3">
+                              <span className="text-2xl">🏛</span>
+                              <div className="flex-1">
+                                <div className="font-semibold text-sm group-hover:text-primary transition-colors">
+                                  Endowment Yield-to-Impact
+                                </div>
+                                <div className="text-xs text-muted-foreground mt-1">
+                                  Preserve principal, stream only yield
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+
+                        <Link href="/use-cases/foundation-streaming-grants">
+                          <div className="px-3 py-3 hover:bg-accent/10 cursor-pointer transition-colors rounded-lg group">
+                            <div className="flex items-start gap-3">
+                              <span className="text-2xl">💧</span>
+                              <div className="flex-1">
+                                <div className="font-semibold text-sm group-hover:text-primary transition-colors">
+                                  Foundation Streaming Grants
+                                </div>
+                                <div className="text-xs text-muted-foreground mt-1">
+                                  Milestone-based funding flows
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+
+                        <Link href="/use-cases/dao-programmable-treasury">
+                          <div className="px-3 py-3 hover:bg-accent/10 cursor-pointer transition-colors rounded-lg group">
+                            <div className="flex items-start gap-3">
+                              <span className="text-2xl">⚙️</span>
+                              <div className="flex-1">
+                                <div className="font-semibold text-sm group-hover:text-primary transition-colors">
+                                  DAO Programmable Treasury
+                                </div>
+                                <div className="text-xs text-muted-foreground mt-1">
+                                  Epoch-based public goods funding
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
                     </div>
-                  </Link>
-                  <Link href="/use-cases/endowment-yield-to-impact">
-                    <div className="px-4 py-2 hover:bg-accent/10 cursor-pointer transition-colors">
-                      <div className="font-medium text-sm">🏛 Endowment Yield-to-Impact</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">Preserve principal, stream yield</div>
+
+                    {/* Right Column - Case Studies */}
+                    <div>
+                      <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4">
+                        CASE STUDIES
+                      </div>
+                      <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-4 border border-primary/20">
+                        <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-3 flex items-center justify-center">
+                          <span className="text-4xl">🏛</span>
+                        </div>
+                        <div className="text-xs text-muted-foreground mb-2">
+                          Learn about how organizations use Octant
+                        </div>
+                        <Link href="/docs/case-studies/octant">
+                          <div className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors group">
+                            Explore case studies
+                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </Link>
+                      </div>
                     </div>
-                  </Link>
-                  <Link href="/use-cases/foundation-streaming-grants">
-                    <div className="px-4 py-2 hover:bg-accent/10 cursor-pointer transition-colors">
-                      <div className="font-medium text-sm">💧 Foundation Streaming Grants</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">Milestone-based funding flows</div>
-                    </div>
-                  </Link>
-                  <Link href="/use-cases/dao-programmable-treasury">
-                    <div className="px-4 py-2 hover:bg-accent/10 cursor-pointer transition-colors">
-                      <div className="font-medium text-sm">⚙️ DAO Programmable Treasury</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">Epoch-based public goods funding</div>
-                    </div>
-                  </Link>
+                  </div>
                 </div>
               )}
             </div>

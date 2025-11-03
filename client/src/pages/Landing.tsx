@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -31,40 +32,7 @@ import { Link } from "wouter";
 export default function Landing() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-lg font-bold text-primary-foreground">O</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Octant v2
-              </span>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/docs" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                Documentation
-              </Link>
-              <Link href="/docs/quickstart" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                Quickstart
-              </Link>
-              <Link href="/docs/tutorials" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                Tutorials
-              </Link>
-              <a href="https://github.com/golemfoundation/octant" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                GitHub
-              </a>
-            </div>
-            <Link href="/docs">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                Get Started
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">

@@ -217,3 +217,23 @@
 - [ ] Update sitemap and robots.txt
 - [ ] Verify all CTAs route correctly
 - [ ] Complete QA checklist validation
+
+
+## Fix Navigation Display
+- [x] Update Landing page to use shared Navigation component
+- [x] Ensure Use Cases appears first in navigation order
+- [x] Verify navigation order: Use Cases, Documentation, Quickstart, Tutorials, GitHub
+
+
+## Fix Use Cases Dropdown Behavior
+- [x] Add hover delay to prevent dropdown from closing too quickly
+- [x] Ensure dropdown stays open when hovering over menu items
+- [x] Test dropdown interaction on different screen sizes
+
+
+## Restructure Use Cases Dropdown (Circle Style)
+- [x] Remove Overview page completely
+- [x] Update dropdown to 2-column layout: Use Cases (left) + Case Studies (right)
+- [x] Add featured case study card with image in right column
+- [x] Update all routes to remove /use-cases overview
+- [x] Ensure each use case goes directly to its dedicated page

@@ -31,7 +31,6 @@ import HowItWorks from "./pages/docs/HowItWorks";
 import Architecture from "./pages/docs/Architecture";
 import Glossary from "./pages/docs/Glossary";
 import FAQPage from "./pages/docs/FAQ";
-import UseCasesOverview from "./pages/use-cases/Overview";
 import EndowmentYieldToImpact from "./pages/use-cases/EndowmentYieldToImpact";
 
 function Router() {
@@ -63,7 +62,6 @@ function Router() {
       <Route path="/docs/resources/community" component={Community} />
       <Route path="/docs/resources/faq" component={FAQ} />
       <Route path="/docs/case-studies/octant" component={OctantCaseStudy} />
-      <Route path="/use-cases" component={UseCasesOverview} />
       <Route path="/use-cases/endowment-yield-to-impact" component={EndowmentYieldToImpact} />
       <Route path={"/home"} component={Home} />
       <Route path={"/404"} component={NotFound} />
