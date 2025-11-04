@@ -411,3 +411,49 @@ Note: All pages created with placeholder content. Ready for full content populat
 - [x] Verify all Getting Started links stay within DocsLayoutNew (don't navigate to new page)
 - [x] Test that clicking links updates main content panel on the right
 - [x] Ensure consistent look and feel across all documentation pages
+
+
+## Populate Getting Started Pages with Full Content
+- [ ] Review all provided content files (QUICK_REFERENCE.md, what-youll-build.md, octant-in-3-minutes.md, tutorial-simple-lending.md, common-errors.md)
+- [ ] Quick Start section (3 pages)
+  - [ ] What You'll Build (already has content)
+  - [ ] Choose Your Path
+  - [ ] Prerequisites Check
+- [ ] Core Concepts section (4 pages)
+  - [ ] Octant in 3 Minutes
+  - [ ] Architecture Diagram
+  - [ ] Key Components Explained
+  - [ ] Yield Types: Visual Guide
+- [ ] Environment Setup section (4 pages)
+  - [ ] Install Prerequisites
+  - [ ] Clone & Run Demo
+  - [ ] Connect Your Wallet
+  - [ ] Get Test Tokens
+- [ ] Build Your First Strategy section (4 pages)
+  - [ ] Tutorial: Simple Lending Strategy
+  - [ ] Tutorial: Staking Strategy
+  - [ ] Understanding Donations vs Skimming
+  - [ ] Testing Your Strategy
+- [ ] Deploy to Production section (4 pages)
+  - [ ] Testing Checklist
+  - [ ] Deploy on Testnet
+  - [ ] Deploy a Multi-Strategy Vault
+  - [ ] Monitoring & Maintenance
+- [ ] Frontend Integration section (4 pages)
+  - [ ] Connect the Boilerplate
+  - [ ] Build Deposit/Withdraw UI
+  - [ ] Real-Time Updates
+  - [ ] Production Best Practices
+- [ ] Advanced Topics section (4 pages)
+  - [ ] Allocation Mechanisms
+  - [ ] Community Staking
+  - [ ] Superfluid Streaming
+  - [ ] Multi-Strategy Rebalancing
+- [ ] Troubleshooting & Support section (4 pages)
+  - [ ] Common Errors & Solutions
+  - [ ] Debugging Guide
+  - [ ] FAQs
+  - [ ] Get Help from Community
+- [ ] Replace all emoji icons with lucide-react icons
+- [ ] Ensure consistent styling across all pages
+- [ ] Test all pages for visual consistency

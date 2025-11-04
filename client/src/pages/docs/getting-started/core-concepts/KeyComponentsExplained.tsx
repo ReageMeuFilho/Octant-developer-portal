@@ -1,45 +1,206 @@
 import DocsLayout from "@/components/DocsLayoutNew";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { 
+  Vault,
+  TrendingUp,
+  Split,
+  Layers,
+  Shield,
+  Coins,
+  ArrowRight,
+  Info
+} from "lucide-react";
+import { Link } from "wouter";
 
 export default function KeyComponentsExplained() {
   return (
     <DocsLayout>
-    <div className="max-w-4xl">
-      <h1 className="text-4xl font-bold mb-6">Key Components Explained</h1>
-
-      <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-8 mb-8">
-        <div className="flex items-start gap-4">
-          <div className="text-4xl">📝</div>
-          <div>
-            <h2 className="text-xl font-semibold mb-2">Content Coming Soon</h2>
-            <p className="text-gray-300">
-              This page is part of the comprehensive "Getting Started with Octant v2" section.
-              Full content will be added shortly.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="prose prose-invert max-w-none">
-        <h2 className="text-2xl font-semibold mt-8 mb-4">What to Expect</h2>
-        <p className="text-gray-300 mb-6">
-          This page will cover essential information about <strong>key components explained</strong> in the context
-          of building with Octant v2.
-        </p>
-
-        <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 mb-8">
-          <h3 className="text-lg font-semibold mb-3">Section: Core Concepts</h3>
-          <p className="text-sm text-gray-400">
-            Part of the structured learning path designed to take you from beginner to advanced Octant v2 developer.
+      <div className="space-y-8">
+        <div>
+          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            Core Concepts
+          </Badge>
+          <h1 className="text-5xl font-bold mb-4">
+            Key Components Explained
+          </h1>
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            Deep dive into the smart contracts and architecture that power Octant v2.
           </p>
         </div>
 
-        <h2 className="text-2xl font-semibold mt-8 mb-4">💬 Need Help?</h2>
-        <ul className="list-none space-y-2 text-gray-300">
-          <li><strong>Questions?</strong> → <a href="https://discord.gg/octant" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
-          <li><strong>Bug?</strong> → <a href="https://github.com/golemfoundation/octant-v2-core" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">GitHub Issues</a></li>
-        </ul>
+        <div>
+          <h2 className="text-3xl font-bold mb-6">The Three Core Components</h2>
+          <div className="grid gap-6">
+            <Card className="p-6 bg-card border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Vault className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold mb-3">1. Funding Vault</h3>
+                  <p className="text-muted-foreground mb-4">
+                    The Funding Vault is an <strong>ERC-4626 compliant</strong> smart contract that serves as the main entry point for users. It accepts deposits, mints shares, and manages capital allocation.
+                  </p>
+                  <div className="bg-muted p-4 rounded-lg">
+                    <p className="text-sm font-mono mb-2">Key Functions:</p>
+                    <ul className="text-sm space-y-1 text-muted-foreground">
+                      <li>• <code>deposit(uint256 assets)</code> - Accept user deposits</li>
+                      <li>• <code>withdraw(uint256 assets)</code> - Return principal to users</li>
+                      <li>• <code>totalAssets()</code> - Report total vault value</li>
+                      <li>• <code>convertToShares(uint256 assets)</code> - Calculate share value</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-card border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <TrendingUp className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold mb-3">2. Yield Strategies</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Strategies are smart contracts that deploy capital into DeFi protocols (Aave, Lido, Morpho, etc.) to generate yield. Each strategy implements three core functions.
+                  </p>
+                  <div className="bg-muted p-4 rounded-lg">
+                    <p className="text-sm font-mono mb-2">Required Implementation:</p>
+                    <ul className="text-sm space-y-1 text-muted-foreground">
+                      <li>• <code>_deployFunds(uint256)</code> - Deploy capital to protocol</li>
+                      <li>• <code>_freeFunds(uint256)</code> - Withdraw capital for user redemptions</li>
+                      <li>• <code>_harvestAndReport()</code> - Calculate total asset value</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-card border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Split className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold mb-3">3. Allocation Mechanism</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Routes generated yield to designated recipients. Can be a simple address, a split contract, or a complex allocation system (quadratic funding, community voting, etc.).
+                  </p>
+                  <div className="bg-muted p-4 rounded-lg">
+                    <p className="text-sm font-mono mb-2">Common Patterns:</p>
+                    <ul className="text-sm space-y-1 text-muted-foreground">
+                      <li>• Direct donation to single address</li>
+                      <li>• Split contract (multiple recipients with percentages)</li>
+                      <li>• Quadratic funding rounds</li>
+                      <li>• Community governance voting</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-bold mb-6">How They Work Together</h2>
+          <Card className="p-6 bg-muted border-border/50">
+            <pre className="text-sm overflow-x-auto">
+              <code>{`User deposits 10,000 USDC
+    ↓
+Funding Vault mints 10,000 shares (1:1 ratio)
+    ↓
+Vault allocates capital to strategies:
+  • 60% (6,000 USDC) → Aave Strategy
+  • 40% (4,000 USDC) → Lido Strategy
+    ↓
+Strategies deploy to protocols:
+  • Aave Strategy calls aavePool.supply(6000)
+  • Lido Strategy calls lido.stake(4000)
+    ↓
+Time passes, yield accrues...
+    ↓
+Harvest is triggered:
+  • Aave earned 25 USDC
+  • Lido earned 16.67 USDC
+  • Total yield: 41.67 USDC
+    ↓
+Yield is split (60/40 config):
+  • 25 USDC → Donated to allocation mechanism
+  • 16.67 USDC → Compounds back into vault
+    ↓
+Vault value grows to 10,016.67 USDC
+User can still withdraw original 10,000 USDC`}</code>
+            </pre>
+          </Card>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-bold mb-6">Additional Components</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Card className="p-4 bg-card border-border/50">
+              <div className="flex items-start gap-3">
+                <Shield className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold mb-1">Access Control</h3>
+                  <p className="text-sm text-muted-foreground">Role-based permissions for keepers, managers, and governance</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-4 bg-card border-border/50">
+              <div className="flex items-start gap-3">
+                <Layers className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold mb-1">Multi-Strategy Support</h3>
+                  <p className="text-sm text-muted-foreground">Vaults can deploy to multiple strategies simultaneously</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-4 bg-card border-border/50">
+              <div className="flex items-start gap-3">
+                <Coins className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold mb-1">Fee Management</h3>
+                  <p className="text-sm text-muted-foreground">Configurable performance and management fees</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-4 bg-card border-border/50">
+              <div className="flex items-start gap-3">
+                <Info className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold mb-1">Emergency Controls</h3>
+                  <p className="text-sm text-muted-foreground">Pause functionality and emergency withdrawal mechanisms</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        <Alert className="bg-primary/5 border-primary/20">
+          <Info className="h-4 w-4" />
+          <AlertDescription>
+            <strong>Ready to build?</strong> Now that you understand the components, proceed to <Link href="/docs/getting-started/environment-setup/install-prerequisites" className="text-primary hover:underline">Install Prerequisites</Link> to set up your development environment.
+          </AlertDescription>
+        </Alert>
+
+        <div className="flex items-center justify-between pt-4">
+          <Link href="/docs/getting-started/core-concepts/architecture-diagram">
+            <Button variant="outline">← Architecture Diagram</Button>
+          </Link>
+          <Link href="/docs/getting-started/core-concepts/yield-types">
+            <Button className="gap-2">
+              Yield Types Guide
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
       </div>
-    </div>
     </DocsLayout>
   );
 }
