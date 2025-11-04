@@ -1,5 +1,8 @@
+import DocsLayout from "@/components/DocsLayoutNew";
+
 export default function GetTestTokens() {
   return (
+    <DocsLayout>
     <div className="max-w-4xl">
       <h1 className="text-4xl font-bold mb-6">Get Test Tokens</h1>
 
@@ -37,5 +40,6 @@ export default function GetTestTokens() {
         </ul>
       </div>
     </div>
+    </DocsLayout>
   );
 }

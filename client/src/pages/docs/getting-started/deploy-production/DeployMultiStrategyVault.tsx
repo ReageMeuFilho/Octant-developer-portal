@@ -1,5 +1,8 @@
+import DocsLayout from "@/components/DocsLayoutNew";
+
 export default function DeployMultiStrategyVault() {
   return (
+    <DocsLayout>
     <div className="max-w-4xl">
       <h1 className="text-4xl font-bold mb-6">Deploy a Multi-Strategy Vault</h1>
 
@@ -37,5 +40,6 @@ export default function DeployMultiStrategyVault() {
         </ul>
       </div>
     </div>
+    </DocsLayout>
   );
 }

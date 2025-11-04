@@ -55,7 +55,7 @@ const tabsConfig: TabConfig[] = [
     icon: Home,
     sections: [
       {
-        title: "🚀 Quick Start",
+        title: "Quick Start",
         items: [
           { title: "What You'll Build", href: "/docs/getting-started/quick-start/what-youll-build" },
           { title: "Choose Your Path", href: "/docs/getting-started/quick-start/choose-your-path" },
@@ -63,7 +63,7 @@ const tabsConfig: TabConfig[] = [
         ]
       },
       {
-        title: "📖 Core Concepts",
+        title: "Core Concepts",
         items: [
           { title: "Octant in 3 Minutes", href: "/docs/getting-started/core-concepts/octant-in-3-minutes" },
           { title: "Architecture Diagram", href: "/docs/getting-started/core-concepts/architecture-diagram" },
@@ -72,7 +72,7 @@ const tabsConfig: TabConfig[] = [
         ]
       },
       {
-        title: "🛠️ Environment Setup",
+        title: "Environment Setup",
         items: [
           { title: "Install Prerequisites", href: "/docs/getting-started/environment-setup/install-prerequisites" },
           { title: "Clone & Run Demo", href: "/docs/getting-started/environment-setup/clone-run-demo" },
@@ -81,7 +81,7 @@ const tabsConfig: TabConfig[] = [
         ]
       },
       {
-        title: "💻 Build Your First Strategy",
+        title: "Build Your First Strategy",
         items: [
           { title: "Tutorial: Simple Lending Strategy", href: "/docs/getting-started/build-first-strategy/tutorial-simple-lending" },
           { title: "Tutorial: Staking Strategy", href: "/docs/getting-started/build-first-strategy/tutorial-staking" },
@@ -90,7 +90,7 @@ const tabsConfig: TabConfig[] = [
         ]
       },
       {
-        title: "🚢 Deploy to Production",
+        title: "Deploy to Production",
         items: [
           { title: "Testing Checklist", href: "/docs/getting-started/deploy-production/testing-checklist" },
           { title: "Deploy on Testnet", href: "/docs/getting-started/deploy-production/deploy-testnet" },
@@ -99,7 +99,7 @@ const tabsConfig: TabConfig[] = [
         ]
       },
       {
-        title: "🎨 Frontend Integration",
+        title: "Frontend Integration",
         items: [
           { title: "Connect the Boilerplate", href: "/docs/getting-started/frontend-integration/connect-boilerplate" },
           { title: "Build Deposit/Withdraw UI", href: "/docs/getting-started/frontend-integration/deposit-withdraw-ui" },
@@ -108,7 +108,7 @@ const tabsConfig: TabConfig[] = [
         ]
       },
       {
-        title: "🎓 Advanced Topics",
+        title: "Advanced Topics",
         items: [
           { title: "Allocation Mechanisms", href: "/docs/getting-started/advanced-topics/allocation-mechanisms" },
           { title: "Community Staking", href: "/docs/getting-started/advanced-topics/community-staking" },
@@ -117,7 +117,7 @@ const tabsConfig: TabConfig[] = [
         ]
       },
       {
-        title: "🆘 Troubleshooting & Support",
+        title: "Troubleshooting & Support",
         items: [
           { title: "Common Errors & Solutions", href: "/docs/getting-started/troubleshooting/common-errors" },
           { title: "Debugging Guide", href: "/docs/getting-started/troubleshooting/debugging-guide" },

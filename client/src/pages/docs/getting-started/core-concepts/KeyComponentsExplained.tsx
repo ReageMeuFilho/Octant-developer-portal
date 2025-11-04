@@ -1,5 +1,8 @@
+import DocsLayout from "@/components/DocsLayoutNew";
+
 export default function KeyComponentsExplained() {
   return (
+    <DocsLayout>
     <div className="max-w-4xl">
       <h1 className="text-4xl font-bold mb-6">Key Components Explained</h1>
 
@@ -37,5 +40,6 @@ export default function KeyComponentsExplained() {
         </ul>
       </div>
     </div>
+    </DocsLayout>
   );
 }

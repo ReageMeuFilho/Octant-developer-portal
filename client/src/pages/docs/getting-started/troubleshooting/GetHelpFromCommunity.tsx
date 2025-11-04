@@ -1,5 +1,8 @@
+import DocsLayout from "@/components/DocsLayoutNew";
+
 export default function GetHelpfromCommunity() {
   return (
+    <DocsLayout>
     <div className="max-w-4xl">
       <h1 className="text-4xl font-bold mb-6">Get Help from Community</h1>
 
@@ -37,5 +40,6 @@ export default function GetHelpfromCommunity() {
         </ul>
       </div>
     </div>
+    </DocsLayout>
   );
 }

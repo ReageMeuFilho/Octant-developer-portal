@@ -1,5 +1,8 @@
+import DocsLayout from "@/components/DocsLayoutNew";
+
 export default function YieldTypesVisualGuide() {
   return (
+    <DocsLayout>
     <div className="max-w-4xl">
       <h1 className="text-4xl font-bold mb-6">Yield Types: Visual Guide</h1>
 
@@ -37,5 +40,6 @@ export default function YieldTypesVisualGuide() {
         </ul>
       </div>
     </div>
+    </DocsLayout>
   );
 }

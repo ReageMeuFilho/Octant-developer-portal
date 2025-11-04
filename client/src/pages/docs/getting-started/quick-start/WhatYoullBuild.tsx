@@ -1,5 +1,8 @@
+import DocsLayout from "@/components/DocsLayoutNew";
+
 export default function WhatYoullBuild() {
   return (
+    <DocsLayout>
     <div className="max-w-4xl">
       <h1 className="text-4xl font-bold mb-6">What You'll Build</h1>
 
@@ -257,5 +260,6 @@ git --version
         </div>
       </div>
     </div>
+    </DocsLayout>
   );
 }
