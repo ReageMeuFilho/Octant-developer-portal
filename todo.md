@@ -354,3 +354,52 @@
 - [x] Ensure GitHub + Discord icons on right
 - [x] Test transition from landing page to documentation
 - [x] Verify consistent look across all pages
+
+
+## Getting Started Section (31 pages) ✅
+- [x] Create directory structure: client/src/pages/docs/getting-started/
+- [x] 🚀 Quick Start (3 pages)
+  - [x] What You'll Build (full content)
+  - [x] Choose Your Path (placeholder)
+  - [x] Prerequisites Check (placeholder)
+- [x] 📖 Core Concepts (4 pages)
+  - [x] Octant in 3 Minutes (placeholder)
+  - [x] Architecture Diagram (placeholder)
+  - [x] Key Components Explained (placeholder)
+  - [x] Yield Types: Visual Guide (placeholder)
+- [x] 🛠️ Environment Setup (4 pages)
+  - [x] Install Prerequisites (placeholder)
+  - [x] Clone & Run Demo (placeholder)
+  - [x] Connect Your Wallet (placeholder)
+  - [x] Get Test Tokens (placeholder)
+- [x] 💻 Build Your First Strategy (4 pages)
+  - [x] Tutorial: Simple Lending Strategy (placeholder)
+  - [x] Tutorial: Staking Strategy (placeholder)
+  - [x] Understanding Donations vs Skimming (placeholder)
+  - [x] Testing Your Strategy (placeholder)
+- [x] 🚢 Deploy to Production (4 pages)
+  - [x] Testing Checklist (placeholder)
+  - [x] Deploy on Testnet (placeholder)
+  - [x] Deploy a Multi-Strategy Vault (placeholder)
+  - [x] Monitoring & Maintenance (placeholder)
+- [x] 🎨 Frontend Integration (4 pages)
+  - [x] Connect the Boilerplate (placeholder)
+  - [x] Build Deposit/Withdraw UI (placeholder)
+  - [x] Real-Time Updates (placeholder)
+  - [x] Production Best Practices (placeholder)
+- [x] 🎓 Advanced Topics (4 pages)
+  - [x] Allocation Mechanisms (placeholder)
+  - [x] Community Staking (placeholder)
+  - [x] Superfluid Streaming (placeholder)
+  - [x] Multi-Strategy Rebalancing (placeholder)
+- [x] 🆘 Troubleshooting & Support (4 pages)
+  - [x] Common Errors & Solutions (placeholder)
+  - [x] Debugging Guide (placeholder)
+  - [x] FAQs (placeholder)
+  - [x] Get Help from Community (placeholder)
+- [x] Update DocsLayoutNew.tsx sidebar with new navigation
+- [x] Add all routes to App.tsx
+- [x] Test all navigation links
+- [x] Verify styling consistency
+
+Note: All pages created with placeholder content. Ready for full content population in next phase.
