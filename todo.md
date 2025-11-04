@@ -284,3 +284,65 @@
 - [x] Add developer code snippet
 - [x] Add Notes & Disclaimers
 - [x] Add route to App.tsx
+
+
+## Documentation Redesign (Stripe-Style Layout)
+
+### Phase 1: Horizontal Top Navigation
+- [x] Create horizontal top nav bar with 6 tabs (Getting Started, Core Concepts, Developer Paths, Tutorials, Reference, Resources/Use Cases)
+- [x] Style tabs with Octant colors and fonts
+- [x] Implement active tab highlighting with blue accent
+- [x] Position below existing header (logo + search)
+
+### Phase 2: Context-Aware Sidebar
+- [x] Modify DocsLayout to show different sidebar content based on active tab
+- [x] Create sidebar content for "Getting Started" tab
+- [x] Create sidebar content for "Core Concepts" tab
+- [x] Create sidebar content for "Developer Paths" tab
+- [x] Create sidebar content for "Tutorials" tab
+- [x] Create sidebar content for "Reference" tab
+- [x] Create sidebar content for "Resources/Use Cases" tab
+- [x] Add collapsible headings for subpages
+- [x] Keep sidebar sticky on scroll
+- [x] Maintain blue highlight for active page
+
+### Phase 3: Sectioned Card Grids
+- [x] Add card grid to Getting Started page
+- [x] Create cards for "Deploy your first vault"
+- [x] Create cards for "Configure allocation mechanism"
+- [x] Create cards for "Import test tokens"
+- [x] Use existing Octant card styles
+
+### Phase 4: Resources Panel
+- [x] Create Resources panel component
+- [x] Add "Browse Sample Projects" link
+- [x] Add "Test Your Integration" link
+- [x] Add "Build on Octant with LLMs" link
+- [x] Add "Developer Resources" (Discord, Forum, Twitter) links
+- [x] Add "Partner Directory" link
+- [x] Add "Octant Apps" link
+- [x] Add "Support Site" link
+- [x] Place panel near bottom of each docs page
+
+### Phase 5: Feedback & Support Footer
+- [x] Create "Was this page helpful?" poll with Yes/No buttons
+- [x] Add "Contact Support" link
+- [x] Add "View Changelog" link
+- [x] Add "Contact Sales/Partnerships" link
+- [x] Add newsletter signup box with email input and "Sign up" button
+- [x] Add llms.txt link (optional)
+
+### Phase 6: Mobile Responsiveness
+- [x] Implement hamburger menu for mobile
+- [x] Test responsive behavior on tablet
+- [x] Test responsive behavior on mobile
+- [x] Ensure smooth transitions
+
+### Phase 7: Testing & Deployment
+- [ ] Test navigation from landing page
+- [ ] Verify all existing content unchanged
+- [ ] Verify all styling preserved
+- [ ] Test all tab switches
+- [ ] Test all sidebar navigation
+- [ ] Push to GitHub
+- [ ] Verify Vercel deployment

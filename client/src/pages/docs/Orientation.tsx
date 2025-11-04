@@ -1,4 +1,4 @@
-import DocsLayout from "@/components/DocsLayout";
+import DocsLayout from "@/components/DocsLayoutNew";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

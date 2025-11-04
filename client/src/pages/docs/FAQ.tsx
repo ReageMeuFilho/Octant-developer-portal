@@ -1,4 +1,4 @@
-import DocsLayout from "@/components/DocsLayout";
+import DocsLayout from "@/components/DocsLayoutNew";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";

@@ -1,4 +1,4 @@
-import DocsLayout from "@/components/DocsLayout";
+import DocsLayout from "@/components/DocsLayoutNew";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -30,6 +30,66 @@ export default function Docs() {
           <p className="text-xl text-muted-foreground leading-relaxed">
             Build sustainable funding infrastructure for Web3 ecosystems. Octant v2 transforms treasury assets into continuous funding streams while preserving principal through battle-tested DeFi strategies.
           </p>
+        </div>
+
+        {/* Quick Actions - Stripe-style task cards */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Quick Actions</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            <Link href="/docs/tutorials/first-vault">
+              <Card className="p-5 hover:shadow-lg transition-all cursor-pointer group border-border/50 hover:border-primary/50">
+                <div className="flex flex-col gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Rocket className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">Deploy your first vault</h3>
+                    <p className="text-sm text-muted-foreground">Create and deploy a funding vault in under 5 minutes</p>
+                  </div>
+                  <div className="flex items-center text-sm text-primary group-hover:gap-2 transition-all">
+                    Get started
+                    <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/docs/allocation-mechanisms">
+              <Card className="p-5 hover:shadow-lg transition-all cursor-pointer group border-border/50 hover:border-accent/50">
+                <div className="flex flex-col gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                    <Code2 className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 group-hover:text-accent transition-colors">Configure allocation mechanism</h3>
+                    <p className="text-sm text-muted-foreground">Set up voting, QF, or custom allocation logic</p>
+                  </div>
+                  <div className="flex items-center text-sm text-accent group-hover:gap-2 transition-all">
+                    Learn more
+                    <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/docs/resources/testnet">
+              <Card className="p-5 hover:shadow-lg transition-all cursor-pointer group border-border/50 hover:border-primary/50">
+                <div className="flex flex-col gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Zap className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">Import test tokens</h3>
+                    <p className="text-sm text-muted-foreground">Get testnet tokens and start building immediately</p>
+                  </div>
+                  <div className="flex items-center text-sm text-primary group-hover:gap-2 transition-all">
+                    Get tokens
+                    <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+          </div>
         </div>
 
         {/* Quick Start Cards */}
