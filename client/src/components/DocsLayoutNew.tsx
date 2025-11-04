@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { APP_LOGO, APP_TITLE } from "@/const";
+import Navigation from "@/components/Navigation";
 
 interface DocsLayoutProps {
   children: ReactNode;
@@ -192,35 +193,23 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* Header with Logo and Search */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Link href="/">
-              <div className="flex items-center gap-2 cursor-pointer">
-                {APP_LOGO && <img src={APP_LOGO} alt={APP_TITLE} className="h-8 w-8" />}
-                <span className="text-xl font-bold">{APP_TITLE}</span>
-              </div>
-            </Link>
+      {/* Use shared Navigation component from landing page */}
+      <Navigation />
+      
+      {/* Documentation-specific header with tabs */}
+      <header className="sticky top-16 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-12 items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-medium text-muted-foreground">Documentation</span>
           </div>
-
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-2 px-3 py-2 rounded-md border bg-muted/50">
-              <Search className="h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="Search docs..." 
-                className="border-0 bg-transparent focus-visible:ring-0 w-64"
-              />
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
-          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
         </div>
 
         {/* Horizontal Top Navigation Tabs */}
@@ -286,7 +275,7 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
       {/* Main Content Area */}
       <div className="container flex-1 flex">
         {/* Context-Aware Left Sidebar */}
-        <aside className="hidden md:block w-64 flex-shrink-0 border-r sticky top-32 h-[calc(100vh-8rem)] overflow-y-auto py-6">
+        <aside className="hidden md:block w-64 flex-shrink-0 border-r sticky top-28 h-[calc(100vh-7rem)] overflow-y-auto py-6">
           <nav className="space-y-6">
             {activeTab.sections.map((section) => {
               const isCollapsed = collapsedSections[section.title];
