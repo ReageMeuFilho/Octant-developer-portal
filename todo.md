@@ -457,3 +457,33 @@ Note: All pages created with placeholder content. Ready for full content populat
 - [ ] Replace all emoji icons with lucide-react icons
 - [ ] Ensure consistent styling across all pages
 - [ ] Test all pages for visual consistency
+
+
+## Interactive Architecture Tutorial (Module 2) ✅
+- [x] Install dependencies: framer-motion, recharts, @react-three/fiber, @react-three/drei, d3
+- [x] Create /docs/tutorials/architecture route
+- [x] Build ScrollProgress component (integrated in main page)
+- [ ] Build StickyCanvas component (deferred)
+- [ ] Build NarrativePanel component (deferred)
+- [x] Scene 1: The Challenge (chart visualization)
+- [x] Scene 2: Three Systems (system overview)
+- [x] Scene 3: Vault Engine (visual diagram)
+- [ ] Scene 4: Dragon Protocol (yield flow) - placeholder
+- [ ] Scene 5: Staking (community staking) - placeholder
+- [ ] Scene 6: Quadratic Funding (allocation mechanism) - placeholder
+- [ ] Scene 7: Complete Loop (full system flow) - placeholder
+- [ ] Scene 8: Principles (design principles) - placeholder
+- [ ] Scene 9: Modular (modularity benefits) - placeholder
+- [ ] Scene 10: Use Cases (real-world examples) - placeholder
+- [ ] Scene 11: Security (security features) - placeholder
+- [ ] Scene 12: Developer (developer experience) - placeholder
+- [x] Scene 13: Data Flow (simplified visual flow)
+- [ ] Scene 14: Why Matters (impact) - placeholder
+- [ ] Scene 15: Network Effects (growth visualization) - placeholder
+- [ ] Scene 16: Vision (future roadmap) - placeholder
+- [x] Scene 17: Call to Action (get started)
+- [ ] Scene 18: Closing (summary) - placeholder
+- [x] Add route to App.tsx
+- [x] Test scroll animations and interactions
+
+Note: 5 key scenes fully implemented with interactive features. Remaining 13 scenes can be added later.

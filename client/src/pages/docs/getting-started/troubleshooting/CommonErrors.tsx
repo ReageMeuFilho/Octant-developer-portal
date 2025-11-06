@@ -67,7 +67,7 @@ export default function CommonErrors() {
                     <code className="text-sm">EvmError: OutOfGas</code>
                   </div>
                   <p className="text-muted-foreground mb-3">
-                    <strong>Cause:</strong> Contract bytecode is too large ({">"}24KB) or gas limit is too low.
+                    <strong>Cause:</strong> Contract bytecode is too large (&gt;24KB) or gas limit is too low.
                   </p>
                   <div className="bg-primary/5 border border-primary/20 rounded p-4">
                     <p className="text-sm font-semibold mb-2 flex items-center gap-2">

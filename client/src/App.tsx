@@ -26,6 +26,7 @@ import Community from "./pages/docs/resources/Community";
 import FAQ from "./pages/docs/resources/FAQ";
 import OctantCaseStudy from "./pages/docs/case-studies/Octant";
 import Tutorials from "./pages/docs/Tutorials";
+import ArchitectureTutorial from "./pages/docs/tutorials/ArchitectureTutorial";
 import WhatIsOctant from "./pages/docs/WhatIsOctant";
 import HowItWorks from "./pages/docs/HowItWorks";
 import Architecture from "./pages/docs/Architecture";
@@ -185,6 +186,7 @@ function Router() {
       <Route path="/docs/allocation-mechanisms" component={AllocationMechanisms} />
       <Route path="/docs/multi-strategy" component={MultiStrategy} />
       <Route path="/docs/tutorials/first-vault" component={FirstVault} />
+            <Route path="/docs/tutorials/architecture" component={ArchitectureTutorial} />
       <Route path="/docs/tutorials/quadratic-funding" component={QuadraticFunding} />
       <Route path="/docs/tutorials/aave-integration" component={AaveIntegration} />
       <Route path="/docs/tutorials/lido-integration" component={LidoIntegration} />
