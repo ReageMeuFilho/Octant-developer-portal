@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useId } from 'react';
 
 interface MermaidProps {
   code: string;
@@ -6,6 +6,7 @@ interface MermaidProps {
 }
 
 export default function Mermaid({ code, id }: MermaidProps) {
+  const stableId = useId();
   const diagramRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function Mermaid({ code, id }: MermaidProps) {
             }
           });
 
-          const diagramId = id || `mermaid-${Math.random().toString(36).substr(2, 9)}`;
+          const diagramId = id || stableId;
           const { svg } = await mermaid.render(diagramId, code);
           if (diagramRef.current) {
             diagramRef.current.innerHTML = svg;
@@ -46,7 +47,7 @@ export default function Mermaid({ code, id }: MermaidProps) {
     };
 
     renderDiagram();
-  }, [code, id]);
+  }, [code, id, stableId]);
 
   return <div ref={diagramRef} className="mermaid-container" />;
 }
