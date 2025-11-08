@@ -74,9 +74,7 @@ export const diagramsData: Record<string, DiagramData> = {
     H --> J[Bob's New Balance: $50,132]
     I --> K[Projects receive $88<br/>via allocation mechanism]
     
-    style A fill:#e1f5ff
-    style J fill:#90EE90
-    style K fill:#FFD700`,
+`,
     keyPoints: [
       "Bob's deposit is split across multiple strategies for diversification",
       "Each strategy earns yield from external DeFi protocols",
@@ -121,11 +119,7 @@ export const diagramsData: Record<string, DiagramData> = {
         E --> F4[4. Idle funds]
     end
     
-    style A fill:#FFB6C1
-    style B fill:#87CEEB
-    style C1 fill:#90EE90
-    style C2 fill:#FFD700
-    style C3 fill:#FFA500`,
+`,
     keyPoints: [
       "Vault manager allocates funds across multiple strategies",
       "Each strategy has a maximum debt limit for risk management",
@@ -311,11 +305,7 @@ export const diagramsData: Record<string, DiagramData> = {
     P2 --> R2[Project redeems shares<br/>for underlying USDC]
     P3 --> R3[Project redeems shares<br/>for underlying USDC]
     
-    style DR fill:#FF6347
-    style AM fill:#4169E1
-    style P1 fill:#32CD32
-    style P2 fill:#FFD700
-    style P3 fill:#FF69B4`,
+`,
     keyPoints: [
       "Dragon Router is the central hub that receives all donated yield",
       "Multiple strategies send their yield shares to the Dragon Router",
@@ -363,11 +353,7 @@ export const diagramsData: Record<string, DiagramData> = {
     Match --> PA4[Project A gets:<br/>784/1040 × $10,000 = $7,538]
     Match --> PB4[Project B gets:<br/>256/1040 × $10,000 = $2,462]
     
-    style A fill:#FFB6C1
-    style B fill:#87CEEB  
-    style C fill:#90EE90
-    style PA4 fill:#FFD700
-    style PB4 fill:#FFA500`,
+`,
     keyPoints: [
       "Quadratic Funding amplifies the voice of many small donors",
       "Formula uses square root of contributions to reduce whale dominance",
