@@ -171,13 +171,73 @@ const tabsConfig: TabConfig[] = [
     icon: Network,
     sections: [
       {
-        title: "Getting Started",
+        title: "Core Concepts",
         items: [
-          { title: "Start Here", href: "/docs/diagrams/start-here" },
-          { title: "Visual Guide", href: "/docs/diagrams/visual-guide" },
-          { title: "Diagram Index", href: "/docs/diagrams/diagram-index" },
-          { title: "Table of Contents", href: "/docs/diagrams/table-of-contents" },
-          { title: "Gallery", href: "/docs/diagrams/gallery" },
+          { title: "Deposit & Withdrawal", href: "/docs/diagrams/core-concepts/deposit-withdrawal" },
+          { title: "Yield Generation", href: "/docs/diagrams/core-concepts/yield-generation" },
+          { title: "Multi-Strategy Vault", href: "/docs/diagrams/core-concepts/multi-strategy-vault" },
+          { title: "Emergency Shutdown", href: "/docs/diagrams/core-concepts/emergency-shutdown" },
+          { title: "Loss Scenario", href: "/docs/diagrams/core-concepts/loss-scenario" },
+          { title: "Share Math", href: "/docs/diagrams/core-concepts/share-math" },
+        ]
+      },
+      {
+        title: "Yield Mechanisms",
+        items: [
+          { title: "Yield Donating", href: "/docs/diagrams/yield-mechanisms/yield-donating" },
+          { title: "Yield Skimming", href: "/docs/diagrams/yield-mechanisms/yield-skimming" },
+          { title: "Harvest Cycle", href: "/docs/diagrams/yield-mechanisms/harvest-cycle" },
+          { title: "Debt Management", href: "/docs/diagrams/yield-mechanisms/debt-management" },
+          { title: "Strategy Decision Tree", href: "/docs/diagrams/yield-mechanisms/strategy-decision-tree" },
+        ]
+      },
+      {
+        title: "Governance & Allocation",
+        items: [
+          { title: "Dragon Router", href: "/docs/diagrams/governance-allocation/dragon-router" },
+          { title: "Quadratic Funding", href: "/docs/diagrams/governance-allocation/quadratic-funding" },
+          { title: "Proposal Lifecycle", href: "/docs/diagrams/governance-allocation/proposal-lifecycle" },
+          { title: "Access Control", href: "/docs/diagrams/governance-allocation/access-control" },
+          { title: "Payment Splitter", href: "/docs/diagrams/governance-allocation/payment-splitter" },
+        ]
+      },
+      {
+        title: "Advanced Features",
+        items: [
+          { title: "Lockup & Rage Quit", href: "/docs/diagrams/advanced-features/lockup-rage-quit" },
+          { title: "Trader DCA", href: "/docs/diagrams/advanced-features/trader-dca" },
+          { title: "Hats Protocol", href: "/docs/diagrams/advanced-features/hats-protocol" },
+          { title: "Safe Module", href: "/docs/diagrams/advanced-features/safe-module" },
+          { title: "Passport", href: "/docs/diagrams/advanced-features/passport" },
+          { title: "Linear Allowance", href: "/docs/diagrams/advanced-features/linear-allowance" },
+        ]
+      },
+      {
+        title: "Deployment & Integration",
+        items: [
+          { title: "Factory Deployment", href: "/docs/diagrams/deployment-integration/factory-deployment" },
+          { title: "Clone Deployment", href: "/docs/diagrams/deployment-integration/clone-deployment" },
+          { title: "External Integration", href: "/docs/diagrams/deployment-integration/external-integration" },
+          { title: "Cross-Vault Aggregation", href: "/docs/diagrams/deployment-integration/cross-vault-aggregation" },
+        ]
+      },
+      {
+        title: "User Journeys",
+        items: [
+          { title: "First-Time User", href: "/docs/diagrams/user-journeys/first-time-user" },
+          { title: "Power User", href: "/docs/diagrams/user-journeys/power-user" },
+          { title: "DAO Treasury", href: "/docs/diagrams/user-journeys/dao-treasury" },
+          { title: "Octant vs Traditional", href: "/docs/diagrams/user-journeys/octant-vs-traditional" },
+        ]
+      },
+      {
+        title: "Operations & Edge Cases",
+        items: [
+          { title: "Withdrawal Queue", href: "/docs/diagrams/operations-edge-cases/withdrawal-queue" },
+          { title: "Vault Migration", href: "/docs/diagrams/operations-edge-cases/vault-migration" },
+          { title: "Health Monitoring", href: "/docs/diagrams/operations-edge-cases/health-monitoring" },
+          { title: "Failed Withdrawal", href: "/docs/diagrams/operations-edge-cases/failed-withdrawal" },
+          { title: "Slippage Protection", href: "/docs/diagrams/operations-edge-cases/slippage-protection" },
         ]
       }
     ]

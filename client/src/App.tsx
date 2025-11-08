@@ -144,6 +144,49 @@ import DiagramsVisualGuide from "@/pages/docs/diagrams/VisualGuide";
 import DiagramsDiagramIndex from "@/pages/docs/diagrams/DiagramIndex";
 import DiagramsTableOfContents from "@/pages/docs/diagrams/TableOfContents";
 
+import DepositWithdrawal from "@/pages/docs/diagrams/core-concepts/DepositWithdrawal";
+import YieldGeneration from "@/pages/docs/diagrams/core-concepts/YieldGeneration";
+import MultiStrategyVault from "@/pages/docs/diagrams/core-concepts/MultiStrategyVault";
+import EmergencyShutdown from "@/pages/docs/diagrams/core-concepts/EmergencyShutdown";
+import LossScenario from "@/pages/docs/diagrams/core-concepts/LossScenario";
+import ShareMath from "@/pages/docs/diagrams/core-concepts/ShareMath";
+
+import YieldDonatingDiagram from "@/pages/docs/diagrams/yield-mechanisms/YieldDonating";
+import YieldSkimmingDiagram from "@/pages/docs/diagrams/yield-mechanisms/YieldSkimming";
+import HarvestCycle from "@/pages/docs/diagrams/yield-mechanisms/HarvestCycle";
+import DebtManagement from "@/pages/docs/diagrams/yield-mechanisms/DebtManagement";
+import StrategyDecisionTree from "@/pages/docs/diagrams/yield-mechanisms/StrategyDecisionTree";
+
+import DragonRouterDiagram from "@/pages/docs/diagrams/governance-allocation/DragonRouter";
+import QuadraticFundingDiagram from "@/pages/docs/diagrams/governance-allocation/QuadraticFunding";
+import ProposalLifecycleDiagram from "@/pages/docs/diagrams/governance-allocation/ProposalLifecycle";
+import AccessControl from "@/pages/docs/diagrams/governance-allocation/AccessControl";
+import PaymentSplitter from "@/pages/docs/diagrams/governance-allocation/PaymentSplitter";
+
+import LockupRageQuit from "@/pages/docs/diagrams/advanced-features/LockupRageQuit";
+import TraderDca from "@/pages/docs/diagrams/advanced-features/TraderDca";
+import HatsProtocol from "@/pages/docs/diagrams/advanced-features/HatsProtocol";
+import SafeModule from "@/pages/docs/diagrams/advanced-features/SafeModule";
+import Passport from "@/pages/docs/diagrams/advanced-features/Passport";
+import LinearAllowance from "@/pages/docs/diagrams/advanced-features/LinearAllowance";
+
+import FactoryDeployment from "@/pages/docs/diagrams/deployment-integration/FactoryDeployment";
+import CloneDeployment from "@/pages/docs/diagrams/deployment-integration/CloneDeployment";
+import ExternalIntegration from "@/pages/docs/diagrams/deployment-integration/ExternalIntegration";
+import CrossVaultAggregation from "@/pages/docs/diagrams/deployment-integration/CrossVaultAggregation";
+
+// User Journeys Diagrams
+import FirstTimeUser from "@/pages/docs/diagrams/user-journeys/FirstTimeUser";
+import PowerUser from "@/pages/docs/diagrams/user-journeys/PowerUser";
+import DaoTreasury from "@/pages/docs/diagrams/user-journeys/DaoTreasury";
+import OctantVsTraditional from "@/pages/docs/diagrams/user-journeys/OctantVsTraditional";
+
+import WithdrawalQueue from "@/pages/docs/diagrams/operations-edge-cases/WithdrawalQueue";
+import VaultMigration from "@/pages/docs/diagrams/operations-edge-cases/VaultMigration";
+import HealthMonitoring from "@/pages/docs/diagrams/operations-edge-cases/HealthMonitoring";
+import FailedWithdrawal from "@/pages/docs/diagrams/operations-edge-cases/FailedWithdrawal";
+import SlippageProtection from "@/pages/docs/diagrams/operations-edge-cases/SlippageProtection";
+
 function Router() {
   return (
     <Switch>
@@ -170,6 +213,56 @@ function Router() {
       <Route path="/docs/diagrams/diagram-index" component={DiagramsDiagramIndex} />
       <Route path="/docs/diagrams/table-of-contents" component={DiagramsTableOfContents} />
       <Route path="/docs/diagrams/gallery" component={DiagramGallery} />
+      
+      {/* Core Concepts Diagrams */}
+      <Route path="/docs/diagrams/core-concepts/deposit-withdrawal" component={DepositWithdrawal} />
+      <Route path="/docs/diagrams/core-concepts/yield-generation" component={YieldGeneration} />
+      <Route path="/docs/diagrams/core-concepts/multi-strategy-vault" component={MultiStrategyVault} />
+      <Route path="/docs/diagrams/core-concepts/emergency-shutdown" component={EmergencyShutdown} />
+      <Route path="/docs/diagrams/core-concepts/loss-scenario" component={LossScenario} />
+      <Route path="/docs/diagrams/core-concepts/share-math" component={ShareMath} />
+      
+      {/* Yield Mechanisms Diagrams */}
+      <Route path="/docs/diagrams/yield-mechanisms/yield-donating" component={YieldDonatingDiagram} />
+      <Route path="/docs/diagrams/yield-mechanisms/yield-skimming" component={YieldSkimmingDiagram} />
+      <Route path="/docs/diagrams/yield-mechanisms/harvest-cycle" component={HarvestCycle} />
+      <Route path="/docs/diagrams/yield-mechanisms/debt-management" component={DebtManagement} />
+      <Route path="/docs/diagrams/yield-mechanisms/strategy-decision-tree" component={StrategyDecisionTree} />
+      
+      {/* Governance & Allocation Diagrams */}
+      <Route path="/docs/diagrams/governance-allocation/dragon-router" component={DragonRouterDiagram} />
+      <Route path="/docs/diagrams/governance-allocation/quadratic-funding" component={QuadraticFundingDiagram} />
+      <Route path="/docs/diagrams/governance-allocation/proposal-lifecycle" component={ProposalLifecycleDiagram} />
+      <Route path="/docs/diagrams/governance-allocation/access-control" component={AccessControl} />
+      <Route path="/docs/diagrams/governance-allocation/payment-splitter" component={PaymentSplitter} />
+      
+      {/* Advanced Features Diagrams */}
+      <Route path="/docs/diagrams/advanced-features/lockup-rage-quit" component={LockupRageQuit} />
+      <Route path="/docs/diagrams/advanced-features/trader-dca" component={TraderDca} />
+      <Route path="/docs/diagrams/advanced-features/hats-protocol" component={HatsProtocol} />
+      <Route path="/docs/diagrams/advanced-features/safe-module" component={SafeModule} />
+      <Route path="/docs/diagrams/advanced-features/passport" component={Passport} />
+      <Route path="/docs/diagrams/advanced-features/linear-allowance" component={LinearAllowance} />
+      
+      {/* Deployment & Integration Diagrams */}
+      <Route path="/docs/diagrams/deployment-integration/factory-deployment" component={FactoryDeployment} />
+      <Route path="/docs/diagrams/deployment-integration/clone-deployment" component={CloneDeployment} />
+      <Route path="/docs/diagrams/deployment-integration/external-integration" component={ExternalIntegration} />
+      <Route path="/docs/diagrams/deployment-integration/cross-vault-aggregation" component={CrossVaultAggregation} />
+      
+      {/* User Journeys Diagrams */}
+      <Route path="/docs/diagrams/user-journeys/first-time-user" component={FirstTimeUser} />
+      <Route path="/docs/diagrams/user-journeys/power-user" component={PowerUser} />
+      <Route path="/docs/diagrams/user-journeys/dao-treasury" component={DaoTreasury} />
+      <Route path="/docs/diagrams/user-journeys/octant-vs-traditional" component={OctantVsTraditional} />
+      
+      {/* Operations & Edge Cases Diagrams */}
+      <Route path="/docs/diagrams/operations-edge-cases/withdrawal-queue" component={WithdrawalQueue} />
+      <Route path="/docs/diagrams/operations-edge-cases/vault-migration" component={VaultMigration} />
+      <Route path="/docs/diagrams/operations-edge-cases/health-monitoring" component={HealthMonitoring} />
+      <Route path="/docs/diagrams/operations-edge-cases/failed-withdrawal" component={FailedWithdrawal} />
+      <Route path="/docs/diagrams/operations-edge-cases/slippage-protection" component={SlippageProtection} />
+      
       <Route path="/docs/diagrams" component={DiagramsHome} />
 
       {/* Getting Started routes */}
