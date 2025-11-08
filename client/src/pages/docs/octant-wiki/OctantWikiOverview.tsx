@@ -60,46 +60,60 @@ export default function OctantWikiOverview() {
     DR --> LAS
     DR --> GS
     GS -->|executes via| DR
-    
-    style VF fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style SF fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style RSF fill:#ffe1f5,stroke:#cc0066,stroke-width:2px
-    
-    style YS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style YD fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style DTS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    
-    style RS fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    style RSB fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    style EPC fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    style DSV fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    
-    style TAM fill:#DDA0DD,stroke:#8B008B,stroke-width:2px
-    style QVM fill:#DDA0DD,stroke:#8B008B,stroke-width:2px
-    
-    style DR fill:#F0E68C,stroke:#DAA520,stroke-width:2px
-    style LAS fill:#F0E68C,stroke:#DAA520,stroke-width:2px
-    style GS fill:#F0E68C,stroke:#DAA520,stroke-width:2px`;
+    `;
 
     const renderDiagram = async () => {
       try {
         const mermaid = (await import('mermaid')).default;
         mermaid.initialize({
           startOnLoad: true,
-          theme: 'dark',
+          theme: 'base',
           themeVariables: {
-            primaryColor: '#2563eb',
-            primaryTextColor: '#fff',
-            primaryBorderColor: '#1e40af',
+            background: '#0a0a0a',
+            textColor: '#e5e7eb',
             lineColor: '#64748b',
+            mainBkg: '#0f172a',
+            secondBkg: '#111827',
+            primaryBorderColor: '#334155',
+            primaryTextColor: '#e5e7eb',
+            primaryColor: '#2563eb',
             secondaryColor: '#8b5cf6',
             tertiaryColor: '#10b981',
-            background: '#0a0a0a',
-            mainBkg: '#1a1a1a',
-            secondBkg: '#1e1e1e',
-            textColor: '#ffffff',
+            nodeTextColor: '#e5e7eb',
+            clusterBkg: '#0f172a',
+            clusterBorder: '#334155',
+            edgeLabelBackground: '#0f172a',
+            actorBkg: '#0f172a',
+            actorTextColor: '#e5e7eb',
+            noteBkgColor: '#0f172a',
+            noteTextColor: '#e5e7eb',
+            labelBoxBkgColor: '#0f172a',
+            labelTextColor: '#e5e7eb',
+            signalTextColor: '#e5e7eb',
             fontSize: '14px'
-          }
+          },
+          themeCSS: `
+            .labelBox > rect,
+            .note > rect,
+            .actor > rect {
+              fill: #0f172a !important;
+              stroke: #334155 !important;
+            }
+            .messageText,
+            .noteText,
+            .labelBox > text,
+            .actor > text {
+              fill: #e5e7eb !important;
+            }
+            .edgeLabel .label > rect {
+              fill: #0f172a !important;
+              stroke: #334155 !important;
+            }
+            .edgeLabel .label tspan,
+            .edgeLabel .label text {
+              fill: #e5e7eb !important;
+            }
+          `
         });
 
         // Render normal size diagram
@@ -125,22 +139,51 @@ export default function OctantWikiOverview() {
             startOnLoad: true,
             theme: 'base',
             themeVariables: {
-              primaryColor: '#2563eb',
-              primaryTextColor: '#000000', // Dark text for better contrast
-              primaryBorderColor: '#1e40af',
+              background: '#0a0a0a',
+              textColor: '#e5e7eb',
               lineColor: '#64748b',
+              mainBkg: '#0f172a',
+              secondBkg: '#111827',
+              primaryBorderColor: '#334155',
+              primaryTextColor: '#e5e7eb',
+              primaryColor: '#2563eb',
               secondaryColor: '#8b5cf6',
               tertiaryColor: '#10b981',
-              background: '#0a0a0a',
-              mainBkg: '#1a1a1a',
-              secondBkg: '#1e1e1e',
-              textColor: '#000000', // Dark text for all boxes
-              fontSize: '22px', // Balanced size for readability without edge label errors
-              nodeBorder: '#333333',
-              clusterBkg: '#2a2a2a',
-              clusterBorder: '#555555',
-              titleColor: '#ffffff'
+              nodeTextColor: '#e5e7eb',
+              clusterBkg: '#0f172a',
+              clusterBorder: '#334155',
+              edgeLabelBackground: '#0f172a',
+              actorBkg: '#0f172a',
+              actorTextColor: '#e5e7eb',
+              noteBkgColor: '#0f172a',
+              noteTextColor: '#e5e7eb',
+              labelBoxBkgColor: '#0f172a',
+              labelTextColor: '#e5e7eb',
+              signalTextColor: '#e5e7eb',
+              fontSize: '22px'
             },
+            themeCSS: `
+              .labelBox > rect,
+              .note > rect,
+              .actor > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .messageText,
+              .noteText,
+              .labelBox > text,
+              .actor > text {
+                fill: #e5e7eb !important;
+              }
+              .edgeLabel .label > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .edgeLabel .label tspan,
+              .edgeLabel .label text {
+                fill: #e5e7eb !important;
+              }
+            `,
             flowchart: {
               htmlLabels: true,
               curve: 'basis',
@@ -200,26 +243,7 @@ export default function OctantWikiOverview() {
     DR --> LAS
     DR --> GS
     GS -->|executes via| DR
-    
-    style VF fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style SF fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style RSF fill:#ffe1f5,stroke:#cc0066,stroke-width:2px
-    
-    style YS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style YD fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style DTS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    
-    style RS fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    style RSB fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    style EPC fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    style DSV fill:#FFD700,stroke:#FF8C00,stroke-width:2px
-    
-    style TAM fill:#DDA0DD,stroke:#8B008B,stroke-width:2px
-    style QVM fill:#DDA0DD,stroke:#8B008B,stroke-width:2px
-    
-    style DR fill:#F0E68C,stroke:#DAA520,stroke-width:2px
-    style LAS fill:#F0E68C,stroke:#DAA520,stroke-width:2px
-    style GS fill:#F0E68C,stroke:#DAA520,stroke-width:2px`;
+    `;
 
           const { svg } = await mermaid.render('octant-wiki-system-diagram-zoomed', diagramDefinition);
           if (zoomedDiagramRef.current) {
