@@ -487,3 +487,463 @@ Note: All pages created with placeholder content. Ready for full content populat
 - [x] Test scroll animations and interactions
 
 Note: 5 key scenes fully implemented with interactive features. Remaining 13 scenes can be added later.
+
+
+## Rebuild Interactive Architecture Tutorial - First 3 Scenes ✅
+- [x] Install react-countup dependency
+- [x] Create Scene 1: Meet Sarah
+  - [x] Avatar fade-in animation
+  - [x] Sequential text animations (name, title, key fact, mission)
+  - [x] $50 million highlight with background color
+  - [x] Bouncing scroll indicator
+- [x] Create Scene 2: The Financial Dilemma
+  - [x] Header fade-in
+  - [x] Two comparison cards (Traditional vs Octant)
+  - [x] Cards slide in from left/right
+  - [x] Show 3% vs 7% APY comparison
+  - [x] Show 15 wells vs 35 wells impact
+  - [x] Bottom card showing 700K people difference with CountUp animation
+- [x] Create Scene 3: Three Independent Systems
+  - [x] Three clickable system cards (Vault, Staking, Allocation)
+  - [x] Interactive click to reveal details
+  - [x] Staggered slide-in animations
+  - [x] Details panel with example flows
+- [x] Rebuild main ArchitectureTutorial page
+  - [x] Implement scroll-triggered scene transitions
+  - [x] Scene 1 visible on load
+  - [x] Scene 2 reveals on scroll with whileInView
+  - [x] Scene 3 reveals on scroll with whileInView
+  - [x] Remove old placeholder content
+- [x] Test all animations and transitions
+- [x] Verify consistent styling and design
+
+
+## Rebuild Architecture Tutorial - Card-Based Navigation ✅
+- [x] Generate professional portrait illustration of Sarah Chen (line art style)
+- [x] Create CardNavigationWrapper component
+  - [x] Progress bar at top (Scene 1 of 3, 2 of 3, 3 of 3)
+  - [x] Left/Right navigation arrows
+  - [x] Keyboard navigation (arrow keys)
+  - [x] Smooth lateral slide transitions
+  - [x] Full-screen card layout
+  - [x] Dot indicators at bottom
+- [x] Update Scene 1: Meet Sarah
+  - [x] Replace icon with generated portrait
+  - [x] Preserve all sequential animations
+  - [x] Adapt for card-based presentation
+- [x] Update Scene 2: Financial Dilemma
+  - [x] Preserve comparison cards and animations
+  - [x] Adapt for card-based presentation
+  - [x] CountUp animations working
+- [x] Update Scene 3: Three Independent Systems
+  - [x] Preserve interactive clickable cards
+  - [x] Adapt for card-based presentation
+  - [x] Card expansion/collapse working
+- [x] Update ArchitectureTutorial main page
+  - [x] Wrap scenes in CardNavigationWrapper
+  - [x] Remove scroll-based transitions
+  - [x] Add card state management
+- [x] Test all features
+  - [x] Click navigation works
+  - [x] Keyboard navigation works
+  - [x] Progress bar updates correctly
+  - [x] All animations preserved and fluid
+  - [x] Interactive card details expand/collapse
+
+
+## Fix Architecture Tutorial Layout & Background ✅
+- [x] Update CardNavigationWrapper to work within content area (not full-screen)
+- [x] Keep sidebar visible when viewing tutorial
+- [x] Match background color to homepage dark blue gradient
+- [x] Update ArchitectureTutorial to wrap content in DocsLayoutNew
+- [x] Test tutorial displays correctly with sidebar on left, cards on right
+- [x] Verify background color matches homepage
+
+
+## Technical Architecture Tutorial - Scenes 1-5
+- [ ] Install dependencies: react-syntax-highlighter, prism-react-renderer, react-flow-renderer
+- [ ] Create Scene 1: Meet Sarah - Technical Challenge
+  - [ ] Simple avatar with animations
+  - [ ] Problem statement with numbers
+  - [ ] Scroll indicator
+- [ ] Create Scene 2: Factory Pattern
+  - [ ] Interactive code block with deployNewVault()
+  - [ ] Copy, Expand, Try It buttons
+  - [ ] Factory → Implementation → Clone diagram
+  - [ ] Clickable diagram components
+- [ ] Create Scene 3: Strategy Interface
+  - [ ] Tabs for different strategy types
+  - [ ] Interactive Solidity code examples
+  - [ ] harvest(), report(), estimateAPR() functions
+- [ ] Create Scene 4: Dragon Protocol
+  - [ ] Animated yield flow diagram
+  - [ ] Step-by-step contract calls
+  - [ ] Interactive timeline
+- [ ] Create Scene 5: Complete System
+  - [ ] Full architecture diagram
+  - [ ] Clickable components
+  - [ ] Code examples for each layer
+- [ ] Create TechnicalArchitecture main page with card navigation
+- [ ] Test all interactive features and animations
+- [ ] Verify code accuracy and syntax highlighting
+
+
+## Rebuild Technical Architecture Tutorial (Clean Version) ✅
+- [x] Create directory: client/src/pages/docs/tutorials/technical/
+- [x] Scene 1: Meet Sarah (Technical Challenge) - Match Interactive Architecture style
+- [x] Scene 2: Factory Pattern - Code blocks with syntax highlighting
+- [x] Scene 3: Strategy Interface - Tabbed code examples
+- [x] Scene 4: Dragon Protocol - Animated flow diagram
+- [x] Scene 5: Complete System - Interactive layer cards
+- [x] Create TechnicalArchitecture.tsx main page with CardNavigationWrapper
+- [x] Add import to App.tsx
+- [x] Add route to App.tsx: /docs/tutorials/technical
+- [x] Add to DocsLayoutNew sidebar (below Interactive Architecture)
+- [x] Test all 5 scenes load correctly
+- [x] Verify card navigation works
+- [x] Verify styling matches Interactive Architecture
+
+
+## Create New Interactive Tutorials for TradFi Professionals (Card-Based Navigation)
+- [x] Read complete content specifications from pasted_content_14.txt
+- [x] Create Getting Started → Overview tutorial (3 scenes)
+  - [x] Scene 1: Introduction
+  - [x] Scene 2: Content
+  - [x] Scene 3: Summary
+- [x] Create Vault System → Alice's Journey → Day 1 tutorial (4 scenes)
+  - [x] Scene 1: Introduction
+  - [x] Scene 2: Content
+  - [x] Scene 3: Content
+  - [x] Scene 4: Summary
+- [x] Create System Architecture → System Overview Diagram page (1 page with Mermaid diagram)
+- [x] Update DocsLayoutNew sidebar with new navigation structure
+- [x] Add routes to App.tsx for all new pages
+- [x] Test all three pages with card navigation
+- [x] Verify styling matches existing tutorials
+- [x] Deliver for user feedback before continuing
+
+
+## Fix TradFi Tutorial Layout - Remove Sidebar
+- [x] Check how Interactive Architecture and Technical Architecture tutorials handle layout
+- [x] Remove DocsLayout from Interactive Architecture tutorial
+- [x] Remove DocsLayout from Technical Architecture tutorial
+- [x] Verify Getting Started Overview uses full-page layout (already correct - no DocsLayout)
+- [x] Verify Alice's Journey Day 1 uses full-page layout (already correct - no DocsLayout)
+- [x] Verify System Overview Diagram uses full-page layout (already correct - no DocsLayout)
+- [x] Test all five tutorials to verify full-page display
+- [x] Ensure navigation header still shows at top
+
+
+## Fix Tutorials - Restore Left Sidebar Navigation
+- [x] Add DocsLayoutNew wrapper back to Interactive Architecture tutorial
+- [x] Add DocsLayoutNew wrapper back to Technical Architecture tutorial
+- [x] Add DocsLayoutNew wrapper to Getting Started Overview tutorial
+- [x] Add DocsLayoutNew wrapper to Alice's Journey Day 1 tutorial
+- [x] Add DocsLayoutNew wrapper to System Overview Diagram page
+- [x] Test all 5 tutorials to verify sidebar is visible
+
+## Phase 1: Build Getting Started Content (2 pages)
+- [x] Parse getting-started-tradfi-analogies.json content
+- [x] Create TradFiAnalogies.tsx component (3 scenes) with DocsLayoutNew
+- [x] Parse getting-started-key-concepts.json content
+- [x] Create KeyConcepts.tsx component (3 scenes) with DocsLayoutNew
+- [x] Add routes to App.tsx for both new pages
+- [x] Update DocsLayoutNew sidebar with new navigation items
+- [x] Test both Phase 1 pages with sidebar navigation
+
+
+## Debug 404 Errors on Tutorial Pages
+- [ ] Test Getting Started Overview link
+- [ ] Test TradFi Analogies link
+- [ ] Test Key Concepts link
+- [ ] Test Alice's Journey Day 1 link
+- [ ] Test System Overview Diagram link
+- [ ] Test Interactive Architecture link
+- [ ] Test Technical Architecture link
+- [ ] Check App.tsx routes are correctly defined
+- [ ] Check DocsLayoutNew sidebar links match routes
+- [ ] Verify all tutorial components are properly exported
+- [ ] Fix any broken routes or imports
+- [ ] Re-test all links after fixes
+
+
+## Fix Tutorial Navigation UX - Tab Switching Issue
+- [x] Understand current issue: clicking TradFi tutorial links switches tab from Tutorials to Getting Started
+- [x] Identify root cause: getActiveTab() function missing /tradfi-tutorials URL check
+- [x] Add /tradfi-tutorials URL check to getActiveTab() function in DocsLayoutNew
+- [x] Test all 5 TradFi tutorial links to verify Tutorials tab stays active
+- [x] Verify sidebar shows "For TradFi Professionals" section when on any TradFi tutorial
+- [x] Confirmed: TradFi Analogies navigation works correctly
+- [x] Confirmed: Key Concepts navigation works correctly
+- [x] Confirmed: Alice's Journey Day 1 navigation works correctly
+
+
+## Test Vertical Scrolling Layout for Tutorials
+- [x] Create AliceDay1Vertical.tsx with vertical scrolling layout
+- [x] Remove CardNavigationWrapper and stack all 4 scenes vertically
+- [x] Remove progress bar and navigation arrows
+- [x] Add visual separators (border-t) between scenes
+- [x] Update route to use vertical version
+- [ ] Test vertical scrolling experience in browser
+- [ ] Get user feedback on vertical vs horizontal navigation
+- [ ] Apply preferred layout to all tutorials based on feedback
+
+
+## Add Scroll Indicators to Vertical Tutorial Layout
+- [x] Create scroll indicator with animated down arrow using Framer Motion
+- [x] Add "Continue Reading" text with down arrow symbols
+- [x] Implement bouncing animation (y: [0, 10, 0]) with infinite repeat
+- [x] Place indicators between all 3 scenes in AliceDay1Vertical
+- [x] Style with proper colors (blue arrow, muted text) and spacing
+- [x] Add whileInView animation for fade-in effect
+- [ ] Test animations in browser
+- [ ] Get user feedback on design and animation
+
+
+## Convert All Tutorials to Vertical Scrolling Layout
+- [x] Convert Getting Started Overview (3 scenes) to vertical scrolling
+- [x] Convert TradFi Analogies (3 scenes) to vertical scrolling
+- [x] Convert Key Concepts (3 scenes) to vertical scrolling
+- [x] Convert Interactive Architecture (3 scenes) to vertical scrolling
+- [x] Convert Technical Architecture (5 scenes) to vertical scrolling
+- [x] Add animated scroll indicators to all converted tutorials
+- [x] Test all 6 tutorials in browser - all working perfectly
+- [x] Verify sidebar navigation works correctly
+- [x] Verify Tutorials tab stays active
+- [x] Dev server running with no errors
+- [x] Save checkpoint with all vertical tutorials
+
+## Fix Nested Anchor Tag Error
+- [x] Identify nested <a> tags in SystemOverviewDiagram.tsx
+- [x] Fix nested anchor tags (removed inner <a> from Link component)
+- [x] Test in browser to verify no more DOM nesting warnings
+- [x] Verify link navigation works correctly
+
+## Create Octant Wiki Section
+- [x] Read provided content files to understand structure
+- [x] Add "Octant Wiki" tab to horizontal navigation (same level as Getting Started, Core Concepts, etc.)
+- [x] Update DocsLayoutNew sidebar to include Octant Wiki navigation
+- [x] Create Octant Wiki Overview page with 5 scenes
+- [x] Add routes for Octant Wiki pages in App.tsx
+- [x] Test navigation and styling matches existing sections
+- [ ] Get user approval on structure before adding full content
+- [ ] Populate remaining Octant Wiki pages with provided content
+
+## Add Click-to-Zoom for Diagrams
+- [x] Implement modal/dialog component for zoomed diagram view
+- [x] Add click handler to Mermaid diagram container
+- [x] Style modal to show full-size diagram with larger font size
+- [x] Add hover hint "Click to zoom" on diagram
+- [x] Prevent modal close when clicking inside diagram area
+- [x] Test zoom functionality in browser - works perfectly
+- [x] Close button and background click both work correctly
+- [ ] Apply same pattern to other diagrams if needed
+
+## Improve Diagram Zoom and Contrast
+- [x] Increase zoomed diagram font size (from 16px to 28px)
+- [x] Fix color contrast - changed to dark text (#000000) on light backgrounds
+- [x] Update Mermaid theme from 'dark' to 'base' with custom textColor
+- [x] Test readability in browser - works perfectly
+- [x] Ensure all text in diagram boxes is clearly readable - confirmed
+
+## Fix Mermaid Diagram Rendering Error
+- [x] Fix "Could not find a suitable point for the given distance" error
+- [x] Adjust Mermaid configuration for large font sizes
+- [x] Reduce font size from 28px to 22px (still much larger than original 16px)
+- [x] Add flowchart configuration with proper spacing (nodeSpacing: 100, rankSpacing: 100)
+- [x] Test diagram renders without errors - confirmed, console is clean
+- [x] Ensure zoom still provides good readability - excellent readability maintained
+
+## Fix Octant Wiki Sidebar Navigation Structure
+- [x] Fix "Staking System (RegenStaker)" to be a proper collapsible parent section
+- [x] Add proper indentation (ml-3) to nested items to show hierarchy clearly
+- [x] Apply indentation to both desktop sidebar and mobile menu
+- [x] All sections now properly show parent-child relationship visually
+- [x] Test navigation structure in browser - works perfectly
+- [x] Verify all sections expand/collapse correctly with proper indentation - confirmed
+
+## Implement Staking System Pages (Simplified Structure)
+- [x] Parse JSON structure to identify all 9 pages
+- [x] Create Introduction & Variants page (3 scenes) - FULL CONTENT
+- [x] Create simplified placeholder pages for remaining 8 pages
+- [x] Add all 9 routes to App.tsx
+- [x] Update sidebar navigation paths in DocsLayoutNew.tsx
+- [x] Test navigation structure - works perfectly
+- [x] All 9 pages accessible and displaying correctly
+- [ ] Get user feedback on structure before full content implementation
+
+## Remaining Staking System Pages (Phase 2: if approved)
+- [ ] Create Reward Distribution page (4 scenes)
+- [ ] Create Access Control page (3 scenes)
+- [ ] Create Advanced Operations page (3 scenes)
+- [ ] Create State Management page (2 scenes)
+- [ ] Create Cross-System Integration page (2 scenes)
+- [ ] Create Reference page (1 scene)
+
+## Fix Octant Wiki Navigation Hierarchy
+- [x] Move "Staking System (RegenStaker)" to be a top-level section (not nested under Overview)
+- [x] Ensure all main sections (Overview, Staking System, Yield Strategies, Allocation Mechanisms, etc.) are at the same indentation level
+- [x] Fixed by setting section header buttons to pl-0 (remove left padding)
+- [x] Child items use pl-6 for proper indentation
+- [x] Test navigation to verify correct hierarchy - works perfectly
+- [ ] Save checkpoint with corrected navigation
+
+## Fix Inconsistent Sidebar Alignment (Expanded vs Collapsed)
+- [ ] Investigate why expanded sections show different indentation than collapsed sections
+- [ ] Check if child items container is affecting parent section alignment
+- [ ] Fix CSS/structure to ensure all section headers align consistently
+- [ ] Test by expanding/collapsing different sections (Overview, Staking System, Yield Strategies, etc.)
+- [ ] Verify alignment stays consistent across all navigation states
+- [ ] Save checkpoint with fixed navigation
+
+
+## Octant Wiki Sidebar Navigation Fixes
+- [x] Fix Octant Wiki sidebar: all sections should be collapsed by default when users first visit
+- [x] Remove red debug borders from section headers in DocsLayoutNew
+
+- [x] Fix "Safe Integration (Dragon Protocol)" section - should be top-level section, not indented as child item
+
+
+## Complete TradFi Professionals Tutorial Section
+- [x] Create Alice's Journey - Day 2 page (4 scenes)
+- [x] Create Alice's Journey - Day 30 page (4 scenes)
+- [x] Create Alice's Journey - Day 40 page (3 scenes)
+- [x] Create Alice's Journey - Day 45 page (4 scenes)
+- [x] Create Alice's Journey - Day 90 page (4 scenes)
+- [x] Create Vault System Summary page
+- [x] Update DocsLayoutNew navigation with 6 new pages
+- [x] Add routes to App.tsx for all new pages
+- [x] Test all pages display correctly with vertical scrolling layout
+
+
+## Fix Staking System Pages Layout
+- [x] Wrap all Staking System pages in DocsLayoutNew component (currently taking over full page instead of displaying within documentation layout)
+- [x] Test all Staking System pages display correctly with sidebar navigation
+
+
+## Octant Wiki UX Improvements
+- [x] Remove scene indicators from all Staking System pages (should not show "Scene 1 of 4" like Tutorial pages do)
+- [x] Fix sidebar navigation to keep sections expanded when navigating to child pages
+
+
+## Match Tutorial Section Behavior in Octant Wiki
+- [x] Fix sidebar navigation: expanded sections (like Overview) should stay expanded when clicking child pages in other sections (like Staking System children)
+- [x] Remove excessive white space from Staking System pages - content should align at top like Tutorial pages
+- [x] Ensure consistent layout and spacing between Tutorial and Wiki sections
+
+
+## Rename Developer Paths to User Journeys
+- [x] Update tab name from "Developer Paths" to "User Journeys"
+- [x] Change icon from Code to Users (lucide-react)
+- [x] Update routes and navigation configuration
+- [x] Test tab displays correctly with new name and icon
+
+
+## Implement User Journeys Section
+- [ ] Create "Find Your Path" landing page with 7 persona cards
+- [ ] Create Sarah's Journey page (Conservative Investor - 4 scenes)
+- [ ] Create Marcus's Journey page (Crypto Enthusiast - 4 scenes)
+- [ ] Create Dr. Chen's Journey page (Sophisticated Investor - 4 scenes)
+- [ ] Update DocsLayoutNew navigation with User Journeys section items
+- [ ] Add routes to App.tsx for all User Journeys pages
+- [ ] Test all pages display correctly with proper layout
+
+
+## User Journeys Section Complete
+- [x] Create Find Your Path landing page with 7 persona cards
+- [x] Create Sarah: Conservative Investor page (4 scenes)
+- [x] Create Marcus: Crypto Enthusiast page (4 scenes)
+- [x] Create 5 placeholder persona pages (Dr. Chen, Protocol X, DeFiMaster, Emma, Hedge Fund)
+- [x] Update User Journeys navigation in DocsLayoutNew with 8 items
+- [x] Add all 8 routes to App.tsx
+- [x] Test navigation and page display
+- [x] Ensure layout matches Tutorial/Wiki behavior
+
+
+## Make Tutorial Diagrams Interactive
+- [ ] Find Octant Wiki diagram modal/lightbox component implementation
+- [ ] Identify all diagrams in Tutorial section (TradFi, Getting Started, etc.)
+- [ ] Apply clickable expand behavior to all Tutorial diagrams
+- [ ] Ensure consistent look and feel with Octant Wiki diagram modals
+- [ ] Test diagram expansion on all Tutorial pages
+
+
+## Tutorial Diagram Enhancements
+- [x] Add clickable expand functionality to SystemOverviewDiagram.tsx
+- [x] Add clickable expand functionality to AliceDay2.tsx diagram
+- [x] Implement Dialog modal with SVG copying for zoomed view
+- [x] Fix Dialog rendering issue (removed raw Mermaid code from modal div)
+- [ ] Add same clickable expand to other tutorial diagrams if any exist
+
+
+## Fix Dialog Component Errors
+- [x] Fix React ref warning in SystemOverviewDiagram Dialog component
+- [x] Verify AliceDay2 Dialog doesn't have the same issue
+- [x] Test both diagram modals work without console warnings
+
+
+## Diagram Enhancement Features
+- [x] Add keyboard shortcuts (ESC to close modal, Enter on diagram to expand)
+- [x] Implement zoom controls (+/- buttons) in diagram modals
+- [x] Create diagram gallery page at /docs/diagrams
+- [x] Add route for diagram gallery in App.tsx
+- [ ] Add navigation link to diagram gallery
+- [x] Test keyboard shortcuts work correctly
+- [x] Test zoom controls work on both diagrams
+- [x] Verify gallery page displays all diagrams
+
+
+## Fix Diagram Modal Rendering Bug
+- [x] Fix SVG content not displaying in SystemOverviewDiagram modal
+- [x] Fix SVG content not displaying in AliceDay2 modal  
+- [x] Fix SVG content not displaying in DiagramGallery modals
+- [x] Add proper timing/delay for SVG copying to modal DOM
+- [x] Test all three diagram pages show content in modals
+
+
+## Fix Diagram Zoom Sizing Issue
+- [ ] Fix diagram appearing too small in modal (not filling space properly)
+- [ ] Ensure zoom controls actually enlarge the diagram visibly
+- [ ] Add proper CSS for diagram container in modal (width, height, overflow)
+- [ ] Test zoom in/out creates visible size changes
+- [ ] Verify all three diagram pages have proper zoom functionality
+
+
+## Fix Diagram Modal Background Colors
+- [ ] Update SystemOverviewDiagram modal to use dark background like Octant Wiki
+- [ ] Update AliceDay2 modal to use dark background
+- [ ] Update DiagramGallery modals to use dark background
+- [ ] Test all modals for readability and contrast
+- [ ] Ensure diagram colors are vibrant against dark background
+
+
+## Fix Diagram Modal SVG White Background
+- [x] Configure Mermaid to render diagrams with transparent or dark background instead of white
+- [x] Update SystemOverviewDiagram.tsx to use dark SVG background
+- [x] Update AliceDay2.tsx to use dark SVG background
+- [x] Test both diagram modals to verify dark background throughout (no white SVG canvas)
+- [x] Verify diagrams match Octant Wiki design with dark backgrounds
+
+
+## Fix Diagram Text Contrast in Modals
+- [x] Update SystemOverviewDiagram zoomed config to use dark text on light box backgrounds
+- [x] Update AliceDay2 zoomed config to use dark text on light box backgrounds
+- [x] Ensure text color contrasts properly with box fill colors (black text on light backgrounds)
+- [x] Test both diagrams to verify text is readable in all boxes
+- [x] Match Octant Wiki design with proper text contrast
+
+
+## Fix Diagram Edge Label Text Color
+- [x] Update SystemOverviewDiagram to use white text for edge labels (arrows/connections)
+- [x] Update AliceDay2 to use white text for edge labels
+- [x] Ensure edge labels contrast properly with dark background (white text on dark navy)
+- [x] Test both diagrams to verify all edge labels are readable
+- [x] Verify labels like "Deploy", "Allocate funds", "Stake for rewards+voting" are visible
+
+
+## Fix Mermaid Rendering Error in Diagrams
+- [x] Investigate "Could not find a suitable point for the given distance" error
+- [x] Fix CSS edge label styling to not interfere with Mermaid layout calculations
+- [x] Test SystemOverviewDiagram to verify error is resolved
+- [x] Test AliceDay2 to verify error is resolved
+- [x] Ensure edge labels remain readable with white text on dark background

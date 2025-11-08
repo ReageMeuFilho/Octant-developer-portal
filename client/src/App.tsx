@@ -27,6 +27,7 @@ import FAQ from "./pages/docs/resources/FAQ";
 import OctantCaseStudy from "./pages/docs/case-studies/Octant";
 import Tutorials from "./pages/docs/Tutorials";
 import ArchitectureTutorial from "./pages/docs/tutorials/ArchitectureTutorial";
+import TechnicalArchitecture from "@/pages/docs/tutorials/TechnicalArchitecture";
 import WhatIsOctant from "./pages/docs/WhatIsOctant";
 import HowItWorks from "./pages/docs/HowItWorks";
 import Architecture from "./pages/docs/Architecture";
@@ -101,11 +102,64 @@ import DebuggingGuide from "./pages/docs/getting-started/troubleshooting/Debuggi
 import FAQs from "./pages/docs/getting-started/troubleshooting/FAQs";
 import GetHelpFromCommunity from "./pages/docs/getting-started/troubleshooting/GetHelpFromCommunity";
 
+// TradFi Tutorial pages
+import GettingStartedOverview from "./pages/tradfi-tutorials/GettingStartedOverview";
+import TradFiAnalogies from "./pages/tradfi-tutorials/TradFiAnalogies";
+import KeyConcepts from "./pages/tradfi-tutorials/KeyConcepts";
+import AliceDay1 from "@/pages/tradfi-tutorials/AliceDay1";
+import AliceDay2 from "@/pages/tradfi-tutorials/AliceDay2";
+import AliceDay30 from "@/pages/tradfi-tutorials/AliceDay30";
+import AliceDay40 from "@/pages/tradfi-tutorials/AliceDay40";
+import AliceDay45 from "@/pages/tradfi-tutorials/AliceDay45";
+import AliceDay90 from "@/pages/tradfi-tutorials/AliceDay90";
+import VaultSystemSummary from "@/pages/tradfi-tutorials/VaultSystemSummary";
+import SystemOverviewDiagram from "./pages/tradfi-tutorials/SystemOverviewDiagram";
+
+// User Journeys pages
+import FindYourPath from "@/pages/user-journeys/FindYourPath";
+import SarahConservative from "@/pages/user-journeys/SarahConservative";
+import MarcusCrypto from "@/pages/user-journeys/MarcusCrypto";
+import DrChenSophisticated from "@/pages/user-journeys/DrChenSophisticated";
+import ProtocolXDAO from "@/pages/user-journeys/ProtocolXDAO";
+import DeFiMasterYield from "@/pages/user-journeys/DeFiMasterYield";
+import EmmaGovernance from "@/pages/user-journeys/EmmaGovernance";
+import HedgeFundInstitutional from "@/pages/user-journeys/HedgeFundInstitutional";
+
+// Octant Wiki pages
+import OctantWikiOverview from "@/pages/docs/octant-wiki/OctantWikiOverview";
+import StakingIntroduction from "@/pages/docs/octant-wiki/StakingIntroduction";
+import StakingDelegation from "@/pages/docs/octant-wiki/StakingDelegation";
+import StakingEarningPower from "@/pages/docs/octant-wiki/StakingEarningPower";
+import StakingRewardDistribution from "@/pages/docs/octant-wiki/StakingRewardDistribution";
+import StakingAccessControl from "@/pages/docs/octant-wiki/StakingAccessControl";
+import StakingAdvancedOps from "@/pages/docs/octant-wiki/StakingAdvancedOps";
+import StakingStateManagement from "@/pages/docs/octant-wiki/StakingStateManagement";
+import StakingIntegration from "@/pages/docs/octant-wiki/StakingIntegration";
+import StakingReference from "@/pages/docs/octant-wiki/StakingReference";
+import DiagramGallery from "@/pages/DiagramGallery";
+
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Landing} />
       <Route path="/docs" component={Docs} />
+
+      {/* Octant Wiki routes */}
+      <Route path="/docs/octant-wiki/overview" component={OctantWikiOverview} />
+      
+      {/* Staking System (RegenStaker) routes */}
+      <Route path="/docs/octant-wiki/staking/introduction" component={StakingIntroduction} />
+      <Route path="/docs/octant-wiki/staking/delegation" component={StakingDelegation} />
+      <Route path="/docs/octant-wiki/staking/earning-power" component={StakingEarningPower} />
+      <Route path="/docs/octant-wiki/staking/reward-distribution" component={StakingRewardDistribution} />
+      <Route path="/docs/octant-wiki/staking/access-control" component={StakingAccessControl} />
+      <Route path="/docs/octant-wiki/staking/advanced-operations" component={StakingAdvancedOps} />
+      <Route path="/docs/octant-wiki/staking/state-management" component={StakingStateManagement} />
+      <Route path="/docs/octant-wiki/staking/integration" component={StakingIntegration} />
+      <Route path="/docs/octant-wiki/staking/reference" component={StakingReference} />
+
+      {/* Diagram Gallery */}
+      <Route path="/docs/diagrams" component={DiagramGallery} />
 
       {/* Getting Started routes */}
       <Route path="/docs/getting-started/quick-start/what-youll-build" component={GSWhatYoullBuild} />
@@ -187,6 +241,31 @@ function Router() {
       <Route path="/docs/multi-strategy" component={MultiStrategy} />
       <Route path="/docs/tutorials/first-vault" component={FirstVault} />
             <Route path="/docs/tutorials/architecture" component={ArchitectureTutorial} />
+      <Route path="/docs/tutorials/technical" component={TechnicalArchitecture} />
+      
+      {/* TradFi Tutorial routes */}
+      <Route path="/tradfi-tutorials/getting-started-overview" component={GettingStartedOverview} />
+      <Route path="/tradfi-tutorials/tradfi-analogies" component={TradFiAnalogies} />
+      <Route path="/tradfi-tutorials/key-concepts" component={KeyConcepts} />
+      <Route path="/tradfi-tutorials/alice-day1" component={AliceDay1} />
+      <Route path="/tradfi-tutorials/alice-day2" component={AliceDay2} />
+      <Route path="/tradfi-tutorials/alice-day30" component={AliceDay30} />
+      <Route path="/tradfi-tutorials/alice-day40" component={AliceDay40} />
+      <Route path="/tradfi-tutorials/alice-day45" component={AliceDay45} />
+      <Route path="/tradfi-tutorials/alice-day90" component={AliceDay90} />
+      <Route path="/tradfi-tutorials/vault-system-summary" component={VaultSystemSummary} />
+      <Route path="/tradfi-tutorials/system-overview-diagram" component={SystemOverviewDiagram} />
+      
+      {/* User Journeys routes */}
+      <Route path="/user-journeys/find-your-path" component={FindYourPath} />
+      <Route path="/user-journeys/sarah-conservative" component={SarahConservative} />
+      <Route path="/user-journeys/marcus-crypto" component={MarcusCrypto} />
+      <Route path="/user-journeys/dr-chen-sophisticated" component={DrChenSophisticated} />
+      <Route path="/user-journeys/protocol-x-dao" component={ProtocolXDAO} />
+      <Route path="/user-journeys/defimaster-yield" component={DeFiMasterYield} />
+      <Route path="/user-journeys/emma-governance" component={EmmaGovernance} />
+      <Route path="/user-journeys/hedge-fund-institutional" component={HedgeFundInstitutional} />
+      
       <Route path="/docs/tutorials/quadratic-funding" component={QuadraticFunding} />
       <Route path="/docs/tutorials/aave-integration" component={AaveIntegration} />
       <Route path="/docs/tutorials/lido-integration" component={LidoIntegration} />

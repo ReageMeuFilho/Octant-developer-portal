@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +10,7 @@ import {
   Home,
   BookOpen,
   Code2,
+  Users,
   Zap,
   Wallet,
   Blocks,
@@ -144,17 +145,21 @@ const tabsConfig: TabConfig[] = [
     ]
   },
   {
-    id: "developer-paths",
-    label: "Developer Paths",
-    icon: Code2,
+    id: "user-journeys",
+    label: "User Journeys",
+    icon: Users,
     sections: [
       {
-        title: "Strategy Types",
+        title: "Personas",
         items: [
-          { title: "Yield Donating Strategies", href: "/docs/yield-donating" },
-          { title: "Yield Skimming Strategies", href: "/docs/yield-skimming" },
-          { title: "Allocation Mechanisms", href: "/docs/allocation-mechanisms" },
-          { title: "Multi-Strategy Vaults", href: "/docs/multi-strategy" },
+          { title: "Find Your Path", href: "/user-journeys/find-your-path" },
+          { title: "Sarah: Conservative Investor", href: "/user-journeys/sarah-conservative" },
+          { title: "Marcus: Crypto Enthusiast", href: "/user-journeys/marcus-crypto" },
+          { title: "Dr. Chen: Sophisticated Investor", href: "/user-journeys/dr-chen-sophisticated" },
+          { title: "Protocol X: DAO Treasury", href: "/user-journeys/protocol-x-dao" },
+          { title: "DeFiMaster: Yield Farmer", href: "/user-journeys/defimaster-yield" },
+          { title: "Emma: Governance Activist", href: "/user-journeys/emma-governance" },
+          { title: "Hedge Fund: Institutional", href: "/user-journeys/hedge-fund-institutional" },
         ]
       }
     ]
@@ -165,8 +170,26 @@ const tabsConfig: TabConfig[] = [
     icon: Zap,
     sections: [
       {
+        title: "For TradFi Professionals",
+        items: [
+          { title: "Getting Started Overview", href: "/tradfi-tutorials/getting-started-overview" },
+          { title: "TradFi Analogies", href: "/tradfi-tutorials/tradfi-analogies" },
+          { title: "Key Concepts", href: "/tradfi-tutorials/key-concepts" },
+          { title: "Alice's Journey - Day 1", href: "/tradfi-tutorials/alice-day1" },
+          { title: "Alice's Journey - Day 2", href: "/tradfi-tutorials/alice-day2" },
+          { title: "Alice's Journey - Day 30", href: "/tradfi-tutorials/alice-day30" },
+          { title: "Alice's Journey - Day 40", href: "/tradfi-tutorials/alice-day40" },
+          { title: "Alice's Journey - Day 45", href: "/tradfi-tutorials/alice-day45" },
+          { title: "Alice's Journey - Day 90", href: "/tradfi-tutorials/alice-day90" },
+          { title: "Vault System Summary", href: "/tradfi-tutorials/vault-system-summary" },
+          { title: "System Overview Diagram", href: "/tradfi-tutorials/system-overview-diagram" },
+        ]
+      },
+      {
         title: "Getting Started",
         items: [
+          { title: "Interactive Architecture", href: "/docs/tutorials/architecture" },
+          { title: "Technical Architecture", href: "/docs/tutorials/technical" },
           { title: "Deploy Your First Vault", href: "/docs/tutorials/first-vault" },
           { title: "Strategy Development", href: "/docs/tutorials/strategy-development" },
         ]
@@ -226,21 +249,132 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
+  {
+    id: "octant-wiki",
+    label: "Octant Wiki",
+    icon: BookOpen,
+    sections: [
+      {
+        title: "Overview",
+        items: [
+          { title: "Meet the Octant Protocol", href: "/docs/octant-wiki/overview" },
+        ]
+      },
+      {
+        title: "Staking System (RegenStaker)",
+        items: [
+          { title: "Introduction & Variants", href: "/docs/octant-wiki/staking/introduction" },
+          { title: "Delegation and Surrogate Contracts", href: "/docs/octant-wiki/staking/delegation" },
+          { title: "Earning Power Calculation", href: "/docs/octant-wiki/staking/earning-power" },
+          { title: "Reward Distribution", href: "/docs/octant-wiki/staking/reward-distribution" },
+          { title: "Access Control via Whitelists", href: "/docs/octant-wiki/staking/access-control" },
+          { title: "Advanced Operations", href: "/docs/octant-wiki/staking/advanced-operations" },
+          { title: "State Management", href: "/docs/octant-wiki/staking/state-management" },
+          { title: "Cross-System Integration", href: "/docs/octant-wiki/staking/integration" },
+          { title: "Reference Summary", href: "/docs/octant-wiki/staking/reference" },
+        ]
+      },
+      {
+        title: "Yield Strategies",
+        items: [
+          { title: "Yield Skimming Strategies", href: "/docs/octant-wiki/yield-strategies/yield-skimming" },
+          { title: "Yield Donating Strategies", href: "/docs/octant-wiki/yield-strategies/yield-donating" },
+          { title: "Vault System and Lockups", href: "/docs/octant-wiki/yield-strategies/vault-lockups" },
+          { title: "Strategy Factories", href: "/docs/octant-wiki/yield-strategies/strategy-factories" },
+        ]
+      },
+      {
+        title: "Allocation Mechanisms",
+        items: [
+          { title: "TokenizedAllocationMechanism", href: "/docs/octant-wiki/allocation-mechanisms/tokenized-allocation" },
+          { title: "Yearn V3 Pattern Implementation", href: "/docs/octant-wiki/allocation-mechanisms/yearn-v3-pattern" },
+          { title: "Hook Architecture", href: "/docs/octant-wiki/allocation-mechanisms/hook-architecture" },
+          { title: "Proposal Lifecycle", href: "/docs/octant-wiki/allocation-mechanisms/proposal-lifecycle" },
+          { title: "Quadratic Voting Mechanism", href: "/docs/octant-wiki/allocation-mechanisms/quadratic-voting" },
+          { title: "ProperQF Algorithm", href: "/docs/octant-wiki/allocation-mechanisms/properqf-algorithm" },
+          { title: "Voting Flow and Access Control", href: "/docs/octant-wiki/allocation-mechanisms/voting-flow" },
+        ]
+      },
+      {
+        title: "Safe Integration (Dragon Protocol)",
+        items: [
+          { title: "DragonRouter", href: "/docs/octant-wiki/dragon-protocol/dragon-router" },
+          { title: "LinearAllowanceSingleton", href: "/docs/octant-wiki/dragon-protocol/linear-allowance" },
+          { title: "Allowance Mechanics", href: "/docs/octant-wiki/dragon-protocol/allowance-mechanics" },
+          { title: "Security Model", href: "/docs/octant-wiki/dragon-protocol/security-model" },
+          { title: "Safe Modules and Integration", href: "/docs/octant-wiki/dragon-protocol/safe-modules" },
+        ]
+      },
+      {
+        title: "Deployment and Infrastructure",
+        items: [
+          { title: "Build System", href: "/docs/octant-wiki/deployment/build-system" },
+          { title: "Dependencies and Libraries", href: "/docs/octant-wiki/deployment/dependencies" },
+          { title: "Hats Protocol Integration", href: "/docs/octant-wiki/deployment/hats-protocol" },
+          { title: "Factory Contracts", href: "/docs/octant-wiki/deployment/factory-contracts" },
+          { title: "CI/CD Pipeline", href: "/docs/octant-wiki/deployment/cicd-pipeline" },
+          { title: "Testing Infrastructure", href: "/docs/octant-wiki/deployment/testing-infrastructure" },
+          { title: "Code Quality Gates", href: "/docs/octant-wiki/deployment/code-quality" },
+          { title: "Docker and Containerization", href: "/docs/octant-wiki/deployment/docker" },
+          { title: "Deployment Pipeline", href: "/docs/octant-wiki/deployment/deployment-pipeline" },
+          { title: "Tenderly Integration", href: "/docs/octant-wiki/deployment/tenderly" },
+          { title: "Deployment Sequence", href: "/docs/octant-wiki/deployment/deployment-sequence" },
+        ]
+      },
+      {
+        title: "Advanced Topics",
+        items: [
+          { title: "Formal Verification", href: "/docs/octant-wiki/advanced/formal-verification" },
+        ]
+      },
+      {
+        title: "Error Reference",
+        items: [
+          { title: "TokenizedStrategy Errors", href: "/docs/octant-wiki/errors/tokenized-strategy" },
+          { title: "DragonTokenizedStrategy Errors", href: "/docs/octant-wiki/errors/dragon-tokenized-strategy" },
+          { title: "BaseStrategy Errors", href: "/docs/octant-wiki/errors/base-strategy" },
+        ]
+      }
+    ]
+  },
 ];
 
 export default function DocsLayoutNew({ children }: DocsLayoutProps) {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  // Initialize collapsed sections - all sections start undefined (expanded by default)
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({});
+  
   const [helpfulVote, setHelpfulVote] = useState<"yes" | "no" | null>(null);
+
+  // Auto-expand parent section when a child page is active
+  useEffect(() => {
+    const activeTabId = getActiveTab();
+    const activeTab = tabsConfig.find(tab => tab.id === activeTabId);
+    if (!activeTab) return;
+
+    // Find which section contains the current page
+    activeTab.sections.forEach(section => {
+      const hasActivePage = section.items.some(item => item.href === location);
+      if (hasActivePage) {
+        // Expand this section (false means expanded)
+        setCollapsedSections(prev => ({
+          ...prev,
+          [section.title]: false
+        }));
+      }
+    });
+  }, [location]);
 
   // Determine active tab based on current location
   const getActiveTab = () => {
+    if (location.startsWith("/docs/octant-wiki")) return "octant-wiki";
     if (location.startsWith("/docs/getting-started")) return "getting-started";
-    if (location.startsWith("/docs/tutorials")) return "tutorials";
+    if (location.startsWith("/docs/tutorials") || location.startsWith("/tradfi-tutorials")) return "tutorials";
     if (location.startsWith("/docs/api")) return "reference";
     if (location.startsWith("/docs/resources") || location.startsWith("/use-cases")) return "resources";
-    if (location.startsWith("/docs/yield") || location.startsWith("/docs/allocation") || location.startsWith("/docs/multi-strategy")) return "developer-paths";
+    if (location.startsWith("/user-journeys")) return "user-journeys";
     if (location.startsWith("/docs/what-is") || location.startsWith("/docs/how-it") || location.startsWith("/docs/architecture") || location.startsWith("/docs/glossary")) return "core-concepts";
     return "getting-started";
   };
@@ -310,25 +444,27 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
           <div className="container py-4">
             <nav className="space-y-1">
               {activeTab.sections.map((section) => (
-                <div key={section.title}>
-                  <div className="px-3 py-2 text-sm font-semibold text-muted-foreground">
+                <div key={section.title} className="m-0 p-0" style={{ marginLeft: 0, paddingLeft: 0 }}>
+                  <h3 className="px-3 py-2 text-sm font-semibold text-muted-foreground">
                     {section.title}
+                  </h3>
+                  <div className="ml-3">
+                    {section.items.map((item) => (
+                      <Link key={item.href} href={item.href}>
+                        <button
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={cn(
+                            "w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                            location === item.href
+                              ? "bg-primary/10 text-primary font-medium"
+                              : "text-foreground hover:bg-muted"
+                          )}
+                        >
+                          {item.title}
+                        </button>
+                      </Link>
+                    ))}
                   </div>
-                  {section.items.map((item) => (
-                    <Link key={item.href} href={item.href}>
-                      <button
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={cn(
-                          "w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
-                          location === item.href
-                            ? "bg-primary/10 text-primary font-medium"
-                            : "text-foreground hover:bg-muted"
-                        )}
-                      >
-                        {item.title}
-                      </button>
-                    </Link>
-                  ))}
                 </div>
               ))}
             </nav>
@@ -344,16 +480,18 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
             {activeTab.sections.map((section) => {
               const isCollapsed = collapsedSections[section.title];
               return (
-                <div key={section.title}>
+                <div key={section.title} className="m-0 p-0" style={{ marginLeft: 0, paddingLeft: 0 }}>
                   <button
                     onClick={() => toggleSection(section.title)}
-                    className="flex items-center justify-between w-full px-3 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                    className="flex items-start justify-between w-full ml-0 pl-0 pr-3 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {section.title}
+                    <span className="flex-1 text-left">
+                      {section.title}
+                    </span>
                     {isCollapsed ? (
-                      <ChevronRight className="h-4 w-4" />
+                      <ChevronRight className="h-4 w-4 flex-shrink-0" />
                     ) : (
-                      <ChevronDown className="h-4 w-4" />
+                      <ChevronDown className="h-4 w-4 flex-shrink-0" />
                     )}
                   </button>
                   {!isCollapsed && (
@@ -362,7 +500,7 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
                         <Link key={item.href} href={item.href}>
                           <button
                             className={cn(
-                              "w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                              "w-full text-left pl-6 pr-3 py-2 text-sm rounded-md transition-colors",
                               location === item.href
                                 ? "bg-primary/10 text-primary font-medium"
                                 : "text-foreground hover:bg-muted"
