@@ -22,7 +22,8 @@ import {
   ThumbsDown,
   ExternalLink,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  Network
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { APP_LOGO, APP_TITLE } from "@/const";
@@ -160,6 +161,50 @@ const tabsConfig: TabConfig[] = [
           { title: "DeFiMaster: Yield Farmer", href: "/user-journeys/defimaster-yield" },
           { title: "Emma: Governance Activist", href: "/user-journeys/emma-governance" },
           { title: "Hedge Fund: Institutional", href: "/user-journeys/hedge-fund-institutional" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "diagrams",
+    label: "Diagrams",
+    icon: Network,
+    sections: [
+      {
+        title: "Getting Started",
+        items: [
+          { title: "Start Here", href: "/docs/diagrams/start-here" },
+          { title: "Visual Guide", href: "/docs/diagrams/visual-guide" },
+          { title: "Diagram Index", href: "/docs/diagrams/diagram-index" },
+          { title: "Table of Contents", href: "/docs/diagrams/table-of-contents" },
+        ]
+      },
+      {
+        title: "Core Concepts",
+        items: [
+          { title: "Basic User Flows", href: "/docs/diagrams/core-concepts/basic-flows" },
+          { title: "Vault Architecture", href: "/docs/diagrams/core-concepts/vault-architecture" },
+        ]
+      },
+      {
+        title: "Yield Mechanisms",
+        items: [
+          { title: "Yield Generation", href: "/docs/diagrams/yield-mechanisms/generation" },
+          { title: "Multi-Strategy Vaults", href: "/docs/diagrams/yield-mechanisms/multi-strategy" },
+        ]
+      },
+      {
+        title: "Governance & Allocation",
+        items: [
+          { title: "Quadratic Funding", href: "/docs/diagrams/governance-allocation/quadratic-funding" },
+          { title: "Proposal Lifecycle", href: "/docs/diagrams/governance-allocation/proposal-lifecycle" },
+        ]
+      },
+      {
+        title: "Advanced Features",
+        items: [
+          { title: "Dragon Router", href: "/docs/diagrams/advanced-features/dragon-router" },
+          { title: "Lockup & Rage Quit", href: "/docs/diagrams/advanced-features/lockup-rage-quit" },
         ]
       }
     ]
@@ -370,6 +415,7 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
   // Determine active tab based on current location
   const getActiveTab = () => {
     if (location.startsWith("/docs/octant-wiki")) return "octant-wiki";
+    if (location.startsWith("/docs/diagrams")) return "diagrams";
     if (location.startsWith("/docs/getting-started")) return "getting-started";
     if (location.startsWith("/docs/tutorials") || location.startsWith("/tradfi-tutorials")) return "tutorials";
     if (location.startsWith("/docs/api")) return "reference";

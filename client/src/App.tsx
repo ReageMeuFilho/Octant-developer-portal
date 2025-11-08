@@ -138,6 +138,12 @@ import StakingIntegration from "@/pages/docs/octant-wiki/StakingIntegration";
 import StakingReference from "@/pages/docs/octant-wiki/StakingReference";
 import DiagramGallery from "@/pages/DiagramGallery";
 
+import DiagramsHome from "@/pages/docs/diagrams/DiagramsHome";
+import DiagramsStartHere from "@/pages/docs/diagrams/StartHere";
+import DiagramsVisualGuide from "@/pages/docs/diagrams/VisualGuide";
+import DiagramsDiagramIndex from "@/pages/docs/diagrams/DiagramIndex";
+import DiagramsTableOfContents from "@/pages/docs/diagrams/TableOfContents";
+
 function Router() {
   return (
     <Switch>
@@ -158,8 +164,13 @@ function Router() {
       <Route path="/docs/octant-wiki/staking/integration" component={StakingIntegration} />
       <Route path="/docs/octant-wiki/staking/reference" component={StakingReference} />
 
-      {/* Diagram Gallery */}
-      <Route path="/docs/diagrams" component={DiagramGallery} />
+      {/* Diagrams Section */}
+      <Route path="/docs/diagrams/start-here" component={DiagramsStartHere} />
+      <Route path="/docs/diagrams/visual-guide" component={DiagramsVisualGuide} />
+      <Route path="/docs/diagrams/diagram-index" component={DiagramsDiagramIndex} />
+      <Route path="/docs/diagrams/table-of-contents" component={DiagramsTableOfContents} />
+      <Route path="/docs/diagrams/gallery" component={DiagramGallery} />
+      <Route path="/docs/diagrams" component={DiagramsHome} />
 
       {/* Getting Started routes */}
       <Route path="/docs/getting-started/quick-start/what-youll-build" component={GSWhatYoullBuild} />
