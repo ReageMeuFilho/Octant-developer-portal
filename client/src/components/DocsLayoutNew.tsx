@@ -57,74 +57,33 @@ const tabsConfig: TabConfig[] = [
     icon: Home,
     sections: [
       {
+        title: "Introduction",
+        items: [
+          { title: "Overview", href: "/docs/getting-started/overview" },
+          { title: "Core Components", href: "/docs/getting-started/components" },
+          { title: "Security & Risks", href: "/docs/getting-started/security" },
+        ]
+      },
+      {
         title: "Quick Start",
         items: [
-          { title: "What You'll Build", href: "/docs/getting-started/quick-start/what-youll-build" },
-          { title: "Choose Your Path", href: "/docs/getting-started/quick-start/choose-your-path" },
-          { title: "Prerequisites Check", href: "/docs/getting-started/quick-start/prerequisites-check" },
+          { title: "Developer Orientation", href: "/docs/getting-started/developer-orientation" },
+          { title: "Integration Guides", href: "/docs/getting-started/integration-guides" },
         ]
       },
       {
         title: "Core Concepts",
         items: [
-          { title: "Octant in 3 Minutes", href: "/docs/getting-started/core-concepts/octant-in-3-minutes" },
-          { title: "Architecture Diagram", href: "/docs/getting-started/core-concepts/architecture-diagram" },
-          { title: "Key Components Explained", href: "/docs/getting-started/core-concepts/key-components" },
-          { title: "Yield Types: Visual Guide", href: "/docs/getting-started/core-concepts/yield-types" },
+          { title: "Yield Donating Strategy", href: "/docs/getting-started/yield-donating" },
+          { title: "Yield Skimming Strategy", href: "/docs/getting-started/yield-skimming" },
+          { title: "Routing & Splitting", href: "/docs/getting-started/routing-splitting" },
+          { title: "Allocation Mechanisms", href: "/docs/getting-started/allocation-mechanisms" },
         ]
       },
       {
-        title: "Environment Setup",
+        title: "Reference",
         items: [
-          { title: "Install Prerequisites", href: "/docs/getting-started/environment-setup/install-prerequisites" },
-          { title: "Clone & Run Demo", href: "/docs/getting-started/environment-setup/clone-run-demo" },
-          { title: "Connect Your Wallet", href: "/docs/getting-started/environment-setup/connect-wallet" },
-          { title: "Get Test Tokens", href: "/docs/getting-started/environment-setup/get-test-tokens" },
-        ]
-      },
-      {
-        title: "Build Your First Strategy",
-        items: [
-          { title: "Tutorial: Simple Lending Strategy", href: "/docs/getting-started/build-first-strategy/tutorial-simple-lending" },
-          { title: "Tutorial: Staking Strategy", href: "/docs/getting-started/build-first-strategy/tutorial-staking" },
-          { title: "Understanding Donations vs Skimming", href: "/docs/getting-started/build-first-strategy/donations-vs-skimming" },
-          { title: "Testing Your Strategy", href: "/docs/getting-started/build-first-strategy/testing-strategy" },
-        ]
-      },
-      {
-        title: "Deploy to Production",
-        items: [
-          { title: "Testing Checklist", href: "/docs/getting-started/deploy-production/testing-checklist" },
-          { title: "Deploy on Testnet", href: "/docs/getting-started/deploy-production/deploy-testnet" },
-          { title: "Deploy a Multi-Strategy Vault", href: "/docs/getting-started/deploy-production/deploy-multi-strategy" },
-          { title: "Monitoring & Maintenance", href: "/docs/getting-started/deploy-production/monitoring-maintenance" },
-        ]
-      },
-      {
-        title: "Frontend Integration",
-        items: [
-          { title: "Connect the Boilerplate", href: "/docs/getting-started/frontend-integration/connect-boilerplate" },
-          { title: "Build Deposit/Withdraw UI", href: "/docs/getting-started/frontend-integration/deposit-withdraw-ui" },
-          { title: "Real-Time Updates", href: "/docs/getting-started/frontend-integration/real-time-updates" },
-          { title: "Production Best Practices", href: "/docs/getting-started/frontend-integration/production-best-practices" },
-        ]
-      },
-      {
-        title: "Advanced Topics",
-        items: [
-          { title: "Allocation Mechanisms", href: "/docs/getting-started/advanced-topics/allocation-mechanisms" },
-          { title: "Community Staking", href: "/docs/getting-started/advanced-topics/community-staking" },
-          { title: "Superfluid Streaming", href: "/docs/getting-started/advanced-topics/superfluid-streaming" },
-          { title: "Multi-Strategy Rebalancing", href: "/docs/getting-started/advanced-topics/multi-strategy-rebalancing" },
-        ]
-      },
-      {
-        title: "Troubleshooting & Support",
-        items: [
-          { title: "Common Errors & Solutions", href: "/docs/getting-started/troubleshooting/common-errors" },
-          { title: "Debugging Guide", href: "/docs/getting-started/troubleshooting/debugging-guide" },
-          { title: "FAQs", href: "/docs/getting-started/troubleshooting/faqs" },
-          { title: "Get Help from Community", href: "/docs/getting-started/troubleshooting/get-help" },
+          { title: "Main Glossary", href: "/docs/getting-started/glossary" },
         ]
       }
     ]

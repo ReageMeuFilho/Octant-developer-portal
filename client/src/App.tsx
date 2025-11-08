@@ -103,7 +103,7 @@ import FAQs from "./pages/docs/getting-started/troubleshooting/FAQs";
 import GetHelpFromCommunity from "./pages/docs/getting-started/troubleshooting/GetHelpFromCommunity";
 
 // TradFi Tutorial pages
-import GettingStartedOverview from "./pages/tradfi-tutorials/GettingStartedOverview";
+import TradFiGettingStartedOverview from "./pages/tradfi-tutorials/GettingStartedOverview";
 import TradFiAnalogies from "./pages/tradfi-tutorials/TradFiAnalogies";
 import KeyConcepts from "./pages/tradfi-tutorials/KeyConcepts";
 import AliceDay1 from "@/pages/tradfi-tutorials/AliceDay1";
@@ -187,6 +187,18 @@ import HealthMonitoring from "@/pages/docs/diagrams/operations-edge-cases/Health
 import FailedWithdrawal from "@/pages/docs/diagrams/operations-edge-cases/FailedWithdrawal";
 import SlippageProtection from "@/pages/docs/diagrams/operations-edge-cases/SlippageProtection";
 
+// Getting Started v2 pages
+import GettingStartedOverview from "@/pages/docs/getting-started-v2/Overview";
+import GettingStartedComponents from "@/pages/docs/getting-started-v2/Components";
+import GettingStartedSecurity from "@/pages/docs/getting-started-v2/Security";
+import GettingStartedDeveloperOrientation from "@/pages/docs/getting-started-v2/DeveloperOrientation";
+import GettingStartedIntegrationGuides from "@/pages/docs/getting-started-v2/IntegrationGuides";
+import GettingStartedYieldDonating from "@/pages/docs/getting-started-v2/YieldDonating";
+import GettingStartedYieldSkimming from "@/pages/docs/getting-started-v2/YieldSkimming";
+import GettingStartedRoutingSplitting from "@/pages/docs/getting-started-v2/RoutingSplitting";
+import GettingStartedAllocationMechanisms from "@/pages/docs/getting-started-v2/AllocationMechanisms";
+import GettingStartedGlossary from "@/pages/docs/getting-started-v2/Glossary";
+
 function Router() {
   return (
     <Switch>
@@ -264,6 +276,18 @@ function Router() {
       <Route path="/docs/diagrams/operations-edge-cases/slippage-protection" component={SlippageProtection} />
       
       <Route path="/docs/diagrams" component={DiagramsHome} />
+
+      {/* Getting Started v2 routes */}
+      <Route path="/docs/getting-started/overview" component={GettingStartedOverview} />
+      <Route path="/docs/getting-started/components" component={GettingStartedComponents} />
+      <Route path="/docs/getting-started/security" component={GettingStartedSecurity} />
+      <Route path="/docs/getting-started/developer-orientation" component={GettingStartedDeveloperOrientation} />
+      <Route path="/docs/getting-started/integration-guides" component={GettingStartedIntegrationGuides} />
+      <Route path="/docs/getting-started/yield-donating" component={GettingStartedYieldDonating} />
+      <Route path="/docs/getting-started/yield-skimming" component={GettingStartedYieldSkimming} />
+      <Route path="/docs/getting-started/routing-splitting" component={GettingStartedRoutingSplitting} />
+      <Route path="/docs/getting-started/allocation-mechanisms" component={GettingStartedAllocationMechanisms} />
+      <Route path="/docs/getting-started/glossary" component={GettingStartedGlossary} />
 
       {/* Getting Started routes */}
       <Route path="/docs/getting-started/quick-start/what-youll-build" component={GSWhatYoullBuild} />
@@ -348,7 +372,7 @@ function Router() {
       <Route path="/docs/tutorials/technical" component={TechnicalArchitecture} />
       
       {/* TradFi Tutorial routes */}
-      <Route path="/tradfi-tutorials/getting-started-overview" component={GettingStartedOverview} />
+      <Route path="/tradfi-tutorials/getting-started-overview" component={TradFiGettingStartedOverview} />
       <Route path="/tradfi-tutorials/tradfi-analogies" component={TradFiAnalogies} />
       <Route path="/tradfi-tutorials/key-concepts" component={KeyConcepts} />
       <Route path="/tradfi-tutorials/alice-day1" component={AliceDay1} />
