@@ -27,6 +27,8 @@ import {
 import { cn } from "@/lib/utils";
 import { APP_LOGO, APP_TITLE } from "@/const";
 import Navigation from "@/components/Navigation";
+import { useChatPanel } from "@/hooks/useChatPanel";
+import { AIChatPanel } from "@/components/AIChatPanel";
 
 interface DocsLayoutProps {
   children: ReactNode;
@@ -347,6 +349,8 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({});
   
   const [helpfulVote, setHelpfulVote] = useState<"yes" | "no" | null>(null);
+  
+  const { isOpen: isChatOpen, isExpanded, closeChat } = useChatPanel();
 
   // Auto-expand parent section when a child page is active
   useEffect(() => {
@@ -518,8 +522,10 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
           </nav>
         </aside>
 
-        {/* Main Content */}
-        <main className="flex-1 py-6 px-8">
+        {/* Main Content - Squeezes when chat opens */}
+        <main className={`flex-1 py-6 px-8 transition-all duration-300 ${
+          isChatOpen && !isExpanded ? 'mr-[400px]' : 'mr-0'
+        }`}>
           <div className="max-w-4xl mx-auto">
             {children}
 
@@ -629,6 +635,9 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
           </div>
         </main>
       </div>
+      
+      {/* AI Chat Panel - Renders once globally */}
+      <AIChatPanel isOpen={isChatOpen} onClose={closeChat} />
     </div>
   );
 }
