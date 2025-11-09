@@ -34,6 +34,7 @@ import HowItWorks from "./pages/docs/HowItWorks";
 import Architecture from "./pages/docs/Architecture";
 import Glossary from "./pages/docs/Glossary";
 import FAQPage from "./pages/docs/FAQ";
+import VisualProtocolGuide from "./pages/docs/VisualProtocolGuide";
 import EndowmentYieldToImpact from "./pages/use-cases/EndowmentYieldToImpact";
 import FoundationStreamingGrants from "./pages/use-cases/FoundationStreamingGrants";
 import DAOProgrammableTreasury from "./pages/use-cases/DAOProgrammableTreasury";
@@ -360,6 +361,7 @@ function Router() {
       <Route path="/docs/what-is-octant" component={WhatIsOctant} />
       <Route path="/docs/how-it-works" component={HowItWorks} />
       <Route path="/docs/architecture" component={Architecture} />
+      <Route path="/docs/visual-protocol-guide" component={VisualProtocolGuide} />
       <Route path="/docs/glossary" component={Glossary} />
       <Route path="/docs/faq" component={FAQPage} />
       <Route path="/docs/quickstart" component={Quickstart} />
