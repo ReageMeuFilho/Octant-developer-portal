@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { ChatPanelProvider } from "@/hooks/useChatPanel";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Docs from "./pages/Docs";
@@ -426,10 +427,12 @@ function App() {
         defaultTheme="dark"
         // switchable
       >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <ChatPanelProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </ChatPanelProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

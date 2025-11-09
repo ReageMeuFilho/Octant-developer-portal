@@ -12,8 +12,14 @@ import {
   Clock
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function ChooseYourPath() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -25,6 +31,7 @@ export default function ChooseYourPath() {
           <h1 className="text-5xl font-bold mb-4">
             Choose Your Path
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Select the learning path that best matches your experience level and learning style.
           </p>
@@ -174,6 +181,7 @@ export default function ChooseYourPath() {
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

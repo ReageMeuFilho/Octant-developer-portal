@@ -4,6 +4,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Card } from "@/components/ui/card";
 import { ChevronDown } from "lucide-react";
 import DocsLayoutNew from "@/components/DocsLayoutNew";
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function StakingIntroduction() {
   const [currentScene, setCurrentScene] = useState(1);

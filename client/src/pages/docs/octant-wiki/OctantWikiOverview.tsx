@@ -2,8 +2,12 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Factory, TrendingUp, Users, Vote, Shield, BookOpen } from 'lucide-react';
 import DocsLayoutNew from '@/components/DocsLayoutNew';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function OctantWikiOverview() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
   const [activeScene, setActiveScene] = useState(0);
   const [diagramZoomed, setDiagramZoomed] = useState(false);
   const diagramRef = useRef<HTMLDivElement>(null);
@@ -320,6 +324,7 @@ export default function OctantWikiOverview() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Welcome to Octant v2 Core
             </h1>
+            <AskAIButton onClick={openChat} />
             <p className="text-2xl text-muted-foreground mb-8">
               A Regenerative Finance Protocol
             </p>

@@ -5,8 +5,12 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Layers, Database, Split, Users, Shield, Zap, ArrowRight, GitBranch } from "lucide-react";
 import { Link } from "wouter";
 import { MermaidDiagram } from "@/components/getting-started/MermaidDiagram";
+import { AskAIButton } from '@/components/AskAIButton';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function Architecture() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -18,6 +22,7 @@ export default function Architecture() {
           <h1 className="text-5xl font-bold mb-4">
             Architecture
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             High-level system design: vaults, strategies, donation routing, and allocation mechanisms
           </p>

@@ -13,8 +13,14 @@ import {
   AlertTriangle
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function Introduction() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -26,6 +32,7 @@ export default function Introduction() {
           <h1 className="text-5xl font-bold mb-4">
             What is Octant v2?
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Octant v2 is open public infrastructure for sustainable growth. It transforms treasury assets into continuous funding streams for projects and communities while preserving principal through battle-tested DeFi strategies.
           </p>
@@ -268,6 +275,7 @@ export default function Introduction() {
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

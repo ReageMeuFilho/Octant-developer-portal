@@ -1,0 +1,336 @@
+═══════════════════════════════════════════════════════════════════
+  IMPLEMENTATION TASK FOR MANUS AI AGENT
+  Octant Developer Portal - Add "Ask AI" Chat Feature
+═══════════════════════════════════════════════════════════════════
+
+TASK ID: OCTANT-ASK-AI-001
+PRIORITY: HIGH
+COMPLEXITY: LOW (2.5-3 hours with Vercel AI SDK)
+DUE DATE: As soon as possible
+
+═══════════════════════════════════════════════════════════════════
+  REPOSITORY ACCESS
+═══════════════════════════════════════════════════════════════════
+
+Repository URL: https://github.com/ReageMeuFilho/Octant-developer-portal
+Branch: manus-ai-ask-ai-feature
+Live Portal: https://octant-developer-portal.vercel.app
+
+CLONE COMMAND:
+git clone https://github.com/ReageMeuFilho/Octant-developer-portal.git
+cd Octant-developer-portal
+git checkout manus-ai-ask-ai-feature
+
+═══════════════════════════════════════════════════════════════════
+  PRIMARY INSTRUCTIONS
+═══════════════════════════════════════════════════════════════════
+
+READ THIS FILE FIRST (Complete implementation guide):
+→ COMPREHENSIVE_MANUS_AI_PROMPT.md
+
+This file contains:
+✓ Complete file-by-file implementation instructions
+✓ Exact code for all 11 files to create
+✓ Step-by-step procedures
+✓ Testing protocols (8 test cases)
+✓ Acceptance criteria (50+ checkpoints)
+✓ Debugging guide
+✓ Security checklist
+✓ Time tracking
+✓ Success verification
+✓ Pull request template
+
+FOLLOW EVERY INSTRUCTION IN THAT FILE EXACTLY.
+
+═══════════════════════════════════════════════════════════════════
+  WHAT YOU'RE BUILDING
+═══════════════════════════════════════════════════════════════════
+
+FEATURE: "Ask AI" chat assistant for documentation portal
+
+VISUAL REFERENCE: Stripe documentation (https://stripe.com/docs/payments)
+
+COMPONENTS:
+1. "Ask AI" button (positioned below page titles in main content)
+2. Chat panel (slides from right, 400px wide, expandable)
+3. Backend API (Vercel AI Gateway + Pinecone vector search)
+4. Streaming responses (word-by-word using Server-Sent Events)
+5. Source citations (show documentation sources)
+
+REQUIREMENTS:
+✓ Exact visual match to Stripe's implementation
+✓ Works on all documentation pages
+✓ Mobile responsive (320px - 1920px)
+✓ Accessible (keyboard navigation, ARIA labels)
+✓ Fast response time (<3 seconds)
+✓ Professional polish (smooth animations)
+
+═══════════════════════════════════════════════════════════════════
+  TECHNICAL STACK
+═══════════════════════════════════════════════════════════════════
+
+FRONTEND:
+- Framework: React 18+
+- Build tool: Vite
+- Language: TypeScript
+- Styling: Tailwind CSS
+- Icons: lucide-react
+- AI: Vercel AI SDK (useChat hook)
+
+BACKEND:
+- Runtime: Node.js
+- Framework: Express
+- AI: Vercel AI SDK (streamText)
+- Vector DB: Pinecone (already populated with 1,100+ docs)
+- Deployment: Vercel
+
+KEY LIBRARIES TO USE:
+✓ ai (Vercel AI SDK)
+✓ @ai-sdk/openai (OpenAI integration)
+✓ @pinecone-database/pinecone (vector search)
+✓ lucide-react (icons)
+
+═══════════════════════════════════════════════════════════════════
+  PROJECT STRUCTURE
+═══════════════════════════════════════════════════════════════════
+
+Octant-developer-portal/
+├── client/              ← FRONTEND (React + Vite)
+│   └── src/
+│       ├── components/  ← CREATE: AskAIButton, AIChatPanel, ChatMessage
+│       ├── hooks/       ← CREATE: useChatPanel
+│       ├── types/       ← CREATE: chat.ts
+│       └── pages/docs/  ← MODIFY: Add button to all pages
+│
+├── server/              ← BACKEND (Express)
+│   └── src/
+│       ├── api/         ← CREATE: chat.ts
+│       ├── lib/         ← CREATE: ai.ts, pinecone.ts, prompts.ts
+│       ├── types/       ← CREATE: chat.ts
+│       └── app.ts       ← MODIFY: Add chat route
+│
+└── .env.example         ← CREATE: Environment variables template
+
+═══════════════════════════════════════════════════════════════════
+  IMPLEMENTATION PHASES
+═══════════════════════════════════════════════════════════════════
+
+PHASE 1: SETUP (5 minutes)
+→ Install dependencies
+→ Create directory structure if needed
+→ Verify repo structure matches expectations
+
+PHASE 2: BACKEND (1 hour)
+→ Create 5 backend files with exact content from prompt
+→ Modify app.ts to add route
+→ Test API endpoint with curl
+
+PHASE 3: FRONTEND (1-1.5 hours)
+→ OPTION A: Use v0.dev to generate UI (30 min)
+→ OPTION B: Code from scratch (1.5 hours)
+→ Create 5 frontend files
+→ Integrate useChat hook
+
+PHASE 4: INTEGRATION (30 minutes)
+→ Add button to ALL documentation pages
+→ Test on multiple pages
+→ Verify consistency
+
+PHASE 5: TESTING (30 minutes)
+→ Run all 8 test procedures
+→ Check all 50+ acceptance criteria
+→ Fix any issues found
+→ Verify mobile responsiveness
+
+PHASE 6: PULL REQUEST (10 minutes)
+→ Create PR with provided template
+→ Add screenshots
+→ Request review
+
+TOTAL: 2.5-3 hours
+
+═══════════════════════════════════════════════════════════════════
+  CRITICAL SUCCESS FACTORS
+═══════════════════════════════════════════════════════════════════
+
+1. BUTTON LOCATION (NON-NEGOTIABLE):
+   ✓ Below page title (<h1>)
+   ✓ Inside main content area
+   ✓ NOT in global header
+   ✓ Visible on ALL documentation pages
+
+2. PANEL BEHAVIOR (NON-NEGOTIABLE):
+   ✓ Slides from RIGHT side
+   ✓ 400px width default
+   ✓ Expandable to full width
+   ✓ Smooth 300ms animation
+
+3. USE VERCEL AI SDK (NON-NEGOTIABLE):
+   ✓ Backend: streamText from 'ai'
+   ✓ Frontend: useChat from 'ai/react'
+   ✓ NO manual streaming logic
+   ✓ NO direct OpenAI SDK calls
+
+4. VISUAL DESIGN (NON-NEGOTIABLE):
+   ✓ Must match Stripe docs exactly
+   ✓ User messages: blue, right
+   ✓ AI messages: gray, left
+   ✓ Sources: listed below responses
+
+5. TESTING (NON-NEGOTIABLE):
+   ✓ ALL 8 tests must pass
+   ✓ ALL acceptance criteria must be met
+   ✓ NO console errors
+   ✓ Mobile responsive verified
+
+═══════════════════════════════════════════════════════════════════
+  SUPPORT FILES PROVIDED
+═══════════════════════════════════════════════════════════════════
+
+In the branch, you have access to:
+
+1. COMPREHENSIVE_MANUS_AI_PROMPT.md ← **START HERE** (complete guide)
+2. MANUS_AI_SIMPLIFIED_WITH_USECHAT.md (useChat implementation)
+3. VERCEL_FEATURES_ANALYSIS.md (v0.dev optimization tip)
+4. MANUS_AI_PROMPT_OCTANT_PORTAL.md (React+Vite specific notes)
+5. MANUS_AI_PROMPT_ASK_AI_FEATURE.md (detailed specs)
+6. FILES_TO_SEND_TO_MANUS_AI.md (file checklist)
+7. MANUS_AI_QUICK_SUMMARY.md (quick overview)
+8. DEEPWIKI_QUICK_START.md (knowledge base info)
+9. FINAL_SUMMARY_FOR_WESLEY.md (project summary)
+
+PRIMARY DOCUMENT: COMPREHENSIVE_MANUS_AI_PROMPT.md
+ALL OTHER DOCUMENTS: Supporting reference material
+
+═══════════════════════════════════════════════════════════════════
+  DELIVERABLE FORMAT
+═══════════════════════════════════════════════════════════════════
+
+When complete, create pull request with:
+
+TITLE:
+feat: Add Ask AI chat feature with Vercel AI SDK
+
+DESCRIPTION:
+[Use template provided in COMPREHENSIVE_MANUS_AI_PROMPT.md]
+
+VERIFICATION CHECKLIST IN PR:
+- [ ] All 11 files created
+- [ ] All tests passed
+- [ ] All acceptance criteria met
+- [ ] TypeScript compiles
+- [ ] No console errors
+- [ ] Mobile responsive
+- [ ] Screenshots attached
+
+═══════════════════════════════════════════════════════════════════
+  KNOWLEDGE BASE INFORMATION
+═══════════════════════════════════════════════════════════════════
+
+The AI will answer questions using a Pinecone vector database containing:
+
+CONTENT SOURCES:
+✓ 10 JSON tutorial files (getting-started-*.json)
+✓ 60+ markdown documentation pages
+✓ 35 DeepWiki pages (system architecture)
+✓ Key Solidity contract documentation
+✓ README, contributing guides
+✓ Master knowledge file (870 lines)
+
+TOTAL: 1,100+ documentation chunks
+
+COVERAGE:
+✓ Core concepts (vaults, strategies, allocation)
+✓ Development guides (setup, testing, deployment)
+✓ Code examples (Solidity, TypeScript)
+✓ Architecture (system design, data flows)
+✓ Integration patterns (Lido, Aave, Morpho)
+✓ Advanced topics (Dragon Protocol, Quadratic Funding)
+
+The Pinecone index is ALREADY LOADED and READY TO USE.
+No data ingestion needed - just connect and query.
+
+═══════════════════════════════════════════════════════════════════
+  ENVIRONMENT VARIABLES NEEDED
+═══════════════════════════════════════════════════════════════════
+
+REQUIRED:
+PINECONE_API_KEY=pcsk_xxxxx_xxxxx
+PINECONE_INDEX_NAME=octant-docs
+
+OPTIONAL:
+PORT=5000
+
+NOTE: Vercel AI Gateway uses Vercel token automatically.
+No separate OpenAI API key needed.
+
+ACTION REQUIRED:
+1. Create .env file locally with these variables
+2. Add same variables to Vercel dashboard (Settings → Environment Variables)
+
+═══════════════════════════════════════════════════════════════════
+  OPTIMIZATION RECOMMENDATIONS
+═══════════════════════════════════════════════════════════════════
+
+TO SAVE TIME (Optional but recommended):
+
+1. Use v0.dev to generate chat panel UI (saves 1-2 hours)
+   → Go to: https://v0.dev
+   → Prompt provided in VERCEL_FEATURES_ANALYSIS.md
+   → Copy generated code and integrate with useChat hook
+
+2. Use AI SDK's useChat hook (already in specs - saves 1.5 hours)
+   → import { useChat } from 'ai/react'
+   → Automatic streaming, state management, form handling
+
+ESTIMATED TIME WITH OPTIMIZATIONS: 2.5 hours
+ESTIMATED TIME WITHOUT OPTIMIZATIONS: 6.5 hours
+
+RECOMMENDATION: Use both optimizations
+
+═══════════════════════════════════════════════════════════════════
+  SUPPORT & QUESTIONS
+═══════════════════════════════════════════════════════════════════
+
+If you encounter issues:
+
+1. Check COMPREHENSIVE_MANUS_AI_PROMPT.md debugging section
+2. Review Vercel AI SDK docs: https://sdk.vercel.ai/docs
+3. Check useChat reference: https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat
+4. Ask Wesley for clarification
+
+DO NOT:
+✗ Make assumptions about unclear requirements
+✗ Skip testing procedures
+✗ Deviate from specifications
+✗ Simplify requirements without approval
+
+═══════════════════════════════════════════════════════════════════
+  FINAL CHECKLIST BEFORE STARTING
+═══════════════════════════════════════════════════════════════════
+
+Confirm you have:
+- [ ] Cloned repository
+- [ ] Checked out manus-ai-ask-ai-feature branch
+- [ ] Read COMPREHENSIVE_MANUS_AI_PROMPT.md completely
+- [ ] Understand all requirements
+- [ ] Have access to install dependencies (pnpm)
+- [ ] Can create pull requests
+- [ ] Understand timeline (2.5-3 hours)
+
+═══════════════════════════════════════════════════════════════════
+  BEGIN IMPLEMENTATION
+═══════════════════════════════════════════════════════════════════
+
+START: Read COMPREHENSIVE_MANUS_AI_PROMPT.md from top to bottom
+
+THEN: Follow implementation phases in exact order
+
+COMPLETE: When all acceptance criteria are met
+
+DELIVER: Pull request with verification checklist
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 YOU MAY BEGIN IMPLEMENTATION NOW 🚀
+
