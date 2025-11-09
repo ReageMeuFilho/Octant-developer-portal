@@ -54,9 +54,9 @@ interface TabConfig {
 }
 
 // Define all tabs with their context-specific navigation
-// Phase 3: Reorganized per ChatGPT proposal
+// Phase 3: Reorganized per user preference
 const tabsConfig: TabConfig[] = [
-  // A) OVERVIEW
+  // 1) OVERVIEW
   {
     id: "overview",
     label: "Overview",
@@ -74,7 +74,7 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  // C) ARCHITECTURE & DIAGRAMS
+  // 2) ARCHITECTURE & DIAGRAMS
   {
     id: "diagrams",
     label: "Architecture & Diagrams",
@@ -109,7 +109,83 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  // D) DEVELOPER GUIDE (Merged with Core Concepts)
+  // 3) TUTORIALS (TradFi)
+  {
+    id: "tutorials",
+    label: "Tutorials",
+    icon: Zap,
+    sections: [
+      {
+        title: "For TradFi Professionals",
+        items: [
+          { title: "Getting Started Overview", href: "/tradfi-tutorials/getting-started-overview" },
+          { title: "TradFi Analogies", href: "/tradfi-tutorials/tradfi-analogies" },
+          { title: "Key Concepts", href: "/tradfi-tutorials/key-concepts" },
+          { title: "Alice's Journey - Day 1", href: "/tradfi-tutorials/alice-day1" },
+          { title: "Alice's Journey - Day 2", href: "/tradfi-tutorials/alice-day2" },
+          { title: "Alice's Journey - Day 30", href: "/tradfi-tutorials/alice-day30" },
+          { title: "Alice's Journey - Day 40", href: "/tradfi-tutorials/alice-day40" },
+          { title: "Alice's Journey - Day 45", href: "/tradfi-tutorials/alice-day45" },
+          { title: "Alice's Journey - Day 90", href: "/tradfi-tutorials/alice-day90" },
+          { title: "Vault System Summary", href: "/tradfi-tutorials/vault-system-summary" },
+          { title: "System Overview Diagram", href: "/tradfi-tutorials/system-overview-diagram" },
+        ]
+      },
+      {
+        title: "Getting Started",
+        items: [
+          { title: "Interactive Architecture", href: "/docs/tutorials/architecture" },
+          { title: "Technical Architecture", href: "/docs/tutorials/technical" },
+          { title: "Deploy Your First Vault", href: "/docs/tutorials/first-vault" },
+          { title: "Strategy Development", href: "/docs/tutorials/strategy-development" },
+        ]
+      },
+      {
+        title: "DeFi Integrations",
+        items: [
+          { title: "Aave Integration", href: "/docs/tutorials/aave-integration" },
+          { title: "Lido Integration", href: "/docs/tutorials/lido-integration" },
+        ]
+      },
+      {
+        title: "Advanced",
+        items: [
+          { title: "Quadratic Funding", href: "/docs/tutorials/quadratic-funding" },
+          { title: "Multi-Strategy Setup", href: "/docs/tutorials/multi-strategy" },
+        ]
+      }
+    ]
+  },
+  // 4) USE CASES & PERSONAS
+  {
+    id: "use-cases",
+    label: "Use Cases & Personas",
+    icon: Users,
+    sections: [
+      {
+        title: "Personas",
+        items: [
+          { title: "Find Your Path", href: "/user-journeys/find-your-path" },
+          { title: "Sarah: Conservative Investor", href: "/user-journeys/sarah-conservative" },
+          { title: "Dr. Chen: Sophisticated Investor", href: "/user-journeys/dr-chen-sophisticated" },
+          { title: "Marcus: Crypto Enthusiast", href: "/user-journeys/marcus-crypto" },
+          { title: "DeFiMaster: Yield Farmer", href: "/user-journeys/defimaster-yield" },
+          { title: "Emma: Governance Activist", href: "/user-journeys/emma-governance" },
+          { title: "Hedge Fund: Institutional", href: "/user-journeys/hedge-fund-institutional" },
+          { title: "Protocol X: DAO Treasury", href: "/user-journeys/protocol-x-dao" },
+        ]
+      },
+      {
+        title: "Use Cases",
+        items: [
+          { title: "Endowment Yield-to-Impact", href: "/use-cases/endowment-yield-to-impact" },
+          { title: "Foundation Streaming Grants", href: "/use-cases/foundation-streaming-grants" },
+          { title: "DAO Programmable Treasury", href: "/use-cases/dao-programmable-treasury" },
+        ]
+      }
+    ]
+  },
+  // 5) DEVELOPER GUIDE (Merged with Core Concepts)
   {
     id: "developer-guide",
     label: "Developer Guide",
@@ -159,36 +235,7 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  // E) USE CASES & PERSONAS
-  {
-    id: "use-cases",
-    label: "Use Cases & Personas",
-    icon: Users,
-    sections: [
-      {
-        title: "Personas",
-        items: [
-          { title: "Find Your Path", href: "/user-journeys/find-your-path" },
-          { title: "Sarah: Conservative Investor", href: "/user-journeys/sarah-conservative" },
-          { title: "Dr. Chen: Sophisticated Investor", href: "/user-journeys/dr-chen-sophisticated" },
-          { title: "Marcus: Crypto Enthusiast", href: "/user-journeys/marcus-crypto" },
-          { title: "DeFiMaster: Yield Farmer", href: "/user-journeys/defimaster-yield" },
-          { title: "Emma: Governance Activist", href: "/user-journeys/emma-governance" },
-          { title: "Hedge Fund: Institutional", href: "/user-journeys/hedge-fund-institutional" },
-          { title: "Protocol X: DAO Treasury", href: "/user-journeys/protocol-x-dao" },
-        ]
-      },
-      {
-        title: "Use Cases",
-        items: [
-          { title: "Endowment Yield-to-Impact", href: "/use-cases/endowment-yield-to-impact" },
-          { title: "Foundation Streaming Grants", href: "/use-cases/foundation-streaming-grants" },
-          { title: "DAO Programmable Treasury", href: "/use-cases/dao-programmable-treasury" },
-        ]
-      }
-    ]
-  },
-  // G) RESOURCES (includes Main Glossary)
+  // 6) RESOURCES (includes Main Glossary)
   {
     id: "resources",
     label: "Resources",
@@ -206,53 +253,7 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  {
-    id: "tutorials",
-    label: "Tutorials",
-    icon: Zap,
-    sections: [
-      {
-        title: "For TradFi Professionals",
-        items: [
-          { title: "Getting Started Overview", href: "/tradfi-tutorials/getting-started-overview" },
-          { title: "TradFi Analogies", href: "/tradfi-tutorials/tradfi-analogies" },
-          { title: "Key Concepts", href: "/tradfi-tutorials/key-concepts" },
-          { title: "Alice's Journey - Day 1", href: "/tradfi-tutorials/alice-day1" },
-          { title: "Alice's Journey - Day 2", href: "/tradfi-tutorials/alice-day2" },
-          { title: "Alice's Journey - Day 30", href: "/tradfi-tutorials/alice-day30" },
-          { title: "Alice's Journey - Day 40", href: "/tradfi-tutorials/alice-day40" },
-          { title: "Alice's Journey - Day 45", href: "/tradfi-tutorials/alice-day45" },
-          { title: "Alice's Journey - Day 90", href: "/tradfi-tutorials/alice-day90" },
-          { title: "Vault System Summary", href: "/tradfi-tutorials/vault-system-summary" },
-          { title: "System Overview Diagram", href: "/tradfi-tutorials/system-overview-diagram" },
-        ]
-      },
-      {
-        title: "Getting Started",
-        items: [
-          { title: "Interactive Architecture", href: "/docs/tutorials/architecture" },
-          { title: "Technical Architecture", href: "/docs/tutorials/technical" },
-          { title: "Deploy Your First Vault", href: "/docs/tutorials/first-vault" },
-          { title: "Strategy Development", href: "/docs/tutorials/strategy-development" },
-        ]
-      },
-      {
-        title: "DeFi Integrations",
-        items: [
-          { title: "Aave Integration", href: "/docs/tutorials/aave-integration" },
-          { title: "Lido Integration", href: "/docs/tutorials/lido-integration" },
-        ]
-      },
-      {
-        title: "Advanced",
-        items: [
-          { title: "Quadratic Funding", href: "/docs/tutorials/quadratic-funding" },
-          { title: "Multi-Strategy Setup", href: "/docs/tutorials/multi-strategy" },
-        ]
-      }
-    ]
-  },
-  // I) OCTANT WIKI
+  // 7) OCTANT WIKI
   {
     id: "octant-wiki",
     label: "Octant Wiki",
@@ -609,3 +610,4 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
     </div>
   );
 }
+
