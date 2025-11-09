@@ -43,16 +43,31 @@ export default function Navigation() {
             </div>
           </Link>
           
-          {/* TOP NAVIGATION HIDDEN FOR JUDGING - Can be re-enabled later */}
-          <div className="hidden">
-            {/* Use Cases Dropdown - Circle Style */}
+          {/* TOP NAVIGATION - Phase 3 Reorganized (currently hidden for judging, remove 'hidden' class to show) */}
+          <div className="hidden md:flex items-center gap-8">
+            {/* Overview */}
+            <Link href="/docs/getting-started/overview" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Overview
+            </Link>
+
+            {/* Developer Guide */}
+            <Link href="/docs/quickstart" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Developer Guide
+            </Link>
+
+            {/* Architecture & Diagrams */}
+            <Link href="/docs/diagrams" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Architecture & Diagrams
+            </Link>
+
+            {/* Use Cases & Personas Dropdown */}
             <div 
               className="relative"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
               <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-                Use Cases
+                Use Cases & Personas
                 <ChevronDown className={`h-4 w-4 transition-transform ${useCasesOpen ? 'rotate-180' : ''}`} />
               </button>
               
@@ -144,15 +159,17 @@ export default function Navigation() {
               )}
             </div>
 
-            <Link href="/docs" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Documentation
+            {/* Reference */}
+            <Link href="/docs/getting-started/glossary" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Reference
             </Link>
-            <Link href="/docs/quickstart" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Quickstart
+
+            {/* Resources */}
+            <Link href="/docs/resources/faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Resources
             </Link>
-            <Link href="/docs/tutorials" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Tutorials
-            </Link>
+
+            {/* GitHub */}
             <a href="https://github.com/golemfoundation/octant" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               GitHub
             </a>
