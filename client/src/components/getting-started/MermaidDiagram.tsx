@@ -9,7 +9,8 @@ export function MermaidDiagram({ code }: MermaidDiagramProps) {
   const diagramRef = useRef<HTMLDivElement>(null);
   const zoomedDiagramRef = useRef<HTMLDivElement>(null);
   const [isZoomed, setIsZoomed] = useState(false);
-  const id = useId();
+  const rawId = useId();
+  const safeId = `diagram-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
 
   useEffect(() => {
     const renderDiagram = async () => {
@@ -64,10 +65,14 @@ export function MermaidDiagram({ code }: MermaidDiagramProps) {
             .edgeLabel .label text {
               fill: #e5e7eb !important;
             }
-          `
+          `,
+          flowchart: {
+            htmlLabels: true,
+            curve: 'basis'
+          }
         });
 
-        const { svg } = await mermaid.render(`diagram-${id}`, code);
+        const { svg } = await mermaid.render(safeId, code);
         if (diagramRef.current) {
           diagramRef.current.innerHTML = svg;
         }
@@ -80,7 +85,7 @@ export function MermaidDiagram({ code }: MermaidDiagramProps) {
     };
 
     renderDiagram();
-  }, [code, id]);
+  }, [code, safeId]);
 
   useEffect(() => {
     const renderZoomedDiagram = async () => {
@@ -144,7 +149,7 @@ export function MermaidDiagram({ code }: MermaidDiagramProps) {
             }
           });
 
-          const { svg } = await mermaid.render(`diagram-${id}-zoomed`, code);
+          const { svg } = await mermaid.render(`${safeId}-zoomed`, code);
           if (zoomedDiagramRef.current) {
             zoomedDiagramRef.current.innerHTML = svg;
           }
@@ -155,7 +160,7 @@ export function MermaidDiagram({ code }: MermaidDiagramProps) {
     };
 
     renderZoomedDiagram();
-  }, [isZoomed, code, id]);
+  }, [isZoomed, code, safeId]);
 
   return (
     <>
