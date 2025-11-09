@@ -1,4 +1,4 @@
-import UseCasesLayout from "@/components/UseCasesLayout";
+import DocsLayout from "@/components/DocsLayoutNew";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,10 +11,16 @@ import {
 } from "@/components/ui/accordion";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, Building2, Shield, TrendingUp, Clock, Users, Zap } from "lucide-react";
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function EndowmentYieldToImpact() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
-    <UseCasesLayout>
+    <DocsLayout>
+      <div className="space-y-8">
       {/* Hero Section */}
       <div className="mb-16">
         <div className="flex items-center gap-3 mb-6">
@@ -26,6 +32,7 @@ export default function EndowmentYieldToImpact() {
             <h1 className="text-4xl font-bold">Endowment Yield-to-Impact</h1>
           </div>
         </div>
+        <AskAIButton onClick={openChat} />
         <p className="text-2xl font-semibold text-foreground mb-4">
           The Intention: Fund a mission forever — without ever touching principal
         </p>
@@ -532,6 +539,8 @@ season.closeAndExportReceipts();`}</code>
           </ul>
         </Card>
       </section>
-    </UseCasesLayout>
+      </div>
+      <AIChatPanel isOpen={isOpen} onClose={closeChat} />
+    </DocsLayout>
   );
 }
