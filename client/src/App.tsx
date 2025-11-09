@@ -18,7 +18,7 @@ import AllocationMechanisms from "./pages/docs/AllocationMechanisms";
 import MultiStrategy from "./pages/docs/MultiStrategy";
 import FirstVault from "./pages/docs/tutorials/FirstVault";
 import QuadraticFunding from "./pages/docs/tutorials/QuadraticFunding";
-import AaveIntegration from "./pages/docs/tutorials/AaveIntegration";
+import AaveIntegration from "./pages/docs/tutorials/AaveIntegrationEnhanced";
 import LidoIntegration from "./pages/docs/tutorials/LidoIntegration";
 import MultiStrategyTutorial from "./pages/docs/tutorials/MultiStrategyTutorial";
 import Testnet from "./pages/docs/resources/Testnet";
