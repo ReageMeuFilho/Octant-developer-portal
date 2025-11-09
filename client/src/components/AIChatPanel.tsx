@@ -53,7 +53,8 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
       const lastMsg = m.messages[m.messages.length - 1];
       console.log('✅ last message:', lastMsg);
       console.log('✅ last message has content:', !!lastMsg?.content);
-      console.log('✅ last message has parts:', !!lastMsg?.parts, 'parts:', lastMsg?.parts);
+      console.log('✅ last message has parts:', !!lastMsg?.parts);
+      console.log('✅ parts structure:', JSON.stringify(lastMsg?.parts));
     },
     onError: (error: Error) => {
       console.error('❌ Chat error:', error);
