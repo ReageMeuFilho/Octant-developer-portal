@@ -1,10 +1,21 @@
 /**
+ * Message part from Vercel AI SDK
+ */
+export interface MessagePart {
+  type: 'text' | 'tool-call' | 'tool-result';
+  text?: string;
+  [key: string]: any;
+}
+
+/**
  * Chat message interface
+ * Supports both content (string) and parts (array) formats from Vercel AI SDK
  */
 export interface Message {
   id: string;
   role: 'user' | 'assistant';
-  content: string;
+  content?: string;
+  parts?: (string | MessagePart)[];
   sources?: Source[];
 }
 

@@ -9,6 +9,29 @@ import { ChatRequest } from '../types/chat';
 const router = express.Router();
 
 /**
+ * Normalize message content to string
+ * Handles both plain strings and Vercel AI SDK content parts format
+ */
+function normalizeContent(content: unknown): string {
+  if (typeof content === 'string') return content;
+  if (Array.isArray(content)) {
+    return content
+      .map(part => {
+        if (part && typeof part === 'object' && 'text' in part) {
+          return (part as any).text;
+        }
+        return '';
+      })
+      .join('')
+      .trim();
+  }
+  if (content && typeof content === 'object' && 'text' in content) {
+    return (content as any).text;
+  }
+  return '';
+}
+
+/**
  * POST /api/chat
  * 
  * Handles chat requests by:
@@ -19,6 +42,8 @@ const router = express.Router();
  */
 router.post('/chat', async (req: Request, res: Response) => {
   try {
+    console.log('📦 Request body:', JSON.stringify(req.body).slice(0, 500));
+    
     let question: string;
     let conversationHistory: any[] = [];
     
@@ -29,15 +54,18 @@ router.post('/chat', async (req: Request, res: Response) => {
       }
       
       const latestMessage = messages[messages.length - 1];
-      if (!latestMessage?.content || typeof latestMessage.content !== 'string') {
+      const contentToNormalize = latestMessage?.content || latestMessage?.parts;
+      const questionText = normalizeContent(contentToNormalize);
+      
+      if (!questionText) {
         return res.status(400).json({ error: 'Latest message must have valid content' });
       }
       
-      question = latestMessage.content;
+      question = questionText;
       conversationHistory = messages.slice(0, -1).map((msg: any) => ({
         id: msg.id || '',
         role: msg.role,
-        content: msg.content
+        content: normalizeContent(msg.content || msg.parts)
       }));
     } else {
       const legacyRequest = req.body as ChatRequest;
@@ -77,35 +105,42 @@ router.post('/chat', async (req: Request, res: Response) => {
       model: openai('gpt-4o'),
       system: `${SYSTEM_PROMPT}\n\n**RELEVANT DOCUMENTATION CONTEXT**:\n\n${context}`,
       messages,
-      temperature: 0.3, // Lower = more factual
+      temperature: 0.3,
     });
     
-    res.setHeader('Content-Type', 'text/event-stream');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Adjust for production
+    const webRes = result.toUIMessageStreamResponse();
     
-    try {
-      for await (const chunk of result.textStream) {
-        res.write(`data: ${JSON.stringify({ content: chunk })}\n\n`);
+    res.status(webRes.status);
+    webRes.headers.forEach((value, key) => {
+      res.setHeader(key, value);
+    });
+    
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('X-Accel-Buffering', 'no');
+    res.setHeader('Cache-Control', 'no-cache, no-transform');
+    res.setHeader('Connection', 'keep-alive');
+    
+    res.flushHeaders();
+    
+    const body = webRes.body;
+    if (body) {
+      const reader = body.getReader();
+      try {
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          res.write(Buffer.from(value));
+          if (typeof (res as any).flush === 'function') {
+            (res as any).flush();
+          }
+        }
+        console.log('✅ Response streamed successfully');
+      } catch (streamError) {
+        console.error('❌ Streaming error:', streamError);
       }
-      
-      const sources = searchResults.map(doc => ({
-        title: doc.title,
-        source: doc.source,
-        score: doc.score,
-      }));
-      
-      res.write(`data: ${JSON.stringify({ sources, done: true })}\n\n`);
-      res.end();
-      
-      console.log('✅ Response streamed successfully');
-      
-    } catch (streamError) {
-      console.error('❌ Streaming error:', streamError);
-      res.write(`data: ${JSON.stringify({ error: 'Stream interrupted' })}\n\n`);
-      res.end();
     }
+    
+    res.end();
     
   } catch (error) {
     console.error('❌ Chat API error:', error);

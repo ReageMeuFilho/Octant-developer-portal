@@ -43,8 +43,21 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
     sendMessage,
     setMessages,
   } = useChat({
+    api: '/api/chat',
+    id: 'docs-chat',
+    onResponse: (res) => {
+      console.log('✅ chat onResponse', Object.fromEntries(res.headers.entries()));
+    },
+    onFinish: (m) => {
+      console.log('✅ chat onFinish', m);
+      const lastMsg = m.messages[m.messages.length - 1];
+      console.log('✅ last message:', lastMsg);
+      console.log('✅ last message has content:', !!lastMsg?.content);
+      console.log('✅ last message has parts:', !!lastMsg?.parts);
+      console.log('✅ parts structure:', JSON.stringify(lastMsg?.parts));
+    },
     onError: (error: Error) => {
-      console.error('Chat error:', error);
+      console.error('❌ Chat error:', error);
     },
   });
   
@@ -178,9 +191,10 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
           ) : (
             /* ===== MESSAGES LIST ===== */
             <>
-              {messages.map((msg: any) => (
-                <ChatMessage key={msg.id} message={msg as Message} />
-              ))}
+              {messages.map((msg: any) => {
+                console.log('🔍 Rendering message:', msg.role, 'has content:', !!msg.content, 'has parts:', !!msg.parts);
+                return <ChatMessage key={msg.id} message={msg as Message} />;
+              })}
               
               {/* Loading indicator */}
               {isLoading && (

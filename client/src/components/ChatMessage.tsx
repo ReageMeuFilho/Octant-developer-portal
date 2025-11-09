@@ -1,10 +1,36 @@
-import { Message } from '../types/chat';
+import { Message, MessagePart } from '../types/chat';
 
 interface ChatMessageProps {
   /**
    * Message object to display
    */
   message: Message;
+}
+
+/**
+ * Extract text content from a message
+ * Handles both content (string) and parts (array) formats from Vercel AI SDK
+ */
+function getMessageText(message: Message): string {
+  if (typeof message.content === 'string') {
+    return message.content;
+  }
+  
+  if (Array.isArray(message.parts)) {
+    return message.parts
+      .map(part => {
+        if (typeof part === 'string') return part;
+        
+        if (part && typeof part === 'object' && 'text' in part) {
+          return part.text || '';
+        }
+        
+        return '';
+      })
+      .join('');
+  }
+  
+  return '';
 }
 
 /**
@@ -15,6 +41,9 @@ interface ChatMessageProps {
  */
 export function ChatMessage({ message }: ChatMessageProps) {
   const isUser = message.role === 'user';
+  const contentText = getMessageText(message);
+  
+  console.log('💬 CHATMSG_V2:', message.role, 'has content:', !!message.content, 'has parts:', !!message.parts, 'text length:', contentText.length);
   
   return (
     <div className={`mb-4 ${isUser ? 'flex justify-end' : 'flex justify-start'}`}>
@@ -25,7 +54,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
       }`}>
         {/* Message content */}
         <div className="text-sm whitespace-pre-wrap leading-relaxed">
-          {message.content}
+          {contentText}
         </div>
         
         {/* Source citations (only for assistant messages) */}
