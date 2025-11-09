@@ -43,8 +43,14 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
     sendMessage,
     setMessages,
   } = useChat({
+    api: '/api/chat',
+    id: 'docs-chat',
+    onResponse: (res) => {
+      console.log('✅ chat onResponse', Object.fromEntries(res.headers.entries()));
+    },
+    onFinish: (m) => console.log('✅ chat onFinish', m),
     onError: (error: Error) => {
-      console.error('Chat error:', error);
+      console.error('❌ Chat error:', error);
     },
   });
   
