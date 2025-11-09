@@ -118,7 +118,7 @@ const tabsConfig: TabConfig[] = [
       {
         title: "For TradFi Professionals",
         items: [
-          { title: "Getting Started Overview", href: "/tradfi-tutorials/getting-started-overview" },
+          { title: "Generate Yield and Govern", href: "/tradfi-tutorials/getting-started-overview" },
           { title: "TradFi Analogies", href: "/tradfi-tutorials/tradfi-analogies" },
           { title: "Key Concepts", href: "/tradfi-tutorials/key-concepts" },
           { title: "Alice's Journey - Day 1", href: "/tradfi-tutorials/alice-day1" },
