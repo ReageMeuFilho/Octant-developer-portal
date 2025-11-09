@@ -22,6 +22,31 @@ export default function WhatIsOctant() {
           description="Open public infrastructure for sustainable growth. Transform treasury assets into continuous ecosystem funding while preserving your principal."
         />
 
+        {/* Overview Video */}
+        <div id="overview-video" className="my-8">
+          <div className="rounded-lg overflow-hidden border border-border/40 bg-card">
+            <video
+              title="Octant v2 Overview - 2:35 minute introduction"
+              src="/videos/Octant V2_ Yield Funding Video Overview.mp4"
+              controls
+              preload="metadata"
+              className="w-full"
+              style={{ maxHeight: '600px' }}
+            >
+              Your browser doesn't support embedded videos.{' '}
+              <a href="/videos/Octant V2_ Yield Funding Video Overview.mp4" className="text-primary hover:underline">
+                Download the video here
+              </a>.
+            </video>
+          </div>
+          
+          <div className="mt-4 p-4 bg-blue-900/20 border border-blue-800 rounded-lg">
+            <p className="text-blue-200 text-sm">
+              🎥 <strong>Watch:</strong> A concise, 2:30 overview of Octant's mission, architecture, and how deposits flow through the system to create sustainable funding streams.
+            </p>
+          </div>
+        </div>
+
         {/* Overview */}
         <div className="prose prose-invert max-w-none">
           <p className="text-lg text-foreground/90 leading-relaxed">
