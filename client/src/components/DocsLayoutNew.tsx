@@ -54,88 +54,66 @@ interface TabConfig {
 }
 
 // Define all tabs with their context-specific navigation
+// Phase 3: Reorganized per ChatGPT proposal
 const tabsConfig: TabConfig[] = [
+  // A) OVERVIEW
   {
-    id: "getting-started",
-    label: "Getting Started",
+    id: "overview",
+    label: "Overview",
     icon: Home,
     sections: [
       {
         title: "Introduction",
         items: [
-          { title: "Overview", href: "/docs/getting-started/overview" },
-          { title: "Core Components", href: "/docs/getting-started/components" },
+          { title: "What is Octant?", href: "/docs/what-is-octant" },
+          { title: "How It Works", href: "/docs/how-it-works" },
+          { title: "Key Components", href: "/docs/getting-started/components" },
           { title: "Security & Risks", href: "/docs/getting-started/security" },
-        ]
-      },
-      {
-        title: "Quick Start",
-        items: [
           { title: "Developer Orientation", href: "/docs/getting-started/developer-orientation" },
-          { title: "Integration Guides", href: "/docs/getting-started/integration-guides" },
-        ]
-      },
-      {
-        title: "Core Concepts",
-        items: [
-          { title: "Yield Donating Strategy", href: "/docs/getting-started/yield-donating" },
-          { title: "Yield Skimming Strategy", href: "/docs/getting-started/yield-skimming" },
-          { title: "Routing & Splitting", href: "/docs/getting-started/routing-splitting" },
-          { title: "Allocation Mechanisms", href: "/docs/getting-started/allocation-mechanisms" },
-        ]
-      },
-      {
-        title: "Reference",
-        items: [
-          { title: "Main Glossary", href: "/docs/getting-started/glossary" },
         ]
       }
     ]
   },
+  // B) CORE CONCEPTS
   {
     id: "core-concepts",
     label: "Core Concepts",
     icon: BookOpen,
     sections: [
       {
-        title: "Fundamentals",
+        title: "Yield Mechanisms",
         items: [
-          { title: "What is Octant v2", href: "/docs/what-is-octant" },
-          { title: "How It Works", href: "/docs/how-it-works" },
-          { title: "Architecture", href: "/docs/architecture" },
-          { title: "Glossary", href: "/docs/glossary" },
+          { title: "Yield Donating (YDS)", href: "/docs/getting-started/yield-donating" },
+          { title: "Yield Skimming (YSS)", href: "/docs/getting-started/yield-skimming" },
+          { title: "Strategy Decision Tree", href: "/docs/diagrams/yield-mechanisms/strategy-decision-tree" },
         ]
-      }
-    ]
-  },
-  {
-    id: "user-journeys",
-    label: "User Journeys",
-    icon: Users,
-    sections: [
+      },
       {
-        title: "Personas",
+        title: "Distribution",
         items: [
-          { title: "Find Your Path", href: "/user-journeys/find-your-path" },
-          { title: "Sarah: Conservative Investor", href: "/user-journeys/sarah-conservative" },
-          { title: "Marcus: Crypto Enthusiast", href: "/user-journeys/marcus-crypto" },
-          { title: "Dr. Chen: Sophisticated Investor", href: "/user-journeys/dr-chen-sophisticated" },
-          { title: "Protocol X: DAO Treasury", href: "/user-journeys/protocol-x-dao" },
-          { title: "DeFiMaster: Yield Farmer", href: "/user-journeys/defimaster-yield" },
-          { title: "Emma: Governance Activist", href: "/user-journeys/emma-governance" },
-          { title: "Hedge Fund: Institutional", href: "/user-journeys/hedge-fund-institutional" },
+          { title: "Routing & Splitting", href: "/docs/getting-started/routing-splitting" },
+          { title: "Allocation Mechanisms", href: "/docs/getting-started/allocation-mechanisms" },
+        ]
+      },
+      {
+        title: "Governance",
+        items: [
+          { title: "Dragon Router", href: "/docs/diagrams/governance-allocation/dragon-router" },
+          { title: "Proposal Lifecycle", href: "/docs/diagrams/governance-allocation/proposal-lifecycle" },
         ]
       }
     ]
   },
+  // C) ARCHITECTURE & DIAGRAMS
   {
     id: "diagrams",
-    label: "Diagrams",
+    label: "Architecture & Diagrams",
     icon: Network,
     sections: [
       {
-        title: "Core Concepts",
+        title: "System Overview",
         items: [
+          { title: "Visual Protocol Guide", href: "/docs/visual-protocol-guide" },
           { title: "Deposit & Withdrawal", href: "/docs/diagrams/core-concepts/deposit-withdrawal" },
           { title: "Yield Generation", href: "/docs/diagrams/core-concepts/yield-generation" },
           { title: "Multi-Strategy Vault", href: "/docs/diagrams/core-concepts/multi-strategy-vault" },
@@ -149,8 +127,6 @@ const tabsConfig: TabConfig[] = [
         items: [
           { title: "Yield Donating", href: "/docs/diagrams/yield-mechanisms/yield-donating" },
           { title: "Yield Skimming", href: "/docs/diagrams/yield-mechanisms/yield-skimming" },
-          { title: "Harvest Cycle", href: "/docs/diagrams/yield-mechanisms/harvest-cycle" },
-          { title: "Debt Management", href: "/docs/diagrams/yield-mechanisms/debt-management" },
           { title: "Strategy Decision Tree", href: "/docs/diagrams/yield-mechanisms/strategy-decision-tree" },
         ]
       },
@@ -158,49 +134,98 @@ const tabsConfig: TabConfig[] = [
         title: "Governance & Allocation",
         items: [
           { title: "Dragon Router", href: "/docs/diagrams/governance-allocation/dragon-router" },
-          { title: "Quadratic Funding", href: "/docs/diagrams/governance-allocation/quadratic-funding" },
           { title: "Proposal Lifecycle", href: "/docs/diagrams/governance-allocation/proposal-lifecycle" },
-          { title: "Access Control", href: "/docs/diagrams/governance-allocation/access-control" },
-          { title: "Payment Splitter", href: "/docs/diagrams/governance-allocation/payment-splitter" },
+        ]
+      }
+    ]
+  },
+  // D) DEVELOPER GUIDE
+  {
+    id: "developer-guide",
+    label: "Developer Guide",
+    icon: Code2,
+    sections: [
+      {
+        title: "Quickstart",
+        items: [
+          { title: "Get Started in 10 Minutes", href: "/docs/quickstart" },
+          { title: "Integration Guides", href: "/docs/getting-started/integration-guides" },
         ]
       },
       {
-        title: "Advanced Features",
+        title: "Strategy Development",
         items: [
-          { title: "Lockup & Rage Quit", href: "/docs/diagrams/advanced-features/lockup-rage-quit" },
-          { title: "Trader DCA", href: "/docs/diagrams/advanced-features/trader-dca" },
-          { title: "Hats Protocol", href: "/docs/diagrams/advanced-features/hats-protocol" },
-          { title: "Safe Module", href: "/docs/diagrams/advanced-features/safe-module" },
-          { title: "Passport", href: "/docs/diagrams/advanced-features/passport" },
-          { title: "Linear Allowance", href: "/docs/diagrams/advanced-features/linear-allowance" },
+          { title: "Aave V3 Strategy (YDS)", href: "/docs/tutorials/aave-integration" },
+          { title: "Lido stETH Strategy", href: "/docs/tutorials/lido-integration" },
         ]
       },
       {
-        title: "Deployment & Integration",
+        title: "Testing & Security",
         items: [
-          { title: "Factory Deployment", href: "/docs/diagrams/deployment-integration/factory-deployment" },
-          { title: "Clone Deployment", href: "/docs/diagrams/deployment-integration/clone-deployment" },
-          { title: "External Integration", href: "/docs/diagrams/deployment-integration/external-integration" },
-          { title: "Cross-Vault Aggregation", href: "/docs/diagrams/deployment-integration/cross-vault-aggregation" },
+          { title: "Security & Risk Checklist", href: "/docs/getting-started/security" },
+        ]
+      }
+    ]
+  },
+  // E) USE CASES & PERSONAS
+  {
+    id: "use-cases",
+    label: "Use Cases & Personas",
+    icon: Users,
+    sections: [
+      {
+        title: "Personas",
+        items: [
+          { title: "Find Your Path", href: "/user-journeys/find-your-path" },
+          { title: "Sarah: Conservative Investor", href: "/user-journeys/sarah-conservative" },
+          { title: "Dr. Chen: Sophisticated Investor", href: "/user-journeys/dr-chen-sophisticated" },
+          { title: "Marcus: Crypto Enthusiast", href: "/user-journeys/marcus-crypto" },
+          { title: "DeFiMaster: Yield Farmer", href: "/user-journeys/defimaster-yield" },
+          { title: "Emma: Governance Activist", href: "/user-journeys/emma-governance" },
+          { title: "Hedge Fund: Institutional", href: "/user-journeys/hedge-fund-institutional" },
+          { title: "Protocol X: DAO Treasury", href: "/user-journeys/protocol-x-dao" },
         ]
       },
       {
-        title: "User Journeys",
+        title: "Use Cases",
         items: [
-          { title: "First-Time User", href: "/docs/diagrams/user-journeys/first-time-user" },
-          { title: "Power User", href: "/docs/diagrams/user-journeys/power-user" },
-          { title: "DAO Treasury", href: "/docs/diagrams/user-journeys/dao-treasury" },
-          { title: "Octant vs Traditional", href: "/docs/diagrams/user-journeys/octant-vs-traditional" },
+          { title: "Endowment Yield-to-Impact", href: "/use-cases/endowment-yield-to-impact" },
+          { title: "Foundation Streaming Grants", href: "/use-cases/foundation-streaming-grants" },
+          { title: "DAO Programmable Treasury", href: "/use-cases/dao-programmable-treasury" },
         ]
-      },
+      }
+    ]
+  },
+  // F) REFERENCE
+  {
+    id: "reference",
+    label: "Reference",
+    icon: FileCode,
+    sections: [
       {
-        title: "Operations & Edge Cases",
+        title: "Documentation",
         items: [
-          { title: "Withdrawal Queue", href: "/docs/diagrams/operations-edge-cases/withdrawal-queue" },
-          { title: "Vault Migration", href: "/docs/diagrams/operations-edge-cases/vault-migration" },
-          { title: "Health Monitoring", href: "/docs/diagrams/operations-edge-cases/health-monitoring" },
-          { title: "Failed Withdrawal", href: "/docs/diagrams/operations-edge-cases/failed-withdrawal" },
-          { title: "Slippage Protection", href: "/docs/diagrams/operations-edge-cases/slippage-protection" },
+          { title: "Main Glossary", href: "/docs/getting-started/glossary" },
+          { title: "Funding Vault API", href: "/docs/api/funding-vault" },
+          { title: "Allocation Mechanism API", href: "/docs/api/allocation-mechanism" },
+          { title: "Payment Splitter API", href: "/docs/api/payment-splitter" },
+        ]
+      }
+    ]
+  },
+  // G) RESOURCES
+  {
+    id: "resources",
+    label: "Resources",
+    icon: Blocks,
+    sections: [
+      {
+        title: "Resources",
+        items: [
+          { title: "FAQ", href: "/docs/resources/faq" },
+          { title: "Testnet Information", href: "/docs/resources/testnet" },
+          { title: "SDKs & Libraries", href: "/docs/resources/sdks" },
+          { title: "Community & Support", href: "/docs/resources/community" },
         ]
       }
     ]
@@ -251,134 +276,33 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  {
-    id: "reference",
-    label: "Reference",
-    icon: FileCode,
-    sections: [
-      {
-        title: "API Documentation",
-        items: [
-          { title: "Funding Vault API", href: "/docs/api/funding-vault" },
-          { title: "Allocation Mechanism API", href: "/docs/api/allocation-mechanism" },
-          { title: "Payment Splitter API", href: "/docs/api/payment-splitter" },
-        ]
-      }
-    ]
-  },
-  {
-    id: "resources",
-    label: "Resources",
-    icon: Blocks,
-    sections: [
-      {
-        title: "Developer Resources",
-        items: [
-          { title: "Testnet Information", href: "/docs/resources/testnet" },
-          { title: "SDKs & Libraries", href: "/docs/resources/sdks" },
-          { title: "Community", href: "/docs/resources/community" },
-          { title: "FAQ", href: "/docs/resources/faq" },
-        ]
-      },
-      {
-        title: "Use Cases",
-        items: [
-          { title: "Endowment Yield-to-Impact", href: "/use-cases/endowment-yield-to-impact" },
-          { title: "Foundation Streaming Grants", href: "/use-cases/foundation-streaming-grants" },
-          { title: "DAO Programmable Treasury", href: "/use-cases/dao-programmable-treasury" },
-        ]
-      }
-    ]
-  },
+  // I) OCTANT WIKI
   {
     id: "octant-wiki",
     label: "Octant Wiki",
     icon: BookOpen,
     sections: [
       {
-        title: "Overview",
+        title: "Staking",
         items: [
-          { title: "Meet the Octant Protocol", href: "/docs/octant-wiki/overview" },
-        ]
-      },
-      {
-        title: "Staking System (RegenStaker)",
-        items: [
-          { title: "Introduction & Variants", href: "/docs/octant-wiki/staking/introduction" },
-          { title: "Delegation and Surrogate Contracts", href: "/docs/octant-wiki/staking/delegation" },
-          { title: "Earning Power Calculation", href: "/docs/octant-wiki/staking/earning-power" },
+          { title: "Overview", href: "/docs/octant-wiki/overview" },
+          { title: "Introduction", href: "/docs/octant-wiki/staking/introduction" },
+          { title: "Delegation", href: "/docs/octant-wiki/staking/delegation" },
+          { title: "Earning Power", href: "/docs/octant-wiki/staking/earning-power" },
           { title: "Reward Distribution", href: "/docs/octant-wiki/staking/reward-distribution" },
-          { title: "Access Control via Whitelists", href: "/docs/octant-wiki/staking/access-control" },
+          { title: "Access Control", href: "/docs/octant-wiki/staking/access-control" },
           { title: "Advanced Operations", href: "/docs/octant-wiki/staking/advanced-operations" },
           { title: "State Management", href: "/docs/octant-wiki/staking/state-management" },
-          { title: "Cross-System Integration", href: "/docs/octant-wiki/staking/integration" },
-          { title: "Reference Summary", href: "/docs/octant-wiki/staking/reference" },
-        ]
-      },
-      {
-        title: "Yield Strategies",
-        items: [
-          { title: "Yield Skimming Strategies", href: "/docs/octant-wiki/yield-strategies/yield-skimming" },
-          { title: "Yield Donating Strategies", href: "/docs/octant-wiki/yield-strategies/yield-donating" },
-          { title: "Vault System and Lockups", href: "/docs/octant-wiki/yield-strategies/vault-lockups" },
-          { title: "Strategy Factories", href: "/docs/octant-wiki/yield-strategies/strategy-factories" },
-        ]
-      },
-      {
-        title: "Allocation Mechanisms",
-        items: [
-          { title: "TokenizedAllocationMechanism", href: "/docs/octant-wiki/allocation-mechanisms/tokenized-allocation" },
-          { title: "Yearn V3 Pattern Implementation", href: "/docs/octant-wiki/allocation-mechanisms/yearn-v3-pattern" },
-          { title: "Hook Architecture", href: "/docs/octant-wiki/allocation-mechanisms/hook-architecture" },
-          { title: "Proposal Lifecycle", href: "/docs/octant-wiki/allocation-mechanisms/proposal-lifecycle" },
-          { title: "Quadratic Voting Mechanism", href: "/docs/octant-wiki/allocation-mechanisms/quadratic-voting" },
-          { title: "ProperQF Algorithm", href: "/docs/octant-wiki/allocation-mechanisms/properqf-algorithm" },
-          { title: "Voting Flow and Access Control", href: "/docs/octant-wiki/allocation-mechanisms/voting-flow" },
-        ]
-      },
-      {
-        title: "Safe Integration (Dragon Protocol)",
-        items: [
-          { title: "DragonRouter", href: "/docs/octant-wiki/dragon-protocol/dragon-router" },
-          { title: "LinearAllowanceSingleton", href: "/docs/octant-wiki/dragon-protocol/linear-allowance" },
-          { title: "Allowance Mechanics", href: "/docs/octant-wiki/dragon-protocol/allowance-mechanics" },
-          { title: "Security Model", href: "/docs/octant-wiki/dragon-protocol/security-model" },
-          { title: "Safe Modules and Integration", href: "/docs/octant-wiki/dragon-protocol/safe-modules" },
-        ]
-      },
-      {
-        title: "Deployment and Infrastructure",
-        items: [
-          { title: "Build System", href: "/docs/octant-wiki/deployment/build-system" },
-          { title: "Dependencies and Libraries", href: "/docs/octant-wiki/deployment/dependencies" },
-          { title: "Hats Protocol Integration", href: "/docs/octant-wiki/deployment/hats-protocol" },
-          { title: "Factory Contracts", href: "/docs/octant-wiki/deployment/factory-contracts" },
-          { title: "CI/CD Pipeline", href: "/docs/octant-wiki/deployment/cicd-pipeline" },
-          { title: "Testing Infrastructure", href: "/docs/octant-wiki/deployment/testing-infrastructure" },
-          { title: "Code Quality Gates", href: "/docs/octant-wiki/deployment/code-quality" },
-          { title: "Docker and Containerization", href: "/docs/octant-wiki/deployment/docker" },
-          { title: "Deployment Pipeline", href: "/docs/octant-wiki/deployment/deployment-pipeline" },
-          { title: "Tenderly Integration", href: "/docs/octant-wiki/deployment/tenderly" },
-          { title: "Deployment Sequence", href: "/docs/octant-wiki/deployment/deployment-sequence" },
-        ]
-      },
-      {
-        title: "Advanced Topics",
-        items: [
-          { title: "Formal Verification", href: "/docs/octant-wiki/advanced/formal-verification" },
-        ]
-      },
-      {
-        title: "Error Reference",
-        items: [
-          { title: "TokenizedStrategy Errors", href: "/docs/octant-wiki/errors/tokenized-strategy" },
-          { title: "DragonTokenizedStrategy Errors", href: "/docs/octant-wiki/errors/dragon-tokenized-strategy" },
-          { title: "BaseStrategy Errors", href: "/docs/octant-wiki/errors/base-strategy" },
+          { title: "Integration", href: "/docs/octant-wiki/staking/integration" },
+          { title: "Reference", href: "/docs/octant-wiki/staking/reference" },
         ]
       }
     ]
-  },
+  }
 ];
+
+// OLD CONFIG REMOVED - Phase 3 reorganization complete
+// All sections now follow the ChatGPT proposal structure
 
 export default function DocsLayoutNew({ children }: DocsLayoutProps) {
   const [location] = useLocation();
