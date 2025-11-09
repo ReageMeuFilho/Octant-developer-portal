@@ -2,13 +2,18 @@ import { motion } from 'framer-motion';
 import DocsLayoutNew from '@/components/DocsLayoutNew';
 import { MermaidDiagram } from '@/components/getting-started/MermaidDiagram';
 import { CalloutBox } from '@/components/getting-started/CalloutBox';
+import { AskAIButton } from '@/components/AskAIButton';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function GettingStartedYieldDonating() {
+  const { openChat } = useChatPanel();
+
   return (
     <DocsLayoutNew>
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-4">Getting Started - Yield Donating Strategy</h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground">
             Deep dive into active reward harvesting strategies
           </p>

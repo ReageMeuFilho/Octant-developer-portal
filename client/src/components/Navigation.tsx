@@ -43,7 +43,8 @@ export default function Navigation() {
             </div>
           </Link>
           
-          <div className="hidden md:flex items-center gap-8">
+          {/* TOP NAVIGATION HIDDEN FOR JUDGING - Can be re-enabled later */}
+          <div className="hidden">
             {/* Use Cases Dropdown - Circle Style */}
             <div 
               className="relative"
@@ -157,7 +158,8 @@ export default function Navigation() {
             </a>
           </div>
           
-          <Link href="/docs">
+          {/* Get Started button also hidden for judging */}
+          <Link href="/docs" className="hidden">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
               Get Started
             </Button>

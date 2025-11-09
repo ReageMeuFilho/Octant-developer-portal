@@ -4,8 +4,12 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
 import { ArrowRight, BookOpen, Zap, Network, Code2 } from 'lucide-react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function DiagramsHome() {
+  const { openChat } = useChatPanel();
+
   return (
     <DocsLayoutNew>
       <div className="space-y-12">
@@ -16,6 +20,7 @@ export default function DiagramsHome() {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
             Octant v2 Visual Diagrams
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Comprehensive visual guides to understand every aspect of the Octant v2 protocol through narrative-driven diagrams.
           </p>

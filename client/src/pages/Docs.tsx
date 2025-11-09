@@ -14,8 +14,12 @@ import {
   HelpCircle
 } from "lucide-react";
 import { Link } from "wouter";
+import { AskAIButton } from '@/components/AskAIButton';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function Docs() {
+  const { openChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-12">
@@ -27,6 +31,7 @@ export default function Docs() {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
             Octant v2 Developer Portal
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Build sustainable funding infrastructure for Web3 ecosystems. Octant v2 transforms treasury assets into continuous funding streams while preserving principal through battle-tested DeFi strategies.
           </p>

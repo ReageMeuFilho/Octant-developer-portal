@@ -4,13 +4,18 @@ import { CardGrid } from '@/components/getting-started/CardGrid';
 import { MermaidDiagram } from '@/components/getting-started/MermaidDiagram';
 import { CalloutBox } from '@/components/getting-started/CalloutBox';
 import { ComparisonTable } from '@/components/getting-started/ComparisonTable';
+import { AskAIButton } from '@/components/AskAIButton';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function GettingStartedDeveloperOrientation() {
+  const { openChat } = useChatPanel();
+
   return (
     <DocsLayoutNew>
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-4">Getting Started - Developer Orientation</h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground">
             A guide for developers on how to begin building with Octant v2
           </p>

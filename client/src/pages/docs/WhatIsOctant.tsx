@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Vault, Split, Vote, Users, Shield, Zap, Layers, TrendingUp } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from 'react';
-import { AskAIButton } from '@/components/AskAIButton';
+import { PageHeader } from '@/components/PageHeader';
 import { AIChatPanel } from '@/components/AIChatPanel';
 import { useChatPanel } from '@/hooks/useChatPanel';
 
@@ -15,19 +15,12 @@ export default function WhatIsOctant() {
   return (
     <DocsLayout>
       <div className="space-y-8">
-        {/* Header */}
-        <div>
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-            Core Concepts
-          </Badge>
-          <h1 className="text-5xl font-bold mb-4">
-            What Is Octant v2?
-          </h1>
-          <AskAIButton onClick={openChat} />
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Open public infrastructure for sustainable growth. Transform treasury assets into continuous ecosystem funding while preserving your principal.
-          </p>
-        </div>
+        {/* Header with Ask AI button */}
+        <PageHeader
+          badge={<Badge className="bg-primary/10 text-primary border-primary/20">Core Concepts</Badge>}
+          title="What Is Octant v2?"
+          description="Open public infrastructure for sustainable growth. Transform treasury assets into continuous ecosystem funding while preserving your principal."
+        />
 
         {/* Overview */}
         <div className="prose prose-invert max-w-none">

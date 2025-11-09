@@ -53,7 +53,176 @@ List all `href="#"` or broken internal links
 
 ## **PHASE 2: CONTENT ENHANCEMENT**
 
-### **Task 2.1: Add Overview Video to Landing Page**
+### **Task 2.1: Restructure Portal Layout (CRITICAL - Do First!)**
+
+**Priority:** 🔴 CRITICAL (Required for judging presentation)
+
+**Requirements:**
+1. Hide top navigation bar (Use Cases, Documentation, Quickstart, etc.)
+2. Make documentation page the default landing page
+3. Keep horizontal navigation working (Getting Started, Core Concepts, etc.)
+4. Don't delete anything - just hide/redirect
+
+**Current State:**
+- Portal has two entry points: Landing page + Docs page
+- Top navigation shows: Use Cases, Documentation, Quickstart, Tutorials, GitHub, Get Started button
+- Horizontal navigation shows: Getting Started, Core Concepts, User Journeys, Diagrams, Tutorials, Reference, Resources, Octant Wiki
+
+**Target State:**
+- Single entry point: Documentation page as landing
+- Top navigation: HIDDEN (but not deleted)
+- Horizontal navigation: VISIBLE and functional
+- Old landing page: Moved to /landing (preserved but not accessible via nav)
+
+---
+
+#### **Step 1: Hide Top Navigation**
+
+**File:** `client/src/components/Navigation.tsx`
+
+Find the top navigation section and hide it:
+
+```typescript
+// BEFORE:
+<nav className="top-nav-bar">
+  <div className="nav-items">
+    <a href="/use-cases">Use Cases</a>
+    <a href="/docs">Documentation</a>
+    <a href="/quickstart">Quickstart</a>
+    <a href="/tutorials">Tutorials</a>
+    <a href="https://github.com/...">GitHub</a>
+    <button>Get Started</button>
+  </div>
+</nav>
+
+// AFTER - Add hidden class or display: none:
+<nav className="top-nav-bar hidden">  {/* Tailwind hidden class */}
+  {/* OR */}
+</nav>
+<nav className="top-nav-bar" style={{ display: 'none' }}>  {/* Inline style */}
+  {/* Keep all content, just hide it */}
+  <div className="nav-items">
+    <a href="/use-cases">Use Cases</a>
+    <a href="/docs">Documentation</a>
+    <a href="/quickstart">Quickstart</a>
+    <a href="/tutorials">Tutorials</a>
+    <a href="https://github.com/...">GitHub</a>
+    <button>Get Started</button>
+  </div>
+</nav>
+```
+
+**Important:** 
+- Keep the logo/branding visible
+- Only hide the navigation links
+- Keep horizontal navigation untouched
+
+---
+
+#### **Step 2: Change Default Route**
+
+**File:** `client/src/App.tsx`
+
+Redirect root path to documentation:
+
+```typescript
+// BEFORE:
+<Routes>
+  <Route path="/" element={<Landing />} />
+  <Route path="/docs" element={<Docs />} />
+  <Route path="/docs/what-is-octant" element={<WhatIsOctant />} />
+  {/* ... other routes */}
+</Routes>
+
+// AFTER:
+<Routes>
+  {/* Root now goes to docs */}
+  <Route path="/" element={<WhatIsOctant />} />
+  
+  {/* Preserve old landing page but hide it */}
+  <Route path="/landing" element={<Landing />} />
+  
+  {/* Keep all doc routes */}
+  <Route path="/docs" element={<Docs />} />
+  <Route path="/docs/what-is-octant" element={<WhatIsOctant />} />
+  {/* ... other routes */}
+</Routes>
+
+// ALTERNATIVE - Redirect approach:
+<Routes>
+  <Route path="/" element={<Navigate to="/docs/what-is-octant" replace />} />
+  <Route path="/landing" element={<Landing />} />
+  <Route path="/docs/what-is-octant" element={<WhatIsOctant />} />
+  {/* ... other routes */}
+</Routes>
+```
+
+---
+
+#### **Step 3: Verify Horizontal Navigation Still Works**
+
+**File:** Check `client/src/components/Navigation.tsx` or wherever horizontal nav is defined
+
+Ensure this section remains visible and functional:
+
+```typescript
+// This should remain VISIBLE:
+<nav className="horizontal-nav">
+  <NavItem icon={HomeIcon} label="Getting Started" href="/docs/getting-started" />
+  <NavItem icon={BookIcon} label="Core Concepts" href="/docs/core-concepts" />
+  <NavItem icon={PersonIcon} label="User Journeys" href="/docs/user-journeys" />
+  <NavItem icon={DiagramIcon} label="Diagrams" href="/docs/diagrams" />
+  <NavItem icon={VideoIcon} label="Tutorials" href="/docs/tutorials" />
+  <NavItem icon={DocumentIcon} label="Reference" href="/docs/reference" />
+  <NavItem icon={FolderIcon} label="Resources" href="/docs/resources" />
+  <NavItem icon={BookIcon} label="Octant Wiki" href="/docs/wiki" />
+</nav>
+```
+
+---
+
+#### **Step 4: Update Any Hardcoded Links**
+
+Check for any internal links that point to old landing:
+
+```typescript
+// Find and update:
+<Link to="/">Home</Link>  // This now goes to docs
+<Link to="/landing">Old Home</Link>  // If you want to keep access
+
+// Update breadcrumbs if they reference home:
+<Breadcrumbs items={[
+  { label: 'Docs', href: '/' },  // Now points to docs
+  { label: 'Current Page' }
+]} />
+```
+
+---
+
+#### **Verification Checklist:**
+
+After changes:
+- [ ] Visit https://octant-developer-portal.vercel.app
+- [ ] Should load directly to "What Is Octant v2?" page
+- [ ] Top navigation (Use Cases, Documentation, etc.) is HIDDEN
+- [ ] Logo/branding still visible
+- [ ] Horizontal navigation (Getting Started, Core Concepts, etc.) is VISIBLE
+- [ ] Can navigate between doc sections
+- [ ] All doc pages load correctly
+- [ ] Old landing page still exists at /landing (but not linked)
+
+---
+
+#### **Rollback Plan (if needed):**
+
+If judges need to see original landing page:
+1. Remove `hidden` class or `display: none`
+2. Change route back: `<Route path="/" element={<Landing />} />`
+3. Redeploy (takes 2 minutes on Vercel)
+
+---
+
+### **Task 2.1.5: Add Overview Video to Documentation Page**
 
 **Priority:** 🔴 HIGH (Great for user onboarding)
 
@@ -215,6 +384,148 @@ import { Link } from 'react-router-dom';
 ```
 
 **Action:** Search for `href="#"` and replace with actual paths based on your audit.
+
+---
+
+### **Task 2.2.5: Add "Ask AI" Button to All Documentation Pages (CRITICAL)**
+
+**Priority:** 🔴 HIGH (User Experience & Feature Consistency)
+
+**Requirement:**
+The "Ask AI" button must appear consistently on **EVERY documentation page** in the same location.
+
+**Current State:**
+- Button already exists and works (opens AI chat)
+- Currently appears on some pages but not all
+- May be implemented in different ways across pages
+
+**Target State:**
+- Button appears on ALL pages in `client/src/pages/docs/`
+- Consistent position: Immediately below the page title/header
+- Consistent styling across all pages
+
+**Implementation Approach:**
+
+**Option A: Add to DocsLayout Component (RECOMMENDED)**
+
+If using a shared layout component:
+
+```typescript
+// File: client/src/components/DocsLayout.tsx
+
+import { AskAIButton } from '@/components/AskAIButton';
+
+export function DocsLayout({ title, description, children }: DocsLayoutProps) {
+  return (
+    <div className="docs-layout">
+      {/* Page Title */}
+      <h1 className="text-4xl font-bold mb-2">{title}</h1>
+      
+      {/* Ask AI Button - Always appears here */}
+      <div className="mb-6">
+        <AskAIButton />
+      </div>
+      
+      {/* Optional Description */}
+      {description && (
+        <p className="text-gray-400 mb-8">{description}</p>
+      )}
+      
+      {/* Page Content */}
+      {children}
+    </div>
+  );
+}
+```
+
+**Option B: Add to Each Page Individually**
+
+If pages don't use shared layout:
+
+```typescript
+// Example: client/src/pages/docs/WhatIsOctant.tsx
+
+import { AskAIButton } from '@/components/AskAIButton';
+
+export default function WhatIsOctant() {
+  return (
+    <div>
+      <h1>What Is Octant v2?</h1>
+      
+      {/* Add Ask AI button here on every page */}
+      <AskAIButton />
+      
+      <p>Open public infrastructure for sustainable growth...</p>
+      {/* Rest of content */}
+    </div>
+  );
+}
+```
+
+**Positioning Requirements:**
+
+```typescript
+// Exact positioning (as shown in screenshot):
+<div className="page-container">
+  {/* 1. Page Title */}
+  <h1 className="text-4xl font-bold">Page Title</h1>
+  
+  {/* 2. Ask AI Button - RIGHT HERE */}
+  <div className="my-4">  {/* margin-top and margin-bottom for spacing */}
+    <AskAIButton />
+  </div>
+  
+  {/* 3. Page Content starts here */}
+  <p>Content begins...</p>
+</div>
+```
+
+**Ask AI Button Component Reference:**
+
+The button should maintain consistent appearance:
+- Icon: Lightning bolt / spark icon (left side)
+- Text: "Ask AI"
+- Style: Light gray background, dark text, rounded corners
+- Behavior: Opens AI chat panel when clicked
+- Component location: `client/src/components/AskAIButton.tsx`
+
+**Pages to Update:**
+
+Audit Phase 1 should identify all pages, but likely includes:
+```
+client/src/pages/docs/
+├── getting-started/
+│   ├── Overview.tsx
+│   ├── Concepts.tsx
+│   ├── Installation.tsx
+│   └── ... (all pages)
+├── tutorials/
+│   ├── FirstVault.tsx
+│   ├── AaveIntegration.tsx
+│   ├── LidoIntegration.tsx
+│   └── ... (all tutorial pages)
+├── diagrams/
+│   └── ... (all diagram pages)
+├── resources/
+│   └── ... (all resource pages)
+└── ... (ALL documentation pages)
+```
+
+**Verification:**
+
+After implementation, verify:
+- [ ] Button appears on ALL doc pages
+- [ ] Same position on every page (below title)
+- [ ] Same styling on every page
+- [ ] Button opens AI chat correctly
+- [ ] Responsive on mobile
+- [ ] Proper spacing from title and content
+
+**Success Criteria:**
+✅ User can access AI chat from any documentation page  
+✅ Consistent user experience across entire portal  
+✅ Button always in expected location  
+✅ No pages missing the button  
 
 ---
 

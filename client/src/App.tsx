@@ -203,7 +203,9 @@ import GettingStartedGlossary from "@/pages/docs/getting-started-v2/Glossary";
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Landing} />
+      {/* Changed for judging: Docs is now the landing page */}
+      <Route path={"/"} component={WhatIsOctant} />
+      <Route path="/landing" component={Landing} />  {/* Preserved but not linked */}
       <Route path="/docs" component={Docs} />
 
       {/* Octant Wiki routes */}

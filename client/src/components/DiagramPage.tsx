@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import DocsLayoutNew from '@/components/DocsLayoutNew';
 import { DiagramData } from '@/data/diagrams';
+import { AskAIButton } from '@/components/AskAIButton';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 interface DiagramPageProps {
   diagram: DiagramData;
@@ -12,6 +14,7 @@ export default function DiagramPage({ diagram }: DiagramPageProps) {
   const [isZoomed, setIsZoomed] = useState(false);
   const diagramRef = useRef<HTMLDivElement>(null);
   const zoomedDiagramRef = useRef<HTMLDivElement>(null);
+  const { openChat } = useChatPanel();
 
   useEffect(() => {
     const renderDiagram = async () => {
@@ -199,6 +202,9 @@ export default function DiagramPage({ diagram }: DiagramPageProps) {
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             {diagram.title}
           </h1>
+          
+          {/* Ask AI button for all diagram pages */}
+          <AskAIButton onClick={openChat} />
 
           <div className="space-y-6">
             <div className="text-lg leading-relaxed">

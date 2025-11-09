@@ -30,6 +30,7 @@ import { APP_LOGO, APP_TITLE } from "@/const";
 import Navigation from "@/components/Navigation";
 import { useChatPanel } from "@/hooks/useChatPanel";
 import { AIChatPanel } from "@/components/AIChatPanel";
+import { AskAIButton } from "@/components/AskAIButton";
 
 interface DocsLayoutProps {
   children: ReactNode;
@@ -387,7 +388,7 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
   
   const [helpfulVote, setHelpfulVote] = useState<"yes" | "no" | null>(null);
   
-  const { isOpen: isChatOpen, isExpanded, closeChat } = useChatPanel();
+  const { isOpen: isChatOpen, isExpanded, openChat, closeChat } = useChatPanel();
 
   // Auto-expand parent section when a child page is active
   useEffect(() => {
