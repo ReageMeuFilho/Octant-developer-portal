@@ -27,14 +27,14 @@ export default function WhatIsOctant() {
           <div className="rounded-lg overflow-hidden border border-border/40 bg-card">
             <video
               title="Octant v2 Overview - 2:35 minute introduction"
-              src="/videos/Octant V2_ Yield Funding Video Overview.mp4"
+              src="/videos/octant-overview.mp4"
               controls
               preload="metadata"
               className="w-full"
               style={{ maxHeight: '600px' }}
             >
               Your browser doesn't support embedded videos.{' '}
-              <a href="/videos/Octant V2_ Yield Funding Video Overview.mp4" className="text-primary hover:underline">
+              <a href="/videos/octant-overview.mp4" className="text-primary hover:underline">
                 Download the video here
               </a>.
             </video>
