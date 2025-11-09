@@ -334,17 +334,45 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
     });
   }, [location]);
 
-  // Determine active tab based on current location
+  // Determine active tab based on current location - Phase 3 reorganization
   const getActiveTab = () => {
+    // Octant Wiki
     if (location.startsWith("/docs/octant-wiki")) return "octant-wiki";
-    if (location.startsWith("/docs/diagrams")) return "diagrams";
-    if (location.startsWith("/docs/getting-started")) return "getting-started";
-    if (location.startsWith("/docs/tutorials") || location.startsWith("/tradfi-tutorials")) return "tutorials";
-    if (location.startsWith("/docs/api")) return "reference";
-    if (location.startsWith("/docs/resources") || location.startsWith("/use-cases")) return "resources";
-    if (location.startsWith("/user-journeys")) return "user-journeys";
-    if (location.startsWith("/docs/what-is") || location.startsWith("/docs/how-it") || location.startsWith("/docs/architecture") || location.startsWith("/docs/glossary")) return "core-concepts";
-    return "getting-started";
+    
+    // Tutorials (TradFi)
+    if (location.startsWith("/tradfi-tutorials")) return "tutorials";
+    
+    // Architecture & Diagrams
+    if (location.startsWith("/docs/diagrams") || location.startsWith("/docs/visual-protocol-guide")) return "diagrams";
+    
+    // Developer Guide
+    if (location.startsWith("/docs/quickstart") || location.startsWith("/docs/tutorials/aave") || location.startsWith("/docs/tutorials/lido")) return "developer-guide";
+    
+    // Core Concepts (yield mechanisms, governance)
+    if (location.startsWith("/docs/getting-started/yield") || 
+        location.startsWith("/docs/getting-started/routing") || 
+        location.startsWith("/docs/getting-started/allocation")) return "core-concepts";
+    
+    // Reference
+    if (location.startsWith("/docs/api") || location === "/docs/getting-started/glossary" || location === "/docs/glossary") return "reference";
+    
+    // Resources
+    if (location.startsWith("/docs/resources")) return "resources";
+    
+    // Use Cases & Personas
+    if (location.startsWith("/user-journeys") || location.startsWith("/use-cases")) return "use-cases";
+    
+    // Overview (What is Octant, How It Works, Components, Security, Dev Orientation)
+    if (location.startsWith("/docs/what-is") || 
+        location.startsWith("/docs/how-it") || 
+        location.startsWith("/docs/architecture") ||
+        location.startsWith("/docs/getting-started/components") ||
+        location.startsWith("/docs/getting-started/security") ||
+        location.startsWith("/docs/getting-started/developer-orientation") ||
+        location.startsWith("/docs/getting-started/overview")) return "overview";
+    
+    // Default to overview
+    return "overview";
   };
 
   const activeTabId = getActiveTab();
