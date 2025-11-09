@@ -31,6 +31,7 @@ import Navigation from "@/components/Navigation";
 import { useChatPanel } from "@/hooks/useChatPanel";
 import { AIChatPanel } from "@/components/AIChatPanel";
 import { AskAIButton } from "@/components/AskAIButton";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 interface DocsLayoutProps {
   children: ReactNode;
@@ -566,6 +567,7 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
           isChatOpen && !isExpanded ? 'mr-[400px]' : 'mr-0'
         }`}>
           <div className="max-w-4xl mx-auto">
+            <Breadcrumbs />
             {children}
 
             {/* Resources Panel */}
