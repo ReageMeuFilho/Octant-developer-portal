@@ -197,8 +197,8 @@ const tabsConfig: TabConfig[] = [
       {
         title: "Resources",
         items: [
-          { title: "FAQ", href: "/docs/resources/faq" },
           { title: "Main Glossary", href: "/docs/getting-started/glossary" },
+          { title: "FAQ", href: "/docs/resources/faq" },
           { title: "Testnet Information", href: "/docs/resources/testnet" },
           { title: "SDKs & Libraries", href: "/docs/resources/sdks" },
           { title: "Community & Support", href: "/docs/resources/community" },
