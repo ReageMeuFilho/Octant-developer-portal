@@ -14,8 +14,14 @@ import {
   Info
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function KeyComponentsExplained() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -26,6 +32,7 @@ export default function KeyComponentsExplained() {
           <h1 className="text-5xl font-bold mb-4">
             Key Components Explained
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Deep dive into the smart contracts and architecture that power Octant v2.
           </p>
@@ -201,6 +208,7 @@ User can still withdraw original 10,000 USDC`}</code>
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

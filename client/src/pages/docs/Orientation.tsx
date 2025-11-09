@@ -11,8 +11,14 @@ import {
   MessageCircle
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function Orientation() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -24,6 +30,7 @@ export default function Orientation() {
           <h1 className="text-5xl font-bold mb-4">
             Choose Your Development Path
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Octant v2 helps web3 ecosystems fund their growth sustainably by serving as connective tissue between DeFi and diverse allocation mechanisms. Whether you're a relentless yield hound or a decentralized governance wizard, there's boundless opportunity for you on the protocol.
           </p>
@@ -200,6 +207,7 @@ export default function Orientation() {
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

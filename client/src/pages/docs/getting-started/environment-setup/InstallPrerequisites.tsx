@@ -12,8 +12,14 @@ import {
   ExternalLink
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function InstallPrerequisites() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -24,6 +30,7 @@ export default function InstallPrerequisites() {
           <h1 className="text-5xl font-bold mb-4">
             Install Prerequisites
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Set up your development environment with the required tools and dependencies.
           </p>
@@ -206,6 +213,7 @@ git --version
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

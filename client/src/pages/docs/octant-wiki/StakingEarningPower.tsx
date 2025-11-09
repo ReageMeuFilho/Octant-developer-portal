@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { ChevronDown } from "lucide-react";
 import DocsLayoutNew from "@/components/DocsLayoutNew";
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function StakingEarningPower() {
   const [currentScene, setCurrentScene] = useState(1);

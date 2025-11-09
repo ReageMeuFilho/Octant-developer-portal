@@ -12,8 +12,14 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function DeployOnTestnet() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -24,6 +30,7 @@ export default function DeployOnTestnet() {
           <h1 className="text-5xl font-bold mb-4">
             Deploy on Testnet
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Deploy your Funding Vault and strategies to Sepolia testnet for safe testing before mainnet.
           </p>
@@ -129,6 +136,7 @@ export default function DeployOnTestnet() {
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

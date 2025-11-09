@@ -11,8 +11,14 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function BuildDepositWithdrawUI() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -23,6 +29,7 @@ export default function BuildDepositWithdrawUI() {
           <h1 className="text-5xl font-bold mb-4">
             Build Deposit/Withdraw UI
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Create a React frontend with wagmi for users to interact with your Funding Vault.
           </p>
@@ -127,6 +134,7 @@ export function DepositForm() {
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

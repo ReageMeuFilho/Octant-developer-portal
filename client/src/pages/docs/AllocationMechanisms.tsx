@@ -5,8 +5,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Lightbulb, Users, Vote, TrendingUp, CheckCircle, Clock, Gift } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function AllocationMechanisms() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -18,6 +24,7 @@ export default function AllocationMechanisms() {
           <h1 className="text-5xl font-bold mb-4">
             Tokenized Allocation Mechanisms (TAM)
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Create systems for communities to decide how funds are distributed through voting, governance, or data-driven models.
           </p>
@@ -505,6 +512,7 @@ Examples:
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }
