@@ -5,8 +5,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function FAQ() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -17,6 +23,7 @@ export default function FAQ() {
           <h1 className="text-5xl font-bold mb-4">
             Frequently Asked Questions
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Common questions about Octant v2, vault deployment, yield strategies, and troubleshooting.
           </p>
@@ -64,6 +71,7 @@ export default function FAQ() {
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

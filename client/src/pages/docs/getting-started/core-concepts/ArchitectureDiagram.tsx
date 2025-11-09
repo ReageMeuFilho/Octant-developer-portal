@@ -5,8 +5,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Vault, TrendingUp, Split } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function ArchitectureDiagram() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -115,6 +121,7 @@ export default function ArchitectureDiagram() {
         </div>
 
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

@@ -4,8 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Vault, Split, Vote, Users, Shield, Zap, Layers, TrendingUp } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function WhatIsOctant() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -17,6 +23,7 @@ export default function WhatIsOctant() {
           <h1 className="text-5xl font-bold mb-4">
             What Is Octant v2?
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Open public infrastructure for sustainable growth. Transform treasury assets into continuous ecosystem funding while preserving your principal.
           </p>
@@ -219,6 +226,7 @@ export default function WhatIsOctant() {
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

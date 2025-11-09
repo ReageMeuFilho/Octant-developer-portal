@@ -12,8 +12,14 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function CommonErrors() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -24,6 +30,7 @@ export default function CommonErrors() {
           <h1 className="text-5xl font-bold mb-4">
             Common Errors & Solutions
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Quick reference for resolving the most frequent issues when building with Octant v2.
           </p>
@@ -223,6 +230,7 @@ export default function CommonErrors() {
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

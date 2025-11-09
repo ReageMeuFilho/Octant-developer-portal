@@ -12,8 +12,14 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function Tutorials() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -25,6 +31,7 @@ export default function Tutorials() {
           <h1 className="text-5xl font-bold mb-4">
             Hands-On Tutorials
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Step-by-step guides to help you build with Octant v2. From deploying your first vault to implementing advanced multi-strategy systems, these tutorials provide practical, runnable examples.
           </p>
@@ -216,6 +223,7 @@ export default function Tutorials() {
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

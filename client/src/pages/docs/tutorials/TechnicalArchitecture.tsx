@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion';
 import { User, Code, Layers, Workflow, Box } from 'lucide-react';
 import DocsLayoutNew from '@/components/DocsLayoutNew';
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function TechnicalArchitecture() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayoutNew>
       <div className="max-w-4xl mx-auto space-y-16 py-8">
@@ -18,6 +24,8 @@ export default function TechnicalArchitecture() {
           <h1 className="text-5xl md:text-6xl font-bold">
             Meet Sarah (Again)
           </h1>
+
+          <AskAIButton onClick={openChat} />
 
           <p className="text-xl md:text-2xl text-muted-foreground">
             Smart Contract Architect

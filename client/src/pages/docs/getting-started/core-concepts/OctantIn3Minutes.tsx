@@ -14,8 +14,14 @@ import {
   Info
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function OctantIn3Minutes() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -27,6 +33,7 @@ export default function OctantIn3Minutes() {
           <h1 className="text-5xl font-bold mb-4">
             Octant in 3 Minutes
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             A quick introduction to how Octant v2 transforms idle treasury assets into sustainable funding streams.
           </p>
@@ -236,6 +243,7 @@ export default function OctantIn3Minutes() {
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

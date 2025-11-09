@@ -11,8 +11,13 @@ import {
   AlertTriangle,
   Lightbulb
 } from "lucide-react";
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function StrategyDevelopment() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -24,6 +29,7 @@ export default function StrategyDevelopment() {
           <h1 className="text-5xl font-bold mb-4">
             Strategy Development Tutorial
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Learn how to build a rewards-donating strategy that deploys USDC into a Spark savings vault, earns from the Sky Savings Rate, and directs all rewards to a configurable external address.
           </p>
@@ -404,6 +410,7 @@ TokenizedStrategy ← Contains all ERC-4626 implementation`}</code>
           </Alert>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

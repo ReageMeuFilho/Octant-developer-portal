@@ -12,8 +12,14 @@ import {
   FileCode
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function TutorialSimpleLending() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -24,6 +30,7 @@ export default function TutorialSimpleLending() {
           <h1 className="text-5xl font-bold mb-4">
             Tutorial: Simple Lending Strategy
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Build a complete yield strategy that deploys USDC to Aave lending markets.
           </p>
@@ -274,6 +281,7 @@ forge test --match-test testDeployFunds -vvv`}</code></pre>
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

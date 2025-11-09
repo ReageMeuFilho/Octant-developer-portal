@@ -4,6 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { useState } from "react";
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 interface GlossaryTerm {
   term: string;
@@ -210,6 +213,7 @@ const glossaryTerms: GlossaryTerm[] = [
 ];
 
 export default function Glossary() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTerms = glossaryTerms.filter(term =>
@@ -231,6 +235,7 @@ export default function Glossary() {
           <h1 className="text-5xl font-bold mb-4">
             Glossary
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Comprehensive definitions of key terms and concepts in Octant v2
           </p>
@@ -301,6 +306,7 @@ export default function Glossary() {
           </Card>
         )}
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }
