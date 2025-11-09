@@ -392,3 +392,5 @@ This developer portal goes beyond a simple tutorial—it's a complete ecosystem 
 ---
 
 Built with ❤️ for the Octant v2 Hackathon
+#   E n v i r o n m e n t   v a r i a b l e s   c o n f i g u r e d  
+ 
