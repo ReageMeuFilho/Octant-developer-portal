@@ -220,10 +220,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
   } catch (error) {
     console.error('❌ Chat API error:', error);
+    console.error('❌ Error stack:', error instanceof Error ? error.stack : 'No stack trace');
     
-    res.status(500).json({ 
-      error: 'Failed to generate response',
-      details: error instanceof Error ? error.message : 'Unknown error'
-    });
+    if (!res.headersSent) {
+      res.status(500).json({ 
+        error: 'Failed to generate response',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    } else {
+      res.end();
+    }
   }
 }
