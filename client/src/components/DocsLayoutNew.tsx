@@ -351,9 +351,8 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
     // Resources
     if (location.startsWith("/docs/resources")) return "resources";
     
-    // Use Cases & Personas - Keep in overview tab for consistent navigation
-    // Don't switch sidebar when viewing use cases - maintain same navigation structure
-    // if (location.startsWith("/user-journeys") || location.startsWith("/use-cases")) return "use-cases";
+    // Use Cases & Personas - Show proper personas/use cases sidebar
+    if (location.startsWith("/user-journeys") || location.startsWith("/use-cases")) return "use-cases";
     
     // Overview (What is Octant, How It Works, Components, Security, Dev Orientation)
     if (location.startsWith("/docs/what-is") || 
