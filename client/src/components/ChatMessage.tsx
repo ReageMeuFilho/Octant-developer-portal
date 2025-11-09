@@ -16,6 +16,20 @@ interface ChatMessageProps {
 export function ChatMessage({ message }: ChatMessageProps) {
   const isUser = message.role === 'user';
   
+  console.log('💬 ChatMessage render:', message.role, 'content:', message.content, 'type:', typeof message.content);
+  
+  const contentText = typeof message.content === 'string' 
+    ? message.content 
+    : Array.isArray(message.content)
+      ? message.content.map(part => {
+          if (typeof part === 'string') return part;
+          if (part && typeof part === 'object' && 'text' in part) return part.text;
+          return '';
+        }).join('')
+      : String(message.content || '');
+  
+  console.log('💬 Normalized content:', contentText);
+  
   return (
     <div className={`mb-4 ${isUser ? 'flex justify-end' : 'flex justify-start'}`}>
       <div className={`inline-block max-w-[85%] rounded-lg p-3 ${
@@ -25,7 +39,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
       }`}>
         {/* Message content */}
         <div className="text-sm whitespace-pre-wrap leading-relaxed">
-          {message.content}
+          {contentText}
         </div>
         
         {/* Source citations (only for assistant messages) */}
