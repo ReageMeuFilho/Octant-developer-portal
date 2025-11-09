@@ -1,10 +1,36 @@
-import { Message } from '../types/chat';
+import { Message, MessagePart } from '../types/chat';
 
 interface ChatMessageProps {
   /**
    * Message object to display
    */
   message: Message;
+}
+
+/**
+ * Extract text content from a message
+ * Handles both content (string) and parts (array) formats from Vercel AI SDK
+ */
+function getMessageText(message: Message): string {
+  if (typeof message.content === 'string') {
+    return message.content;
+  }
+  
+  if (Array.isArray(message.parts)) {
+    return message.parts
+      .map(part => {
+        if (typeof part === 'string') return part;
+        
+        if (part && typeof part === 'object' && 'text' in part) {
+          return part.text || '';
+        }
+        
+        return '';
+      })
+      .join('');
+  }
+  
+  return '';
 }
 
 /**
@@ -15,20 +41,9 @@ interface ChatMessageProps {
  */
 export function ChatMessage({ message }: ChatMessageProps) {
   const isUser = message.role === 'user';
+  const contentText = getMessageText(message);
   
-  console.log('💬 ChatMessage render:', message.role, 'content:', message.content, 'type:', typeof message.content);
-  
-  const contentText = typeof message.content === 'string' 
-    ? message.content 
-    : Array.isArray(message.content)
-      ? message.content.map(part => {
-          if (typeof part === 'string') return part;
-          if (part && typeof part === 'object' && 'text' in part) return part.text;
-          return '';
-        }).join('')
-      : String(message.content || '');
-  
-  console.log('💬 Normalized content:', contentText);
+  console.log('💬 CHATMSG_V2:', message.role, 'has content:', !!message.content, 'has parts:', !!message.parts, 'text length:', contentText.length);
   
   return (
     <div className={`mb-4 ${isUser ? 'flex justify-end' : 'flex justify-start'}`}>
