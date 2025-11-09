@@ -74,36 +74,6 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  // B) CORE CONCEPTS
-  {
-    id: "core-concepts",
-    label: "Core Concepts",
-    icon: BookOpen,
-    sections: [
-      {
-        title: "Yield Mechanisms",
-        items: [
-          { title: "Yield Donating (YDS)", href: "/docs/getting-started/yield-donating" },
-          { title: "Yield Skimming (YSS)", href: "/docs/getting-started/yield-skimming" },
-          { title: "Strategy Decision Tree", href: "/docs/diagrams/yield-mechanisms/strategy-decision-tree" },
-        ]
-      },
-      {
-        title: "Distribution",
-        items: [
-          { title: "Routing & Splitting", href: "/docs/getting-started/routing-splitting" },
-          { title: "Allocation Mechanisms", href: "/docs/getting-started/allocation-mechanisms" },
-        ]
-      },
-      {
-        title: "Governance",
-        items: [
-          { title: "Dragon Router", href: "/docs/diagrams/governance-allocation/dragon-router" },
-          { title: "Proposal Lifecycle", href: "/docs/diagrams/governance-allocation/proposal-lifecycle" },
-        ]
-      }
-    ]
-  },
   // C) ARCHITECTURE & DIAGRAMS
   {
     id: "diagrams",
@@ -139,7 +109,7 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  // D) DEVELOPER GUIDE
+  // D) DEVELOPER GUIDE (Merged with Core Concepts)
   {
     id: "developer-guide",
     label: "Developer Guide",
@@ -157,6 +127,28 @@ const tabsConfig: TabConfig[] = [
         items: [
           { title: "Aave V3 Strategy (YDS)", href: "/docs/tutorials/aave-integration" },
           { title: "Lido stETH Strategy", href: "/docs/tutorials/lido-integration" },
+        ]
+      },
+      {
+        title: "Yield Mechanisms",
+        items: [
+          { title: "Yield Donating (YDS)", href: "/docs/getting-started/yield-donating" },
+          { title: "Yield Skimming (YSS)", href: "/docs/getting-started/yield-skimming" },
+          { title: "Strategy Decision Tree", href: "/docs/diagrams/yield-mechanisms/strategy-decision-tree" },
+        ]
+      },
+      {
+        title: "Distribution",
+        items: [
+          { title: "Routing & Splitting", href: "/docs/getting-started/routing-splitting" },
+          { title: "Allocation Mechanisms", href: "/docs/getting-started/allocation-mechanisms" },
+        ]
+      },
+      {
+        title: "Governance",
+        items: [
+          { title: "Dragon Router", href: "/docs/diagrams/governance-allocation/dragon-router" },
+          { title: "Proposal Lifecycle", href: "/docs/diagrams/governance-allocation/proposal-lifecycle" },
         ]
       },
       {
@@ -345,13 +337,13 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
     // Architecture & Diagrams
     if (location.startsWith("/docs/diagrams") || location.startsWith("/docs/visual-protocol-guide")) return "diagrams";
     
-    // Developer Guide
-    if (location.startsWith("/docs/quickstart") || location.startsWith("/docs/tutorials/aave") || location.startsWith("/docs/tutorials/lido")) return "developer-guide";
-    
-    // Core Concepts (yield mechanisms, governance)
-    if (location.startsWith("/docs/getting-started/yield") || 
+    // Developer Guide (includes former Core Concepts: yield mechanisms, governance, distribution)
+    if (location.startsWith("/docs/quickstart") || 
+        location.startsWith("/docs/tutorials/aave") || 
+        location.startsWith("/docs/tutorials/lido") ||
+        location.startsWith("/docs/getting-started/yield") || 
         location.startsWith("/docs/getting-started/routing") || 
-        location.startsWith("/docs/getting-started/allocation")) return "core-concepts";
+        location.startsWith("/docs/getting-started/allocation")) return "developer-guide";
     
     // Reference
     if (location.startsWith("/docs/api") || location === "/docs/getting-started/glossary" || location === "/docs/glossary") return "reference";
