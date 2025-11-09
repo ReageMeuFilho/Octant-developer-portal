@@ -37,10 +37,7 @@ export default function GettingStartedYieldSkimming() {
     A[Wrap to Yield Token] --> B[Token Appreciates]
     B --> C[Calculate Profit]
     C --> D[Skim Appreciation]
-    D --> E[Donate Profit]
-    
-    style A fill:#e1f5ff
-    style E fill:#d4f1d4`}
+    D --> E[Donate Profit]`}
           />
 
           <CalloutBox

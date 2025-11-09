@@ -86,7 +86,7 @@ export default function GettingStartedDeveloperOrientation() {
           </div>
 
           <MermaidDiagram
-            code={'graph LR\n    A[User Deposits USDC] --> B[Strategy Deploys to Spark]\n    B --> C[Earns sDAI Rewards]\n    C --> D[Strategy Harvests]\n    D --> E[Donates to Cause]\n    \n    style A fill:#e1f5ff\n    style E fill:#d4f1d4'}
+            code={'graph LR\n    A[User Deposits USDC] --> B[Strategy Deploys to Spark]\n    B --> C[Earns sDAI Rewards]\n    C --> D[Strategy Harvests]\n    D --> E[Donates to Cause]'}
           />
 
           <CalloutBox

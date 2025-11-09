@@ -37,12 +37,7 @@ export default function GettingStartedRoutingSplitting() {
     A[Donated Yield] --> B[Splitter Contract]
     B --> C[40% to Project A]
     B --> D[30% to Project B]
-    B --> E[30% to Project C]
-    
-    style A fill:#e1f5ff
-    style C fill:#d4f1d4
-    style D fill:#d4f1d4
-    style E fill:#d4f1d4`}
+    B --> E[30% to Project C]`}
           />
 
           <CalloutBox

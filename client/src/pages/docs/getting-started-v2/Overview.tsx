@@ -144,14 +144,7 @@ export default function GettingStartedOverview() {
     L --> M
     M --> N
     M --> O
-    M --> P
-    
-    style A fill:#e1f5ff
-    style J fill:#ffd700
-    style M fill:#ffe1f5
-    style N fill:#d4f1d4
-    style O fill:#d4f1d4
-    style P fill:#d4f1d4`}
+    M --> P`}
           />
 
           <CalloutBox

@@ -80,16 +80,7 @@ export default function GettingStartedComponents() {
     M --> S3
     S1 --> D
     S2 --> D
-    S3 --> D
-    
-    style U1 fill:#e1f5ff
-    style U2 fill:#e1f5ff
-    style V fill:#e1f5ff
-    style M fill:#ffd700
-    style S1 fill:#ffe1f5
-    style S2 fill:#ffe1f5
-    style S3 fill:#ffe1f5
-    style D fill:#d4f1d4`}
+    S3 --> D`}
           />
 
           <div className="my-8">
@@ -386,15 +377,7 @@ Typically follows a sub-linear curve to prevent plutocracy:
     RS --> EP
     EP --> AM
     DS --> AM
-    AM --> V
-    
-    style U1 fill:#e1f5ff
-    style U2 fill:#e1f5ff
-    style RS fill:#ffe1f5
-    style DS fill:#ffe1f5
-    style EP fill:#ffd700
-    style AM fill:#e1f5ff
-    style V fill:#d4f1d4`}
+    AM --> V`}
           />
 
           <div className="my-8">

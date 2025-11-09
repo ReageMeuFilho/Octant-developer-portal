@@ -37,10 +37,7 @@ export default function GettingStartedYieldDonating() {
     A[Deploy Capital] --> B[Earn Rewards]
     B --> C[Harvest Rewards]
     C --> D[Swap to Base Asset]
-    D --> E[Donate to Recipients]
-    
-    style A fill:#e1f5ff
-    style E fill:#d4f1d4`}
+    D --> E[Donate to Recipients]`}
           />
 
           <CalloutBox
