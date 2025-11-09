@@ -205,11 +205,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.setHeader('Cache-Control', 'no-cache, no-transform');
-    res.setHeader('Connection', 'keep-alive');
-    
-    if (typeof (res as any).flushHeaders === 'function') {
-      (res as any).flushHeaders();
-    }
     
     if (webRes.body) {
       Readable.fromWeb(webRes.body as any).pipe(res);
