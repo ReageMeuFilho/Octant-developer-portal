@@ -26,20 +26,53 @@ function DiagramCard({ title, description, diagramDefinition, link, isDark = tru
           const mermaid = (await import('mermaid')).default;
           mermaid.initialize({
             startOnLoad: true,
-            theme: isDark ? 'dark' : 'base',
+            theme: 'base',
             themeVariables: {
-              primaryColor: '#2563eb',
-              primaryTextColor: isDark ? '#fff' : '#000',
-              primaryBorderColor: '#1e40af',
+              background: '#0a0a0a',
+              textColor: '#e5e7eb',
               lineColor: '#64748b',
+              mainBkg: '#0f172a',
+              secondBkg: '#111827',
+              primaryBorderColor: '#334155',
+              primaryTextColor: '#e5e7eb',
+              primaryColor: '#2563eb',
               secondaryColor: '#8b5cf6',
               tertiaryColor: '#10b981',
-              background: isDark ? '#0a0a0a' : '#ffffff',
-              mainBkg: isDark ? '#1a1a1a' : '#e1f5ff',
-              secondBkg: isDark ? '#1e1e1e' : '#ffe1f5',
-              textColor: isDark ? '#ffffff' : '#000000',
+              nodeTextColor: '#e5e7eb',
+              clusterBkg: '#0f172a',
+              clusterBorder: '#334155',
+              edgeLabelBackground: '#0f172a',
+              actorBkg: '#0f172a',
+              actorTextColor: '#e5e7eb',
+              noteBkgColor: '#0f172a',
+              noteTextColor: '#e5e7eb',
+              labelBoxBkgColor: '#0f172a',
+              labelTextColor: '#e5e7eb',
+              signalTextColor: '#e5e7eb',
               fontSize: '14px'
-            }
+            },
+            themeCSS: `
+              .labelBox > rect,
+              .note > rect,
+              .actor > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .messageText,
+              .noteText,
+              .labelBox > text,
+              .actor > text {
+                fill: #e5e7eb !important;
+              }
+              .edgeLabel .label > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .edgeLabel .label tspan,
+              .edgeLabel .label text {
+                fill: #e5e7eb !important;
+              }
+            `
           });
 
           const { svg } = await mermaid.render(`diagram-${title.replace(/\s+/g, '-')}`, diagramDefinition);
@@ -65,22 +98,51 @@ function DiagramCard({ title, description, diagramDefinition, link, isDark = tru
             startOnLoad: true,
             theme: 'base',
             themeVariables: {
-              primaryColor: '#2563eb',
-              primaryTextColor: '#000000',
-              primaryBorderColor: '#1e40af',
+              background: '#0a0a0a',
+              textColor: '#e5e7eb',
               lineColor: '#64748b',
+              mainBkg: '#0f172a',
+              secondBkg: '#111827',
+              primaryBorderColor: '#334155',
+              primaryTextColor: '#e5e7eb',
+              primaryColor: '#2563eb',
               secondaryColor: '#8b5cf6',
               tertiaryColor: '#10b981',
-              background: '#ffffff',
-              mainBkg: '#e1f5ff',
-              secondBkg: '#ffe1f5',
-              textColor: '#000000',
-              fontSize: '18px',
-              nodeBorder: '#333333',
-              clusterBkg: '#f5f5f5',
-              clusterBorder: '#555555',
-              titleColor: '#000000'
+              nodeTextColor: '#e5e7eb',
+              clusterBkg: '#0f172a',
+              clusterBorder: '#334155',
+              edgeLabelBackground: '#0f172a',
+              actorBkg: '#0f172a',
+              actorTextColor: '#e5e7eb',
+              noteBkgColor: '#0f172a',
+              noteTextColor: '#e5e7eb',
+              labelBoxBkgColor: '#0f172a',
+              labelTextColor: '#e5e7eb',
+              signalTextColor: '#e5e7eb',
+              fontSize: '22px'
             },
+            themeCSS: `
+              .labelBox > rect,
+              .note > rect,
+              .actor > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .messageText,
+              .noteText,
+              .labelBox > text,
+              .actor > text {
+                fill: #e5e7eb !important;
+              }
+              .edgeLabel .label > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .edgeLabel .label tspan,
+              .edgeLabel .label text {
+                fill: #e5e7eb !important;
+              }
+            `,
             flowchart: {
               htmlLabels: true,
               curve: 'basis',
@@ -226,21 +288,7 @@ export default function DiagramGallery() {
     U2 -->|Stake for rewards+voting| RS
     
     V -.->|❌ NO CONNECTION<br/>Completely separate!| RS
-    
-    style VF fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style V fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style S1 fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style S2 fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style S3 fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    
-    style RSF fill:#ffe1f5,stroke:#cc0066,stroke-width:2px
-    style RS fill:#ffe1f5,stroke:#cc0066,stroke-width:2px
-    style DS1 fill:#ffe1f5,stroke:#cc0066,stroke-width:2px
-    style DS2 fill:#ffe1f5,stroke:#cc0066,stroke-width:2px
-    style EPC fill:#ffe1f5,stroke:#cc0066,stroke-width:2px
-    
-    style U1 fill:#fff4e1,stroke:#ff9900,stroke-width:2px
-    style U2 fill:#fff4e1,stroke:#ff9900,stroke-width:2px`,
+    `,
       link: "/tradfi-tutorials/system-overview-diagram"
     },
     {
@@ -254,14 +302,7 @@ export default function DiagramGallery() {
     LS -->|convert & stake| LP[Lido Protocol<br/>stETH]
     MS -->|lend| MP[Morpho Protocol<br/>Lending Pool]
     SS -->|deposit| SP[Sky Protocol<br/>DSR]
-    
-    style V fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style LS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style MS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style SS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style LP fill:#ADD8E6,stroke:#4682B4,stroke-width:2px
-    style MP fill:#ADD8E6,stroke:#4682B4,stroke-width:2px
-    style SP fill:#ADD8E6,stroke:#4682B4,stroke-width:2px`,
+    `,
       link: "/tradfi-tutorials/alice-day2"
     }
   ];

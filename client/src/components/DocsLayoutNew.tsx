@@ -22,7 +22,8 @@ import {
   ThumbsDown,
   ExternalLink,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  Network
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { APP_LOGO, APP_TITLE } from "@/const";
@@ -58,74 +59,33 @@ const tabsConfig: TabConfig[] = [
     icon: Home,
     sections: [
       {
+        title: "Introduction",
+        items: [
+          { title: "Overview", href: "/docs/getting-started/overview" },
+          { title: "Core Components", href: "/docs/getting-started/components" },
+          { title: "Security & Risks", href: "/docs/getting-started/security" },
+        ]
+      },
+      {
         title: "Quick Start",
         items: [
-          { title: "What You'll Build", href: "/docs/getting-started/quick-start/what-youll-build" },
-          { title: "Choose Your Path", href: "/docs/getting-started/quick-start/choose-your-path" },
-          { title: "Prerequisites Check", href: "/docs/getting-started/quick-start/prerequisites-check" },
+          { title: "Developer Orientation", href: "/docs/getting-started/developer-orientation" },
+          { title: "Integration Guides", href: "/docs/getting-started/integration-guides" },
         ]
       },
       {
         title: "Core Concepts",
         items: [
-          { title: "Octant in 3 Minutes", href: "/docs/getting-started/core-concepts/octant-in-3-minutes" },
-          { title: "Architecture Diagram", href: "/docs/getting-started/core-concepts/architecture-diagram" },
-          { title: "Key Components Explained", href: "/docs/getting-started/core-concepts/key-components" },
-          { title: "Yield Types: Visual Guide", href: "/docs/getting-started/core-concepts/yield-types" },
+          { title: "Yield Donating Strategy", href: "/docs/getting-started/yield-donating" },
+          { title: "Yield Skimming Strategy", href: "/docs/getting-started/yield-skimming" },
+          { title: "Routing & Splitting", href: "/docs/getting-started/routing-splitting" },
+          { title: "Allocation Mechanisms", href: "/docs/getting-started/allocation-mechanisms" },
         ]
       },
       {
-        title: "Environment Setup",
+        title: "Reference",
         items: [
-          { title: "Install Prerequisites", href: "/docs/getting-started/environment-setup/install-prerequisites" },
-          { title: "Clone & Run Demo", href: "/docs/getting-started/environment-setup/clone-run-demo" },
-          { title: "Connect Your Wallet", href: "/docs/getting-started/environment-setup/connect-wallet" },
-          { title: "Get Test Tokens", href: "/docs/getting-started/environment-setup/get-test-tokens" },
-        ]
-      },
-      {
-        title: "Build Your First Strategy",
-        items: [
-          { title: "Tutorial: Simple Lending Strategy", href: "/docs/getting-started/build-first-strategy/tutorial-simple-lending" },
-          { title: "Tutorial: Staking Strategy", href: "/docs/getting-started/build-first-strategy/tutorial-staking" },
-          { title: "Understanding Donations vs Skimming", href: "/docs/getting-started/build-first-strategy/donations-vs-skimming" },
-          { title: "Testing Your Strategy", href: "/docs/getting-started/build-first-strategy/testing-strategy" },
-        ]
-      },
-      {
-        title: "Deploy to Production",
-        items: [
-          { title: "Testing Checklist", href: "/docs/getting-started/deploy-production/testing-checklist" },
-          { title: "Deploy on Testnet", href: "/docs/getting-started/deploy-production/deploy-testnet" },
-          { title: "Deploy a Multi-Strategy Vault", href: "/docs/getting-started/deploy-production/deploy-multi-strategy" },
-          { title: "Monitoring & Maintenance", href: "/docs/getting-started/deploy-production/monitoring-maintenance" },
-        ]
-      },
-      {
-        title: "Frontend Integration",
-        items: [
-          { title: "Connect the Boilerplate", href: "/docs/getting-started/frontend-integration/connect-boilerplate" },
-          { title: "Build Deposit/Withdraw UI", href: "/docs/getting-started/frontend-integration/deposit-withdraw-ui" },
-          { title: "Real-Time Updates", href: "/docs/getting-started/frontend-integration/real-time-updates" },
-          { title: "Production Best Practices", href: "/docs/getting-started/frontend-integration/production-best-practices" },
-        ]
-      },
-      {
-        title: "Advanced Topics",
-        items: [
-          { title: "Allocation Mechanisms", href: "/docs/getting-started/advanced-topics/allocation-mechanisms" },
-          { title: "Community Staking", href: "/docs/getting-started/advanced-topics/community-staking" },
-          { title: "Superfluid Streaming", href: "/docs/getting-started/advanced-topics/superfluid-streaming" },
-          { title: "Multi-Strategy Rebalancing", href: "/docs/getting-started/advanced-topics/multi-strategy-rebalancing" },
-        ]
-      },
-      {
-        title: "Troubleshooting & Support",
-        items: [
-          { title: "Common Errors & Solutions", href: "/docs/getting-started/troubleshooting/common-errors" },
-          { title: "Debugging Guide", href: "/docs/getting-started/troubleshooting/debugging-guide" },
-          { title: "FAQs", href: "/docs/getting-started/troubleshooting/faqs" },
-          { title: "Get Help from Community", href: "/docs/getting-started/troubleshooting/get-help" },
+          { title: "Main Glossary", href: "/docs/getting-started/glossary" },
         ]
       }
     ]
@@ -162,6 +122,83 @@ const tabsConfig: TabConfig[] = [
           { title: "DeFiMaster: Yield Farmer", href: "/user-journeys/defimaster-yield" },
           { title: "Emma: Governance Activist", href: "/user-journeys/emma-governance" },
           { title: "Hedge Fund: Institutional", href: "/user-journeys/hedge-fund-institutional" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "diagrams",
+    label: "Diagrams",
+    icon: Network,
+    sections: [
+      {
+        title: "Core Concepts",
+        items: [
+          { title: "Deposit & Withdrawal", href: "/docs/diagrams/core-concepts/deposit-withdrawal" },
+          { title: "Yield Generation", href: "/docs/diagrams/core-concepts/yield-generation" },
+          { title: "Multi-Strategy Vault", href: "/docs/diagrams/core-concepts/multi-strategy-vault" },
+          { title: "Emergency Shutdown", href: "/docs/diagrams/core-concepts/emergency-shutdown" },
+          { title: "Loss Scenario", href: "/docs/diagrams/core-concepts/loss-scenario" },
+          { title: "Share Math", href: "/docs/diagrams/core-concepts/share-math" },
+        ]
+      },
+      {
+        title: "Yield Mechanisms",
+        items: [
+          { title: "Yield Donating", href: "/docs/diagrams/yield-mechanisms/yield-donating" },
+          { title: "Yield Skimming", href: "/docs/diagrams/yield-mechanisms/yield-skimming" },
+          { title: "Harvest Cycle", href: "/docs/diagrams/yield-mechanisms/harvest-cycle" },
+          { title: "Debt Management", href: "/docs/diagrams/yield-mechanisms/debt-management" },
+          { title: "Strategy Decision Tree", href: "/docs/diagrams/yield-mechanisms/strategy-decision-tree" },
+        ]
+      },
+      {
+        title: "Governance & Allocation",
+        items: [
+          { title: "Dragon Router", href: "/docs/diagrams/governance-allocation/dragon-router" },
+          { title: "Quadratic Funding", href: "/docs/diagrams/governance-allocation/quadratic-funding" },
+          { title: "Proposal Lifecycle", href: "/docs/diagrams/governance-allocation/proposal-lifecycle" },
+          { title: "Access Control", href: "/docs/diagrams/governance-allocation/access-control" },
+          { title: "Payment Splitter", href: "/docs/diagrams/governance-allocation/payment-splitter" },
+        ]
+      },
+      {
+        title: "Advanced Features",
+        items: [
+          { title: "Lockup & Rage Quit", href: "/docs/diagrams/advanced-features/lockup-rage-quit" },
+          { title: "Trader DCA", href: "/docs/diagrams/advanced-features/trader-dca" },
+          { title: "Hats Protocol", href: "/docs/diagrams/advanced-features/hats-protocol" },
+          { title: "Safe Module", href: "/docs/diagrams/advanced-features/safe-module" },
+          { title: "Passport", href: "/docs/diagrams/advanced-features/passport" },
+          { title: "Linear Allowance", href: "/docs/diagrams/advanced-features/linear-allowance" },
+        ]
+      },
+      {
+        title: "Deployment & Integration",
+        items: [
+          { title: "Factory Deployment", href: "/docs/diagrams/deployment-integration/factory-deployment" },
+          { title: "Clone Deployment", href: "/docs/diagrams/deployment-integration/clone-deployment" },
+          { title: "External Integration", href: "/docs/diagrams/deployment-integration/external-integration" },
+          { title: "Cross-Vault Aggregation", href: "/docs/diagrams/deployment-integration/cross-vault-aggregation" },
+        ]
+      },
+      {
+        title: "User Journeys",
+        items: [
+          { title: "First-Time User", href: "/docs/diagrams/user-journeys/first-time-user" },
+          { title: "Power User", href: "/docs/diagrams/user-journeys/power-user" },
+          { title: "DAO Treasury", href: "/docs/diagrams/user-journeys/dao-treasury" },
+          { title: "Octant vs Traditional", href: "/docs/diagrams/user-journeys/octant-vs-traditional" },
+        ]
+      },
+      {
+        title: "Operations & Edge Cases",
+        items: [
+          { title: "Withdrawal Queue", href: "/docs/diagrams/operations-edge-cases/withdrawal-queue" },
+          { title: "Vault Migration", href: "/docs/diagrams/operations-edge-cases/vault-migration" },
+          { title: "Health Monitoring", href: "/docs/diagrams/operations-edge-cases/health-monitoring" },
+          { title: "Failed Withdrawal", href: "/docs/diagrams/operations-edge-cases/failed-withdrawal" },
+          { title: "Slippage Protection", href: "/docs/diagrams/operations-edge-cases/slippage-protection" },
         ]
       }
     ]
@@ -374,6 +411,7 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
   // Determine active tab based on current location
   const getActiveTab = () => {
     if (location.startsWith("/docs/octant-wiki")) return "octant-wiki";
+    if (location.startsWith("/docs/diagrams")) return "diagrams";
     if (location.startsWith("/docs/getting-started")) return "getting-started";
     if (location.startsWith("/docs/tutorials") || location.startsWith("/tradfi-tutorials")) return "tutorials";
     if (location.startsWith("/docs/api")) return "reference";

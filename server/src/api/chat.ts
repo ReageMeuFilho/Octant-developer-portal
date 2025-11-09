@@ -19,10 +19,34 @@ const router = express.Router();
  */
 router.post('/chat', async (req: Request, res: Response) => {
   try {
-    const { question, conversationHistory = [] }: ChatRequest = req.body;
+    let question: string;
+    let conversationHistory: any[] = [];
     
-    if (!question || typeof question !== 'string') {
-      return res.status(400).json({ error: 'Question is required' });
+    if (req.body.messages && Array.isArray(req.body.messages)) {
+      const messages = req.body.messages;
+      if (messages.length === 0) {
+        return res.status(400).json({ error: 'Messages array cannot be empty' });
+      }
+      
+      const latestMessage = messages[messages.length - 1];
+      if (!latestMessage?.content || typeof latestMessage.content !== 'string') {
+        return res.status(400).json({ error: 'Latest message must have valid content' });
+      }
+      
+      question = latestMessage.content;
+      conversationHistory = messages.slice(0, -1).map((msg: any) => ({
+        id: msg.id || '',
+        role: msg.role,
+        content: msg.content
+      }));
+    } else {
+      const legacyRequest = req.body as ChatRequest;
+      question = legacyRequest.question;
+      conversationHistory = legacyRequest.conversationHistory || [];
+      
+      if (!question || typeof question !== 'string') {
+        return res.status(400).json({ error: 'Question is required' });
+      }
     }
     
     console.log('📥 Received question:', question);

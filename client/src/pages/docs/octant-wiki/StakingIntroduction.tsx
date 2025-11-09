@@ -65,16 +65,7 @@ export default function StakingIntroduction() {
     
     RSB -->|contributes rewards| TAM
     
-    style RS fill:#FFD700,stroke:#FF8C00,stroke-width:2px,color:#000
-    style RSWOD fill:#FFD700,stroke:#FF8C00,stroke-width:2px,color:#000
-    style RSB fill:#FFA500,stroke:#FF6347,stroke-width:2px,color:#000
-    style STAKER fill:#FFA500,stroke:#FF6347,stroke-width:2px,color:#000
-    style EPC fill:#90EE90,stroke:#228B22,stroke-width:2px,color:#000
-    style WL1 fill:#ADD8E6,stroke:#4682B4,stroke-width:2px,color:#000
-    style WL2 fill:#ADD8E6,stroke:#4682B4,stroke-width:2px,color:#000
-    style WL3 fill:#FF6B6B,stroke:#CC0000,stroke-width:3px,color:#000
-    style DSV fill:#DDA0DD,stroke:#8B008B,stroke-width:2px,color:#000
-    style TAM fill:#DDA0DD,stroke:#8B008B,stroke-width:2px,color:#000`;
+    `;
 
   // Mermaid diagram for Scene 3
   const decisionTreeDiagram = `graph TD
@@ -98,30 +89,59 @@ export default function StakingIntroduction() {
     
     EITHER --> RESULT3[Consider tradeoffs:<br/>• Complexity vs simplicity<br/>• Gas vs features<br/>• Future governance needs]
     
-    style START fill:#FFD700,stroke:#FF8C00,stroke-width:3px,color:#000
-    style Q1 fill:#ADD8E6,stroke:#4682B4,stroke-width:2px,color:#000
-    style Q2 fill:#ADD8E6,stroke:#4682B4,stroke-width:2px,color:#000
-    style Q3 fill:#ADD8E6,stroke:#4682B4,stroke-width:2px,color:#000
-    style WITH fill:#90EE90,stroke:#228B22,stroke-width:2px,color:#000
-    style WITHOUT fill:#90EE90,stroke:#228B22,stroke-width:2px,color:#000
-    style RESULT1 fill:#e1f5ff,stroke:#0066cc,stroke-width:2px,color:#000
-    style RESULT2 fill:#e1f5ff,stroke:#0066cc,stroke-width:2px,color:#000
-    style RESULT3 fill:#fff4e1,stroke:#ff9900,stroke-width:2px,color:#000`;
+    `;
 
   useEffect(() => {
     mermaid.initialize({
       startOnLoad: true,
       theme: "base",
       themeVariables: {
-        fontSize: currentScene === 1 ? "14px" : "14px",
-        fontFamily: "ui-sans-serif, system-ui, sans-serif",
-        primaryColor: "#e1f5ff",
-        primaryTextColor: "#000000",
-        primaryBorderColor: "#0066cc",
-        lineColor: "#666666",
-        secondaryColor: "#f0f0f0",
-        tertiaryColor: "#ffffff",
+        background: '#0a0a0a',
+        textColor: '#e5e7eb',
+        lineColor: '#64748b',
+        mainBkg: '#0f172a',
+        secondBkg: '#111827',
+        primaryBorderColor: '#334155',
+        primaryTextColor: '#e5e7eb',
+        primaryColor: '#2563eb',
+        secondaryColor: '#8b5cf6',
+        tertiaryColor: '#10b981',
+        nodeTextColor: '#e5e7eb',
+        clusterBkg: '#0f172a',
+        clusterBorder: '#334155',
+        edgeLabelBackground: '#0f172a',
+        actorBkg: '#0f172a',
+        actorTextColor: '#e5e7eb',
+        noteBkgColor: '#0f172a',
+        noteTextColor: '#e5e7eb',
+        labelBoxBkgColor: '#0f172a',
+        labelTextColor: '#e5e7eb',
+        signalTextColor: '#e5e7eb',
+        fontSize: '14px',
+        fontFamily: "ui-sans-serif, system-ui, sans-serif"
       },
+      themeCSS: `
+        .labelBox > rect,
+        .note > rect,
+        .actor > rect {
+          fill: #0f172a !important;
+          stroke: #334155 !important;
+        }
+        .messageText,
+        .noteText,
+        .labelBox > text,
+        .actor > text {
+          fill: #e5e7eb !important;
+        }
+        .edgeLabel .label > rect {
+          fill: #0f172a !important;
+          stroke: #334155 !important;
+        }
+        .edgeLabel .label tspan,
+        .edgeLabel .label text {
+          fill: #e5e7eb !important;
+        }
+      `,
       flowchart: {
         nodeSpacing: 100,
         rankSpacing: 100,
@@ -149,15 +169,52 @@ export default function StakingIntroduction() {
         startOnLoad: true,
         theme: "base",
         themeVariables: {
-          fontSize: "22px",
-          fontFamily: "ui-sans-serif, system-ui, sans-serif",
-          primaryColor: "#e1f5ff",
-          primaryTextColor: "#000000",
-          primaryBorderColor: "#0066cc",
-          lineColor: "#666666",
-          secondaryColor: "#f0f0f0",
-          tertiaryColor: "#ffffff",
+          background: '#0a0a0a',
+          textColor: '#e5e7eb',
+          lineColor: '#64748b',
+          mainBkg: '#0f172a',
+          secondBkg: '#111827',
+          primaryBorderColor: '#334155',
+          primaryTextColor: '#e5e7eb',
+          primaryColor: '#2563eb',
+          secondaryColor: '#8b5cf6',
+          tertiaryColor: '#10b981',
+          nodeTextColor: '#e5e7eb',
+          clusterBkg: '#0f172a',
+          clusterBorder: '#334155',
+          edgeLabelBackground: '#0f172a',
+          actorBkg: '#0f172a',
+          actorTextColor: '#e5e7eb',
+          noteBkgColor: '#0f172a',
+          noteTextColor: '#e5e7eb',
+          labelBoxBkgColor: '#0f172a',
+          labelTextColor: '#e5e7eb',
+          signalTextColor: '#e5e7eb',
+          fontSize: '22px',
+          fontFamily: "ui-sans-serif, system-ui, sans-serif"
         },
+        themeCSS: `
+          .labelBox > rect,
+          .note > rect,
+          .actor > rect {
+            fill: #0f172a !important;
+            stroke: #334155 !important;
+          }
+          .messageText,
+          .noteText,
+          .labelBox > text,
+          .actor > text {
+            fill: #e5e7eb !important;
+          }
+          .edgeLabel .label > rect {
+            fill: #0f172a !important;
+            stroke: #334155 !important;
+          }
+          .edgeLabel .label tspan,
+          .edgeLabel .label text {
+            fill: #e5e7eb !important;
+          }
+        `,
         flowchart: {
           nodeSpacing: 100,
           rankSpacing: 100,

@@ -18,13 +18,7 @@ export default function AliceDay2() {
     MS -->|lend| MP[Morpho Protocol<br/>Lending Pool]
     SS -->|deposit| SP[Sky Protocol<br/>DSR]
     
-    style V fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style LS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style MS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style SS fill:#90EE90,stroke:#228B22,stroke-width:2px
-    style LP fill:#ADD8E6,stroke:#4682B4,stroke-width:2px
-    style MP fill:#ADD8E6,stroke:#4682B4,stroke-width:2px
-    style SP fill:#ADD8E6,stroke:#4682B4,stroke-width:2px`;
+    `;
 
   // Render normal diagram
   useEffect(() => {
@@ -36,14 +30,51 @@ export default function AliceDay2() {
             startOnLoad: true,
             theme: 'base',
             themeVariables: {
-              primaryColor: '#e1f5ff',
-              primaryTextColor: '#000',
-              primaryBorderColor: '#0066cc',
-              lineColor: '#228B22',
-              secondaryColor: '#90EE90',
-              tertiaryColor: '#ADD8E6',
+              background: '#0a0a0a',
+              textColor: '#e5e7eb',
+              lineColor: '#64748b',
+              mainBkg: '#0f172a',
+              secondBkg: '#111827',
+              primaryBorderColor: '#334155',
+              primaryTextColor: '#e5e7eb',
+              primaryColor: '#2563eb',
+              secondaryColor: '#8b5cf6',
+              tertiaryColor: '#10b981',
+              nodeTextColor: '#e5e7eb',
+              clusterBkg: '#0f172a',
+              clusterBorder: '#334155',
+              edgeLabelBackground: '#0f172a',
+              actorBkg: '#0f172a',
+              actorTextColor: '#e5e7eb',
+              noteBkgColor: '#0f172a',
+              noteTextColor: '#e5e7eb',
+              labelBoxBkgColor: '#0f172a',
+              labelTextColor: '#e5e7eb',
+              signalTextColor: '#e5e7eb',
               fontSize: '14px'
-            }
+            },
+            themeCSS: `
+              .labelBox > rect,
+              .note > rect,
+              .actor > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .messageText,
+              .noteText,
+              .labelBox > text,
+              .actor > text {
+                fill: #e5e7eb !important;
+              }
+              .edgeLabel .label > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .edgeLabel .label tspan,
+              .edgeLabel .label text {
+                fill: #e5e7eb !important;
+              }
+            `
           });
 
           const { svg } = await mermaid.render('alice-day2-diagram', diagramDefinition);
@@ -72,24 +103,51 @@ export default function AliceDay2() {
             startOnLoad: true,
             theme: 'base',
             themeVariables: {
-              primaryColor: '#e1f5ff',
-              primaryTextColor: '#000000',
-              primaryBorderColor: '#0066cc',
-              lineColor: '#ffffff',
-              secondaryColor: '#90EE90',
-              secondaryTextColor: '#000000',
-              tertiaryColor: '#ADD8E6',
-              tertiaryTextColor: '#000000',
-              fontSize: '18px',
-              background: 'transparent',
-              mainBkg: '#e1f5ff',
-              secondBkg: '#90EE90',
-              tertiaryBkg: '#ADD8E6',
-              textColor: '#000000',
-              edgeLabelBackground: 'transparent',
-              labelTextColor: '#ffffff',
-              edgeLabelColor: '#ffffff'
+              background: '#0a0a0a',
+              textColor: '#e5e7eb',
+              lineColor: '#64748b',
+              mainBkg: '#0f172a',
+              secondBkg: '#111827',
+              primaryBorderColor: '#334155',
+              primaryTextColor: '#e5e7eb',
+              primaryColor: '#2563eb',
+              secondaryColor: '#8b5cf6',
+              tertiaryColor: '#10b981',
+              nodeTextColor: '#e5e7eb',
+              clusterBkg: '#0f172a',
+              clusterBorder: '#334155',
+              edgeLabelBackground: '#0f172a',
+              actorBkg: '#0f172a',
+              actorTextColor: '#e5e7eb',
+              noteBkgColor: '#0f172a',
+              noteTextColor: '#e5e7eb',
+              labelBoxBkgColor: '#0f172a',
+              labelTextColor: '#e5e7eb',
+              signalTextColor: '#e5e7eb',
+              fontSize: '22px'
             },
+            themeCSS: `
+              .labelBox > rect,
+              .note > rect,
+              .actor > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .messageText,
+              .noteText,
+              .labelBox > text,
+              .actor > text {
+                fill: #e5e7eb !important;
+              }
+              .edgeLabel .label > rect {
+                fill: #0f172a !important;
+                stroke: #334155 !important;
+              }
+              .edgeLabel .label tspan,
+              .edgeLabel .label text {
+                fill: #e5e7eb !important;
+              }
+            `,
             flowchart: {
               htmlLabels: true,
               curve: 'basis',

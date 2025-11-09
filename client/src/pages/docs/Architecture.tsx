@@ -4,9 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Layers, Database, Split, Users, Shield, Zap, ArrowRight, GitBranch } from "lucide-react";
 import { Link } from "wouter";
-import { useState } from 'react';
+import { MermaidDiagram } from "@/components/getting-started/MermaidDiagram";
 import { AskAIButton } from '@/components/AskAIButton';
-import { AIChatPanel } from '@/components/AIChatPanel';
 import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function Architecture() {
@@ -36,80 +35,41 @@ export default function Architecture() {
             Octant v2 is architected as a **decentralized funding network** where each node represents a smart contract that either generates a funding stream or transforms and divides it among multiple recipients. The architecture prioritizes capital preservation, composability, and sustainability.
           </p>
 
-          <Card className="p-8 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 border-primary/20">
-            <pre className="text-sm font-mono text-foreground/90 whitespace-pre overflow-x-auto">
-{`┌─────────────────────────────────────────────────────────────────┐
-│                        USER / TREASURY                          │
-│                    (Deposits Principal)                         │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    FUNDING VAULT (ERC-4626)                     │
-│  • Accepts deposits (USDC, DAI, stETH, etc.)                    │
-│  • Issues yield-donating shares to depositor                    │
-│  • Deploys capital to strategies                                │
-│  • Preserves principal (1:1 share-to-asset ratio)               │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    YIELD STRATEGIES                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ YDS (Aave)   │  │ YSS (stETH)  │  │ Custom       │          │
-│  │ Lend USDC    │  │ Hold stETH   │  │ Strategy     │          │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘          │
-│         │                 │                 │                   │
-│         └─────────────────┴─────────────────┘                   │
-│                           │                                     │
-│                   (Generates Yield)                             │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    KEEPER NETWORK                               │
-│  • Monitors strategy performance                                │
-│  • Triggers harvest & report                                    │
-│  • Mints new shares representing yield                          │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    DONATION ADDRESS                             │
-│  • Receives newly minted yield shares                           │
-│  • Can be EOA, multisig, or Payment Splitter                    │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    PAYMENT SPLITTER                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ Operations   │  │ Treasury     │  │ Allocation   │          │
-│  │ (20%)        │  │ (30%)        │  │ Mechanism    │          │
-│  │              │  │              │  │ (50%)        │          │
-│  └──────────────┘  └──────────────┘  └──────┬───────┘          │
-└─────────────────────────────────────────────┼────────────────────┘
-                                              │
-                                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                ALLOCATION MECHANISM (TAM)                       │
-│  • Quadratic Funding (QF)                                       │
-│  • Quadratic Voting (QV)                                        │
-│  • Token-Weighted Voting                                        │
-│  • Custom Allocation Logic                                      │
-│                                                                 │
-│  Lifecycle: Register → Propose → Vote → Finalize → Redeem      │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    ECOSYSTEM PROJECTS                           │
-│  • Open-source development                                      │
-│  • Public goods                                                 │
-│  • Community initiatives                                        │
-└─────────────────────────────────────────────────────────────────┘`}
-            </pre>
-          </Card>
+          <MermaidDiagram
+            code={`graph TB
+    A["USER / TREASURY<br/>(Deposits Principal)"]
+    B["FUNDING VAULT (ERC-4626)<br/>• Accepts deposits (USDC, DAI, stETH, etc.)<br/>• Issues yield-donating shares to depositor<br/>• Deploys capital to strategies<br/>• Preserves principal (1:1 share-to-asset ratio)"]
+    
+    subgraph YS["YIELD STRATEGIES"]
+        C1["YDS (Aave)<br/>Lend USDC"]
+        C2["YSS (stETH)<br/>Hold stETH"]
+        C3["Custom<br/>Strategy"]
+    end
+    
+    D["KEEPER NETWORK<br/>• Monitors strategy performance<br/>• Triggers harvest & report<br/>• Mints new shares representing yield"]
+    E["DONATION ADDRESS<br/>• Receives newly minted yield shares<br/>• Can be EOA, multisig, or Payment Splitter"]
+    
+    subgraph PS["PAYMENT SPLITTER"]
+        F1["Operations<br/>(20%)"]
+        F2["Treasury<br/>(30%)"]
+        F3["Allocation<br/>Mechanism<br/>(50%)"]
+    end
+    
+    G["ALLOCATION MECHANISM (TAM)<br/>• Quadratic Funding (QF)<br/>• Quadratic Voting (QV)<br/>• Token-Weighted Voting<br/>• Custom Allocation Logic<br/><br/>Lifecycle: Register → Propose → Vote → Finalize → Redeem"]
+    H["ECOSYSTEM PROJECTS<br/>• Open-source development<br/>• Public goods<br/>• Community initiatives"]
+    
+    A --> B
+    B --> YS
+    C1 --> D
+    C2 --> D
+    C3 --> D
+    D --> E
+    E --> PS
+    F1 -.-> H
+    F2 -.-> H
+    F3 --> G
+    G --> H`}
+          />
         </div>
 
         {/* Core Components */}
@@ -369,7 +329,6 @@ export default function Architecture() {
           </div>
         </div>
       </div>
-    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }
