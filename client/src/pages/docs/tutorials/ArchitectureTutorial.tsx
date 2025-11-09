@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { Vault, CheckSquare, Target, XCircle, CheckCircle } from 'lucide-react';
 import CountUp from 'react-countup';
 import DocsLayoutNew from '@/components/DocsLayoutNew';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function ArchitectureTutorial() {
   const [selectedSystem, setSelectedSystem] = useState<number | null>(null);

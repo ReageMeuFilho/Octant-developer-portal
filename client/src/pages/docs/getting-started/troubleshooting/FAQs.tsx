@@ -11,8 +11,14 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function FAQs() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -23,6 +29,7 @@ export default function FAQs() {
           <h1 className="text-5xl font-bold mb-4">
             Frequently Asked Questions
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Answers to the most common questions about Octant v2.
           </p>
@@ -202,6 +209,7 @@ function _harvestAndReport() internal override returns (uint256) {
           </Link>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

@@ -15,8 +15,14 @@ import {
   Lightbulb
 } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function Quickstart() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -28,6 +34,7 @@ export default function Quickstart() {
           <h1 className="text-5xl font-bold mb-4">
             Get Started in 10 Minutes
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Deploy your first Octant v2 vault and start generating sustainable ecosystem funding. This guide uses our production-ready React boilerplate with all dependencies pre-configured.
           </p>
@@ -385,6 +392,7 @@ function DeployStrategy() {
           </AlertDescription>
         </Alert>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

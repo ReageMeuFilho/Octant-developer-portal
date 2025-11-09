@@ -5,8 +5,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Lightbulb, Code2, Zap, Shield, GitBranch } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function YieldDonating() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -18,6 +24,7 @@ export default function YieldDonating() {
           <h1 className="text-5xl font-bold mb-4">
             Yield Donating Strategies (YDS)
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Connect any DeFi protocol to generate yield-derived ecosystem funding through Octant v2's vault infrastructure.
           </p>
@@ -341,6 +348,7 @@ contract AaveUsdcStrategy is BaseStrategy {
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

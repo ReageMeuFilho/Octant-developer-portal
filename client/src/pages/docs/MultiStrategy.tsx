@@ -5,8 +5,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Lightbulb, Layers, Shield, TrendingUp, Settings, BarChart3, AlertTriangle } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function MultiStrategy() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
       <div className="space-y-8">
@@ -18,6 +24,7 @@ export default function MultiStrategy() {
           <h1 className="text-5xl font-bold mb-4">
             Multi-Strategy Vaults
           </h1>
+          <AskAIButton onClick={openChat} />
           <p className="text-xl text-muted-foreground leading-relaxed">
             Build sophisticated treasury management systems that balance multiple yield sources with advanced risk management.
           </p>
@@ -528,6 +535,7 @@ vault.updateStrategyDebt(morphoStrategy);`}
           </div>
         </div>
       </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }

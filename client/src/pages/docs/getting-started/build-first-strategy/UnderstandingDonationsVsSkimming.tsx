@@ -1,6 +1,12 @@
 import DocsLayout from "@/components/DocsLayoutNew";
+import { useState } from 'react';
+import { AskAIButton } from '@/components/AskAIButton';
+import { AIChatPanel } from '@/components/AIChatPanel';
+import { useChatPanel } from '@/hooks/useChatPanel';
 
 export default function UnderstandingDonationsvsSkimming() {
+  const { isOpen, openChat, closeChat } = useChatPanel();
+
   return (
     <DocsLayout>
     <div className="max-w-4xl">
@@ -40,6 +46,7 @@ export default function UnderstandingDonationsvsSkimming() {
         </ul>
       </div>
     </div>
+    <AIChatPanel isOpen={isOpen} onClose={closeChat} />
     </DocsLayout>
   );
 }
