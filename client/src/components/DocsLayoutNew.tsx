@@ -188,24 +188,7 @@ const tabsConfig: TabConfig[] = [
       }
     ]
   },
-  // F) REFERENCE
-  {
-    id: "reference",
-    label: "Reference",
-    icon: FileCode,
-    sections: [
-      {
-        title: "Documentation",
-        items: [
-          { title: "Main Glossary", href: "/docs/getting-started/glossary" },
-          { title: "Funding Vault API", href: "/docs/api/funding-vault" },
-          { title: "Allocation Mechanism API", href: "/docs/api/allocation-mechanism" },
-          { title: "Payment Splitter API", href: "/docs/api/payment-splitter" },
-        ]
-      }
-    ]
-  },
-  // G) RESOURCES
+  // G) RESOURCES (includes Main Glossary)
   {
     id: "resources",
     label: "Resources",
@@ -215,6 +198,7 @@ const tabsConfig: TabConfig[] = [
         title: "Resources",
         items: [
           { title: "FAQ", href: "/docs/resources/faq" },
+          { title: "Main Glossary", href: "/docs/getting-started/glossary" },
           { title: "Testnet Information", href: "/docs/resources/testnet" },
           { title: "SDKs & Libraries", href: "/docs/resources/sdks" },
           { title: "Community & Support", href: "/docs/resources/community" },
@@ -345,11 +329,10 @@ export default function DocsLayoutNew({ children }: DocsLayoutProps) {
         location.startsWith("/docs/getting-started/routing") || 
         location.startsWith("/docs/getting-started/allocation")) return "developer-guide";
     
-    // Reference
-    if (location.startsWith("/docs/api") || location === "/docs/getting-started/glossary" || location === "/docs/glossary") return "reference";
-    
-    // Resources
-    if (location.startsWith("/docs/resources")) return "resources";
+    // Resources (includes Main Glossary)
+    if (location.startsWith("/docs/resources") || 
+        location === "/docs/getting-started/glossary" || 
+        location === "/docs/glossary") return "resources";
     
     // Use Cases & Personas - Show proper personas/use cases sidebar
     if (location.startsWith("/user-journeys") || location.startsWith("/use-cases")) return "use-cases";
